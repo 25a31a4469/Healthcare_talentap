@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from backend.app.models import (
+from app.models import (
     MedicineCatalogue, BrandMapping, InteractionRule,
     DuplicateTherapyRule, RenalRiskRule, ContraindicationRule, DatasetMetadata
 )
