@@ -1,6 +1,6 @@
 from typing import List, Dict, Any, Optional, Set
 from sqlalchemy.orm import Session
-from backend.app.models import (
+from app.models import (
     InteractionRule, DuplicateTherapyRule, RenalRiskRule, ContraindicationRule, MedicineCatalogue
 )
 from backend.app.schemas import MedicineResolutionResult
