@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 from datetime import datetime, timezone
-from backend.app.models import (
+from app.models import (
     Patient, PatientMedication, MedicationAnalysis, SafetyAlert, AuditLog
 )
 from backend.app.services.resolver import MedicineResolver
