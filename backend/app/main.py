@@ -3,11 +3,18 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
-from app.config import settings
-from app.database import engine, Base, SessionLocal
-from app.reference_data import seed_reference_data
-from app.seed_demo import seed_demo_patients_and_analyses
-from app.api.router import api_router
+try:
+    from backend.app.config import settings
+    from backend.app.database import engine, Base, SessionLocal
+    from backend.app.reference_data import seed_reference_data
+    from backend.app.seed_demo import seed_demo_patients_and_analyses
+    from backend.app.api.router import api_router
+except ImportError:
+    from app.config import settings
+    from app.database import engine, Base, SessionLocal
+    from app.reference_data import seed_reference_data
+    from app.seed_demo import seed_demo_patients_and_analyses
+    from app.api.router import api_router
 
 def init_db():
     Base.metadata.create_all(bind=engine)
@@ -36,7 +43,7 @@ app = FastAPI(
 # CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.CORS_ORIGINS,
+    allow_origins=settings.get_cors_origins(),
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

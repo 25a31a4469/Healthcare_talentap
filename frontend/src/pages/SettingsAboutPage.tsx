@@ -10,7 +10,7 @@ import {
   CheckCircle2,
   AlertTriangle
 } from 'lucide-react';
-import { api } from '../api/client';
+import { api, BASE_URL } from '../api/client';
 
 export const SettingsAboutPage: React.FC = () => {
   const [datasetStatus, setDatasetStatus] = useState<any | null>(null);
@@ -120,7 +120,7 @@ export const SettingsAboutPage: React.FC = () => {
           <li><strong>No Real Patient Identifiers:</strong> Only synthetic demo IDs (<code className="font-mono text-blue-700">SYN-PT-xxxx</code>) are stored.</li>
           <li><strong>Zero Secrets in Frontend:</strong> All database credentials and clinical engines remain securely on the backend.</li>
           <li><strong>CSV Formula Injection Shield:</strong> All data export cells are sanitized to prevent DDE formula execution.</li>
-          <li><strong>Interactive OpenAPI Documentation:</strong> Verified endpoints available at <a href={`${import.meta.env.VITE_API_URL || 'http://localhost:8000'}/docs`} target="_blank" rel="noreferrer" className="text-blue-600 underline font-semibold">/docs</a>.</li>
+          <li><strong>Interactive OpenAPI Documentation:</strong> Verified endpoints available at <a href={BASE_URL ? `${BASE_URL}/docs` : '/docs'} target="_blank" rel="noreferrer" className="text-blue-600 underline font-semibold">/docs</a>.</li>
         </ul>
       </div>
     </div>

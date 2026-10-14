@@ -132,15 +132,7 @@ export const PatientsPage: React.FC<Props> = ({ onCheckPatient }) => {
     try {
       const formData = new FormData();
       formData.append('file', importFile);
-      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:8000'}/api/patients/import`, {
-        method: 'POST',
-        body: formData
-      });
-      if (!res.ok) {
-        const err = await res.json();
-        throw new Error(err.detail || 'Import failed');
-      }
-      const data = await res.json();
+      const data = await api.importPatients(formData);
       setImportStatus(`Success: ${data.message} (${data.imported_records} records added).`);
       fetchPatients();
       setTimeout(() => setShowImportModal(false), 2000);

@@ -1,0 +1,96 @@
+# ==============================================================================
+# H4 — Git Ignore Rules
+# ==============================================================================
+
+# 1. Environment & Credentials (NEVER commit secrets or real env files)
+.env
+.env.*
+*.env
+backend/.env
+frontend/.env
+*.local
+
+# EXPLICITLY KEEP ALL .env.example TEMPLATES TRACKED
+!.env.example
+!**/.env.example
+!backend/.env.example
+!frontend/.env.example
+
+# Secret / Credential Keyfiles
+*.pem
+*.key
+*.crt
+*.pfx
+*.p12
+credentials.json
+client_secrets.json
+service_account.json
+id_rsa*
+
+# 2. Python & Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# 3. Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+.venv*/
+
+# 4. Node & Frontend Dependencies and Builds
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# 5. Testing & Static Analysis Caches
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+.mypy_cache/
+.ruff_cache/
+.eslintcache
+
+# 6. Operating System & IDE Files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+*.swp
+*.swo
+
+# 7. Temporary Tunnel & Execution Logs
+*.log
+PUBLIC_URL.txt
+scratch/

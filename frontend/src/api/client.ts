@@ -4,7 +4,13 @@ import {
   AuditLog, EvaluationRunResult
 } from '../types';
 
-const BASE_URL = import.meta.env.VITE_API_URL !== undefined ? import.meta.env.VITE_API_URL : '';
+export const BASE_URL: string = (
+  import.meta.env.VITE_API_BASE_URL !== undefined
+    ? import.meta.env.VITE_API_BASE_URL
+    : import.meta.env.VITE_API_URL !== undefined
+      ? import.meta.env.VITE_API_URL
+      : ''
+).replace(/\/+$/, '');
 
 async function request<T>(endpoint: string, options?: RequestInit): Promise<T> {
   const url = `${BASE_URL}${endpoint}`;
@@ -66,6 +72,22 @@ export const api = {
     request<{ message: string; id: string }>(`/api/patients/${id}`, {
       method: 'DELETE'
     }),
+  importPatients: async (formData: FormData): Promise<{ message: string; imported_records: number }> => {
+    const url = `${BASE_URL}/api/patients/import`;
+    const res = await fetch(url, {
+      method: 'POST',
+      body: formData
+    });
+    if (!res.ok) {
+      let errorMsg = `HTTP Error ${res.status}`;
+      try {
+        const errJson = await res.json();
+        errorMsg = errJson.detail || errJson.message || errorMsg;
+      } catch (_) {}
+      throw new Error(errorMsg);
+    }
+    return res.json();
+  },
   exportPatientsCsvUrl: `${BASE_URL}/api/patients/export/csv`,
 
   // Medicine Resolution & Catalogue

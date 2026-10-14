@@ -29,7 +29,7 @@
 The application is structured into a clean decoupled architecture: a high-performance **FastAPI (Python 3.12)** backend serving a rule-based deterministic clinical engine, and a modern **React 18 + TypeScript + Vite + Tailwind CSS** clinical decision cockpit.
 
 ```mermaid
-graph TD
+flowchart TD
     subgraph Client["Clinical Decision Cockpit (React 18 + TypeScript)"]
         UI_Dash["1. Overview Dashboard"]
         UI_Patients["2. Patient Management & CSV/JSON Import"]
@@ -55,14 +55,14 @@ graph TD
     end
 
     subgraph DataStore["Persistence Layer (SQLAlchemy 2.0)"]
-        DB[(SQLite / PostgreSQL Compatible DB)]
+        DB[("SQLite / PostgreSQL Compatible DB")]
         Catalogue[("Medicine Catalogue & Verified Brand Mappings")]
         RulesStore[("CPIC / FDA Interactions, KDIGO Renal, Contraindications")]
         PatientStore[("Synthetic Patient Cohort & Medication Lists")]
         AlertStore[("Safety Alerts, Acknowledgements & Audit Logs")]
     end
 
-    Client <-->|REST / JSON (Axios Client)| API
+    Client <-->|"REST / JSON (Axios Client) API"| API
     API --> CoreEngine
     CoreEngine --> DataStore
 ```
@@ -143,14 +143,46 @@ The database initialises automatically with 7 distinct synthetic test cases desi
 
 ---
 
-## 6. Installation & Quick Start
+## 6. Installation, Environment & Production Deployment
 
 ### Prerequisites
 - **Python:** 3.11+ (Python 3.12 recommended)
 - **Node.js:** v18+ or v20+ LTS
 
-### Backend Setup
+---
 
+### Environment Configuration & Variables
+
+The project supports both unified root and decoupled service-level environment files:
+- **Root Template:** `.env.example` (Unified template for monorepo development)
+- **Backend Template:** `backend/.env.example` (FastAPI backend service configuration)
+- **Frontend Template:** `frontend/.env.example` (React/Vite client public configuration)
+
+> [!IMPORTANT]
+> Never commit real secrets, private keys, or credentials to version control. The repository `.gitignore` automatically blocks `.env`, `.env.*`, and credentials files while keeping all `.env.example` templates tracked.
+
+#### Documented Environment Variables
+
+| Variable | Scope | Type | Default Value | Required in Prod | Description |
+|---|---|---|---|---|---|
+| `ENVIRONMENT` | Backend | String | `development` | Yes (`production`) | Application runtime environment (`development` or `production`) |
+| `DEBUG` | Backend | Boolean | `true` | Yes (`false`) | Enables detailed exception tracing and API debug flags |
+| `LOG_LEVEL` | Backend | String | `INFO` | No | Server logging verbosity (`DEBUG`, `INFO`, `WARNING`, `ERROR`) |
+| `APP_HOST` | Backend | String | `127.0.0.1` | No (`0.0.0.0`) | Host interface for the Uvicorn ASGI server |
+| `APP_PORT` | Backend | Integer | `8000` | No | Port number for the FastAPI backend |
+| `DATABASE_URL` | Backend | String | `sqlite:///./healthcare.db` | Yes | SQLAlchemy database URI (SQLite or PostgreSQL) |
+| `CORS_ORIGINS` | Backend | String/List | `http://localhost:5173,...` | Yes | Comma-separated or JSON list of authorized frontend origins |
+| `ALLOWED_ORIGINS` | Backend | String/List | `None` | Optional | Optional alias for additional CORS allowed origins |
+| `DEMO_MODE` | Backend | Boolean | `true` | No | Enables pre-seeded synthetic test cohort and near-miss benchmarks |
+| `SYNTHETIC_DATA_BANNER` | Backend | Boolean | `true` | No | Surfaces synthetic data compliance header across API responses |
+| `VITE_API_BASE_URL` | Frontend | String | `""` (empty string) | Yes in decoupled prod | Public backend API URL (leave empty in dev for Vite proxy) |
+| `VITE_APP_TITLE` | Frontend | String | `"H4 — The Medication Safety..."` | No | Browser title and header title in the clinical cockpit |
+
+---
+
+### Local Development Setup
+
+#### 1. Backend Setup
 ```bash
 # 1. Clone repository & enter workspace
 cd healthcare
@@ -163,71 +195,158 @@ python -m venv .venv
 # On Linux/macOS:
 source .venv/bin/activate
 
-# 3. Install dependencies
-pip install fastapi uvicorn sqlalchemy pydantic pandas rapidfuzz pytest httpx python-multipart
+# 3. Install backend dependencies
+pip install fastapi uvicorn sqlalchemy pydantic pydantic-settings python-dotenv pandas rapidfuzz pytest httpx python-multipart
 
-# 4. Initialize database and load demo data
+# 4. Copy environment template
+cp .env.example .env
+
+# 5. Initialize database schema and load verified reference data
 python -m backend.app.seed_demo
 
-# 5. Start the backend API server
+# 6. Start the backend API server
 python -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8000 --reload
 ```
-The backend API is now running at **http://127.0.0.1:8000** with interactive Swagger docs at **http://127.0.0.1:8000/docs**.
+The backend API is now running at **http://127.0.0.1:8000** with OpenAPI Swagger documentation at **http://127.0.0.1:8000/docs**.
 
-### Frontend Setup
-
+#### 2. Frontend Setup
 ```bash
-# In a new terminal:
+# In a new terminal window:
 cd healthcare/frontend
 
-# 1. Install dependencies
+# 1. Copy frontend environment template
+cp .env.example .env
+
+# 2. Install dependencies
 npm install
 
-# 2. Start Vite development server
+# 3. Start Vite development server (proxies /api to http://127.0.0.1:8000)
 npm run dev -- --host 127.0.0.1 --port 5173
+```
+Open your browser to **http://127.0.0.1:5173** to access the Clinical Decision Cockpit.
 
-# 3. (Optional) Compile production bundle
+---
+
+### Secure Production Deployment Guide
+
+#### 1. Database Safety & Pre-Deployment Backup
+The application uses SQLite (`healthcare.db`) by default with automatic relational foreign-key enforcement (`PRAGMA foreign_keys=ON`).
+Before applying updates or deploying to production, always create a safe database backup:
+
+```bash
+# Create timestamped database backup
+cp healthcare.db healthcare.db.bak_$(date +%Y%m%d_%H%M%S)
+```
+
+To migrate to production PostgreSQL:
+1. Provision a PostgreSQL instance (e.g., Amazon RDS, Cloud SQL, Supabase).
+2. Set `DATABASE_URL=postgresql+psycopg2://user:password@db-host:5432/medication_safety` in `backend/.env`.
+3. Run `python -m backend.app.seed_demo` to initialize reference tables and seed initial catalogue records.
+
+#### 2. Backend Production Run
+In production, run Uvicorn with multiple workers or behind Gunicorn:
+```bash
+# In backend directory with production .env configured:
+uvicorn backend.app.main:app --host 0.0.0.0 --port 8000 --workers 4 --no-access-log
+```
+
+Ensure `CORS_ORIGINS` in your production `.env` is set to your exact HTTPS frontend domain (e.g., `https://cockpit.medicationsafety.example.com`).
+
+#### 3. Frontend Production Build
+Compile the optimized static bundle:
+```bash
+cd healthcare/frontend
+
+# Set production API URL in frontend/.env:
+# VITE_API_BASE_URL=https://api.medicationsafety.example.com
+
 npm run build
 ```
-Open your browser to **http://127.0.0.1:5173** to access the dashboard.
+The production bundle will be generated in `frontend/dist/`. Serve these static files via Nginx, AWS S3 + CloudFront, Cloudflare Pages, or Vercel.
+
+#### 4. Example Production Nginx Reverse Proxy
+```nginx
+server {
+    listen 443 ssl http2;
+    server_name medicationsafety.example.com;
+
+    # SSL Certificates
+    ssl_certificate /etc/letsencrypt/live/medicationsafety.example.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/medicationsafety.example.com/privkey.pem;
+
+    # Security Headers
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header X-Frame-Options "DENY" always;
+    add_header X-XSS-Protection "1; mode=block" always;
+    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+
+    # Frontend Static Cockpit
+    location / {
+        root /var/www/healthcare/frontend/dist;
+        index index.html;
+        try_files $uri $uri/ /index.html;
+    }
+
+    # Backend API Proxy
+    location /api/ {
+        proxy_pass http://127.0.0.1:8000/api/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    # Swagger Documentation
+    location /docs {
+        proxy_pass http://127.0.0.1:8000/docs;
+        proxy_set_header Host $host;
+    }
+}
+```
 
 ---
 
 ## 7. Automated Test Suite
 
-Run the comprehensive pytest suite covering the resolver, rules engine, alert prioritiser, and REST endpoints:
+Run the comprehensive pytest suite covering the resolver, rules engine, alert prioritiser, evaluation benchmark, and REST endpoints:
 
 ```bash
 # In the project root with .venv activated:
 pytest backend/tests/ -v
 ```
 
-### Verified Test Results
+### Verified Test Results (22 Passed)
 ```text
 ============================= test session starts =============================
-platform win32 -- Python 3.12.15, pytest-9.0.2
-collected 18 items
+platform win32 -- Python 3.12.15, pytest-9.1.1, pluggy-1.6.0
+rootdir: C:\Users\user\OneDrive\healthcare
+plugins: anyio-4.15.1
+collected 22 items
 
-backend/tests/test_api.py::test_health_check PASSED                    [  5%]
-backend/tests/test_api.py::test_dashboard_summary PASSED               [ 11%]
-backend/tests/test_api.py::test_patients_crud PASSED                   [ 16%]
-backend/tests/test_api.py::test_resolver_endpoint PASSED               [ 22%]
-backend/tests/test_api.py::test_safety_checker_endpoint PASSED         [ 27%]
-backend/tests/test_api.py::test_alert_acknowledgement PASSED           [ 33%]
-backend/tests/test_api.py::test_evaluation_run PASSED                  [ 38%]
-backend/tests/test_prioritiser.py::test_prioritiser_sorts_by_severity PASSED [ 44%]
-backend/tests/test_prioritiser.py::test_prioritiser_deduplication PASSED [ 50%]
-backend/tests/test_resolver.py::test_exact_generic_resolution PASSED    [ 55%]
-backend/tests/test_resolver.py::test_verified_brand_resolution PASSED   [ 61%]
-backend/tests/test_resolver.py::test_fuzzy_misspelling_resolution PASSED [ 66%]
-backend/tests/test_resolver.py::test_ambiguous_short_name_flagged PASSED [ 72%]
-backend/tests/test_rules_engine.py::test_drug_drug_interaction_detected PASSED [ 77%]
-backend/tests/test_rules_engine.py::test_duplicate_active_ingredient_detected PASSED [ 83%]
-backend/tests/test_rules_engine.py::test_renal_risk_detected PASSED     [ 88%]
-backend/tests/test_rules_engine.py::test_contraindication_detected PASSED [ 94%]
-backend/tests/test_rules_engine.py::test_missing_renal_data_warned PASSED [100%]
+backend/tests/test_api.py::test_health_endpoint PASSED                   [  4%]
+backend/tests/test_api.py::test_dataset_status_endpoint PASSED           [  9%]
+backend/tests/test_api.py::test_dashboard_summary_endpoint PASSED        [ 13%]
+backend/tests/test_api.py::test_patients_crud PASSED                     [ 18%]
+backend/tests/test_api.py::test_safety_checker_analysis PASSED           [ 22%]
+backend/tests/test_api.py::test_alert_acknowledgement PASSED             [ 27%]
+backend/tests/test_evaluation.py::test_safe_division_edge_cases PASSED   [ 31%]
+backend/tests/test_evaluation.py::test_seeded_near_miss_300_benchmark PASSED [ 36%]
+backend/tests/test_evaluation.py::test_synthetic_cohort_500_benchmark PASSED [ 40%]
+backend/tests/test_evaluation.py::test_alert_fatigue_reduction_measured PASSED [ 45%]
+backend/tests/test_prioritiser.py::test_prioritisation_ordering PASSED   [ 50%]
+backend/tests/test_prioritiser.py::test_alert_deduplication PASSED       [ 54%]
+backend/tests/test_resolver.py::test_exact_generic_resolution PASSED     [ 59%]
+backend/tests/test_resolver.py::test_exact_brand_resolution PASSED       [ 63%]
+backend/tests/test_resolver.py::test_fuzzy_misspelling_resolution PASSED [ 68%]
+backend/tests/test_resolver.py::test_brand_with_dosage_resolution PASSED [ 72%]
+backend/tests/test_resolver.py::test_uncatalogued_medicine_handling PASSED [ 77%]
+backend/tests/test_rules_engine.py::test_drug_drug_interaction_detection PASSED [ 81%]
+backend/tests/test_rules_engine.py::test_duplicate_active_ingredient_detection PASSED [ 86%]
+backend/tests/test_rules_engine.py::test_renal_risk_threshold_contraindication PASSED [ 90%]
+backend/tests/test_rules_engine.py::test_missing_renal_data_limitation_warning PASSED [ 95%]
+backend/tests/test_rules_engine.py::test_contraindication_condition_peptic_ulcer PASSED [100%]
 
-============================== 18 passed in 1.78s ==============================
+======================= 22 passed, 11 warnings in 3.32s =======================
 ```
 
 ---

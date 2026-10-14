@@ -1,8 +1,14 @@
 from sqlalchemy.orm import Session
-from database.app.models import (
-    MedicineCatalogue, BrandMapping, InteractionRule,
-    DuplicateTherapyRule, RenalRiskRule, ContraindicationRule, DatasetMetadata
-)
+try:
+    from backend.app.models import (
+        MedicineCatalogue, BrandMapping, InteractionRule,
+        DuplicateTherapyRule, RenalRiskRule, ContraindicationRule, DatasetMetadata
+    )
+except ImportError:
+    from app.models import (
+        MedicineCatalogue, BrandMapping, InteractionRule,
+        DuplicateTherapyRule, RenalRiskRule, ContraindicationRule, DatasetMetadata
+    )
 
 MEDICINE_CATALOGUE_DATA = [
     {
