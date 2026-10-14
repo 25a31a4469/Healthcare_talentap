@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from app.models import (
     InteractionRule, DuplicateTherapyRule, RenalRiskRule, ContraindicationRule, MedicineCatalogue
 )
-from backend.app.schemas import MedicineResolutionResult
+from app.schemas import MedicineResolutionResult
 
 class ClinicalRulesEngine:
     def __init__(self, db: Session):
