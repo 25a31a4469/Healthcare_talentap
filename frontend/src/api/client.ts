@@ -119,11 +119,15 @@ export const api = {
     }),
 
   // Evaluation
-  runEvaluation: (cohortSize = 500, nearMissCount = 60) =>
-    request<EvaluationRunResult>(`/api/evaluation/run?cohort_size=${cohortSize}&near_miss_count=${nearMissCount}`, {
-      method: 'POST'
-    }),
-  getLatestEvaluation: () => request<EvaluationRunResult>('/api/evaluation/latest'),
+  runEvaluation: (cohortType = 'seeded_near_miss_300', cohortSize = 300, nearMissCount = 300) =>
+    request<EvaluationRunResult>(
+      `/api/evaluation/run?cohort_type=${encodeURIComponent(cohortType)}&cohort_size=${cohortSize}&near_miss_count=${nearMissCount}`,
+      { method: 'POST' }
+    ),
+  getLatestEvaluation: (cohortType?: string) => {
+    const q = cohortType ? `?cohort_type=${encodeURIComponent(cohortType)}` : '';
+    return request<EvaluationRunResult>(`/api/evaluation/latest${q}`);
+  },
   exportEvaluationCsvUrl: `${BASE_URL}/api/evaluation/export-csv`,
 
   // Audit Logs

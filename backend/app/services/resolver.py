@@ -19,8 +19,19 @@ def normalize_text(text: str) -> str:
     if not text:
         return ""
     cleaned = text.lower().strip()
+    # Strip combination doses like 5/325, 875/125, 10-20
+    cleaned = re.sub(r'\b\d+([/–-]\d+)+\s*(mg|mcg|g|ml)?\b', '', cleaned)
     # Strip standalone numbers with or without units (e.g., 500mg, 10 mg)
-    cleaned = re.sub(r'\b\d+(\.\d+)?\s*(mg|mcg|g|ml|meq)?\b', '', cleaned)
+    cleaned = re.sub(r'\b\d+(\.\d+)?\s*(mg|mcg|g|ml|meq|iu|units?)?\b', '', cleaned)
+    # Strip common instructions and strengths
+    frequency_words = [
+        r'\bweekly\b', r'\bdaily\b', r'\bmonthly\b', r'\bbid\b', r'\btid\b', r'\bqid\b',
+        r'\bprn\b', r'\bas needed\b', r'\bextra strength\b', r'\bregular strength\b',
+        r'\bmaximum strength\b', r'\bmax strength\b', r'\bextended release\b',
+        r'\bimmediate release\b', r'\bslow release\b'
+    ]
+    for fw in frequency_words:
+        cleaned = re.sub(fw, '', cleaned, flags=re.IGNORECASE)
     # Strip common suffixes
     for suffix in CLEANUP_SUFFIXES:
         cleaned = re.sub(suffix, '', cleaned, flags=re.IGNORECASE)
@@ -234,38 +245,45 @@ class MedicineResolver:
 
         top_cand = candidate_list[0]
 
-        # Ambiguity Checking:
-        # 1. Multiple top candidates with very close score (difference <= 6%)
-        # 2. Or top score is between 65% and 84% (requires clinician confirmation before running checks)
+        # Strict Clinical Safety Guardrails:
+        # 1. Ambiguity: multiple close candidates (delta <= 7.0% and top score < 96.0%)
+        # 2. Acceptance threshold: top match score must be >= 80.0% to be accepted automatically.
+        #    Below 80.0%, it is UNCONFIRMED / LOW-CONFIDENCE and must NEVER be silently used in clinical checks.
         is_ambiguous = False
         requires_review = False
         confidence = "HIGH"
 
         if len(candidate_list) > 1:
             diff = top_cand.match_score - candidate_list[1].match_score
-            if diff <= 6.0 and top_cand.match_score < 96.0:
+            if diff <= 7.0 and top_cand.match_score < 96.0:
                 is_ambiguous = True
                 requires_review = True
-                confidence = "MEDIUM"
+                confidence = "AMBIGUOUS"
 
-        if top_cand.match_score < 85.0:
+        # Low-confidence threshold: below 80% similarity cannot be automatically accepted
+        is_low_confidence = top_cand.match_score < 80.0
+        if is_low_confidence:
             requires_review = True
-            confidence = "MEDIUM" if top_cand.match_score >= 70.0 else "LOW"
+            confidence = "LOW"
 
-        # If ambiguous, mark all candidates as ambiguous
-        if is_ambiguous:
+        # If ambiguous or low-confidence, pause automatic clinical acceptance
+        should_pause_auto_resolution = is_ambiguous or is_low_confidence
+
+        if should_pause_auto_resolution:
             for c in candidate_list:
                 c.is_ambiguous = True
 
+        match_method = "ambiguous" if is_ambiguous else ("low_confidence_unconfirmed" if is_low_confidence else top_cand.match_method)
+
         return MedicineResolutionResult(
             original_input=raw_input,
-            resolved_generic=top_cand.generic_name if not is_ambiguous else None,
-            brand_name=top_cand.brand_name if not is_ambiguous else None,
-            active_ingredients=top_cand.active_ingredients if not is_ambiguous else [],
-            therapeutic_class=top_cand.therapeutic_class if not is_ambiguous else None,
+            resolved_generic=top_cand.generic_name if not should_pause_auto_resolution else None,
+            brand_name=top_cand.brand_name if not should_pause_auto_resolution else None,
+            active_ingredients=top_cand.active_ingredients if not should_pause_auto_resolution else [],
+            therapeutic_class=top_cand.therapeutic_class if not should_pause_auto_resolution else None,
             match_score=top_cand.match_score,
-            match_method="ambiguous" if is_ambiguous else top_cand.match_method,
-            is_ambiguous=is_ambiguous,
+            match_method=match_method,
+            is_ambiguous=should_pause_auto_resolution,
             candidates=candidate_list,
             requires_human_review=requires_review,
             confidence_level=confidence

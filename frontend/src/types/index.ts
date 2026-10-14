@@ -143,6 +143,9 @@ export interface DashboardSummary {
     source_label: string;
   };
   active_reference_version: string;
+  alert_volume_reduction_pct?: number;
+  baseline_raw_alerts_total?: number;
+  prioritised_alerts_total?: number;
 }
 
 export interface MedicineCatalogueItem {
@@ -169,11 +172,15 @@ export interface AuditLog {
 
 export interface EvaluationRunResult {
   evaluation_id: string;
+  cohort_type?: string;
   dataset_name: string;
   total_records: number;
   total_near_miss_seeded: number;
   serious_issue_recall: number;
   precision: number;
+  specificity?: number | null;
+  f1_score?: number | null;
+  false_positive_rate?: number | null;
   false_positive_count: number;
   false_negative_count: number;
   name_matching_accuracy: number;
@@ -186,6 +193,16 @@ export interface EvaluationRunResult {
     false_positives: number;
     false_negatives: number;
     true_negatives: number;
+    total?: number;
+    cohort_type?: string;
+    precision?: number;
+    recall?: number;
+    specificity?: number | null;
+    f1_score?: number | null;
+    false_positive_rate?: number;
+    low_severity_raw?: number;
+    low_severity_prioritised?: number;
+    serious_retained_pct?: number;
   };
   breakdown_by_category: Record<string, number>;
   breakdown_by_severity: Record<string, number>;

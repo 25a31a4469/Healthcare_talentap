@@ -114,6 +114,21 @@ def get_dashboard_summary(db: Session = Depends(get_db)):
         "source_label": settings.DATASET_SOURCE_LABEL
     }
 
+    # Calculate measured alert fatigue reduction from analyses or latest evaluation run
+    analyses = db.query(MedicationAnalysis).all()
+    tot_raw = sum(a.total_alerts_raw for a in analyses) if analyses else 0
+    tot_prio = sum(a.total_alerts_prioritised for a in analyses) if analyses else 0
+
+    latest_eval = db.query(EvaluationRun).order_by(desc(EvaluationRun.created_at)).first()
+    if tot_raw > 0 and tot_raw > tot_prio:
+        noise_red = round(((tot_raw - tot_prio) / tot_raw) * 100.0, 1)
+    elif latest_eval and latest_eval.alert_fatigue_reduction_pct > 0:
+        noise_red = latest_eval.alert_fatigue_reduction_pct
+        tot_raw = int(latest_eval.alerts_per_patient_raw * latest_eval.total_records)
+        tot_prio = int(latest_eval.alerts_per_patient_prioritised * latest_eval.total_records)
+    else:
+        noise_red = 0.0
+
     return DashboardSummary(
         patient_count=pt_count,
         reviews_count=rev_count,
@@ -126,7 +141,10 @@ def get_dashboard_summary(db: Session = Depends(get_db)):
         recent_analyses=recent_anl_list,
         recent_alerts=recent_alts,
         dataset_status=dataset_status,
-        active_reference_version=settings.REFERENCE_DATA_VERSION
+        active_reference_version=settings.REFERENCE_DATA_VERSION,
+        alert_volume_reduction_pct=noise_red,
+        baseline_raw_alerts_total=tot_raw,
+        prioritised_alerts_total=tot_prio
     )
 
 # --- Patients CRUD & Import/Export ---
@@ -649,22 +667,57 @@ def acknowledge_alert(
 # --- Evaluation Module ---
 @api_router.post("/evaluation/run")
 def run_evaluation(
-    cohort_size: int = Query(500, ge=10, le=5000),
-    near_miss_count: int = Query(60, ge=5, le=300),
+    cohort_type: str = Query("seeded_near_miss_300", description="seeded_near_miss_300, synthetic_cohort_500, or scalable"),
+    cohort_size: int = Query(300, ge=10, le=5000),
+    near_miss_count: int = Query(300, ge=5, le=500),
     db: Session = Depends(get_db)
 ):
     engine = EvaluationEngine(db)
-    result = engine.run_benchmark(cohort_size=cohort_size, near_miss_count=near_miss_count)
+    result = engine.run_benchmark(cohort_type=cohort_type, cohort_size=cohort_size, near_miss_count=near_miss_count)
     return result
 
 @api_router.get("/evaluation/latest")
-def get_latest_evaluation(db: Session = Depends(get_db)):
-    latest = db.query(EvaluationRun).order_by(desc(EvaluationRun.created_at)).first()
+def get_latest_evaluation(cohort_type: Optional[str] = None, db: Session = Depends(get_db)):
+    query = db.query(EvaluationRun)
+    if cohort_type:
+        if "300" in cohort_type or "near_miss" in cohort_type.lower():
+            query = query.filter(EvaluationRun.total_records == 300)
+        elif "500" in cohort_type:
+            query = query.filter(EvaluationRun.total_records == 500)
+    latest = query.order_by(desc(EvaluationRun.created_at)).first()
     if not latest:
-        # Auto-run an initial baseline evaluation if none exists
         engine = EvaluationEngine(db)
-        return engine.run_benchmark(cohort_size=300, near_miss_count=40)
-    return latest
+        req_type = cohort_type or "seeded_near_miss_300"
+        return engine.run_benchmark(
+            cohort_type=req_type,
+            cohort_size=300 if "300" in req_type else (500 if "500" in req_type else 300),
+            near_miss_count=300 if "300" in req_type else 100
+        )
+
+    cm = latest.confusion_matrix or {}
+    return {
+        "evaluation_id": latest.id,
+        "cohort_type": cm.get("cohort_type", "seeded_near_miss_300" if latest.total_records == 300 else "synthetic_cohort_500"),
+        "dataset_name": latest.dataset_name,
+        "total_records": latest.total_records,
+        "total_near_miss_seeded": latest.total_near_miss_seeded,
+        "serious_issue_recall": latest.serious_issue_recall,
+        "precision": latest.precision,
+        "specificity": cm.get("specificity"),
+        "f1_score": cm.get("f1_score"),
+        "false_positive_rate": cm.get("false_positive_rate", 0.0),
+        "false_positive_count": latest.false_positive_count,
+        "false_negative_count": latest.false_negative_count,
+        "name_matching_accuracy": latest.name_matching_accuracy,
+        "near_miss_recall": latest.near_miss_recall,
+        "alerts_per_patient_raw": latest.alerts_per_patient_raw,
+        "alerts_per_patient_prioritised": latest.alerts_per_patient_prioritised,
+        "alert_fatigue_reduction_pct": latest.alert_fatigue_reduction_pct,
+        "confusion_matrix": cm,
+        "breakdown_by_category": latest.breakdown_by_category,
+        "breakdown_by_severity": latest.breakdown_by_severity,
+        "created_at": latest.created_at.isoformat() if latest.created_at else None
+    }
 
 @api_router.get("/evaluation/export-csv")
 def export_evaluation_csv(db: Session = Depends(get_db)):

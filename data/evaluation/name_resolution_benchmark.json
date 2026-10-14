@@ -1,0 +1,242 @@
+[
+  {
+    "input": "warfarin",
+    "type": "generic",
+    "expected": "warfarin",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "metformin",
+    "type": "generic",
+    "expected": "metformin",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "lisinopril",
+    "type": "generic",
+    "expected": "lisinopril",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "ibuprofen",
+    "type": "generic",
+    "expected": "ibuprofen",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "atorvastatin",
+    "type": "generic",
+    "expected": "atorvastatin",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "amoxicillin",
+    "type": "generic",
+    "expected": "amoxicillin",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "ciprofloxacin",
+    "type": "generic",
+    "expected": "ciprofloxacin",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "clopidogrel",
+    "type": "generic",
+    "expected": "clopidogrel",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "citalopram",
+    "type": "generic",
+    "expected": "citalopram",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "digoxin",
+    "type": "generic",
+    "expected": "digoxin",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "Coumadin",
+    "type": "brand",
+    "expected": "warfarin",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "Glucophage",
+    "type": "brand",
+    "expected": "metformin",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "Lipitor",
+    "type": "brand",
+    "expected": "atorvastatin",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "Plavix",
+    "type": "brand",
+    "expected": "clopidogrel",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "Zestril",
+    "type": "brand",
+    "expected": "lisinopril",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "Advil",
+    "type": "brand",
+    "expected": "ibuprofen",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "Motrin",
+    "type": "brand",
+    "expected": "ibuprofen",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "Tylenol",
+    "type": "brand",
+    "expected": "acetaminophen",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "Panadol",
+    "type": "brand",
+    "expected": "acetaminophen",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "Diflucan",
+    "type": "brand",
+    "expected": "fluconazole",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "Aldactone",
+    "type": "brand",
+    "expected": "spironolactone",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "Trexall",
+    "type": "brand",
+    "expected": "methotrexate",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "Amoxil",
+    "type": "brand",
+    "expected": "amoxicillin",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "Norvasc",
+    "type": "brand",
+    "expected": "amlodipine",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "Zocor",
+    "type": "brand",
+    "expected": "simvastatin",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "metformn",
+    "type": "misspelling",
+    "expected": "metformin",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "warfrin",
+    "type": "misspelling",
+    "expected": "warfarin",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "lisinoprile",
+    "type": "misspelling",
+    "expected": "lisinopril",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "diflucane",
+    "type": "misspelling",
+    "expected": "fluconazole",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "coumadinn",
+    "type": "misspelling",
+    "expected": "warfarin",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "ibuprophen",
+    "type": "misspelling",
+    "expected": "ibuprofen",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "tylenoll",
+    "type": "misspelling",
+    "expected": "acetaminophen",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "spironolacton",
+    "type": "misspelling",
+    "expected": "spironolactone",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "amoxill",
+    "type": "misspelling",
+    "expected": "amoxicillin",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "atorvastatine",
+    "type": "misspelling",
+    "expected": "atorvastatin",
+    "expect_ambiguous": false
+  },
+  {
+    "input": "amlo",
+    "type": "ambiguous",
+    "expected": null,
+    "expect_ambiguous": true
+  },
+  {
+    "input": "metro",
+    "type": "ambiguous",
+    "expected": null,
+    "expect_ambiguous": true
+  },
+  {
+    "input": "cefa",
+    "type": "ambiguous",
+    "expected": null,
+    "expect_ambiguous": true
+  },
+  {
+    "input": "unknownchem99",
+    "type": "unknown",
+    "expected": null,
+    "expect_ambiguous": false
+  },
+  {
+    "input": "fakemedicine123",
+    "type": "unknown",
+    "expected": null,
+    "expect_ambiguous": false
+  }
+]

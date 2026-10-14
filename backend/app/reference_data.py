@@ -279,6 +279,83 @@ MEDICINE_CATALOGUE_DATA = [
         "standard_dosing": "5 - 10 mg orally once daily",
         "renal_cleared": False,
         "black_box_warnings": "Peripheral edema and hypotension."
+    },
+    {
+        "generic_name": "simvastatin",
+        "therapeutic_class": "HMG-CoA Reductase Inhibitor (Statin)",
+        "active_ingredients": ["simvastatin"],
+        "brand_names": ["Zocor"],
+        "synonyms": ["simvastatine"],
+        "common_misspellings": ["simvastatn", "zocorr"],
+        "standard_dosing": "10 - 40 mg orally once daily in evening",
+        "renal_cleared": False,
+        "black_box_warnings": "Myopathy and rhabdomyolysis risk; dose capped at 20 mg when co-prescribed with amlodipine."
+    },
+    {
+        "generic_name": "ciprofloxacin",
+        "therapeutic_class": "Fluoroquinolone Antibiotic",
+        "active_ingredients": ["ciprofloxacin"],
+        "brand_names": ["Cipro"],
+        "synonyms": ["ciprofloxacin hydrochloride"],
+        "common_misspellings": ["ciprofloxacine", "cipro"],
+        "standard_dosing": "250 - 750 mg orally every 12 hours",
+        "renal_cleared": True,
+        "black_box_warnings": "Tendinitis, tendon rupture, peripheral neuropathy, and CNS effects. Strong CYP1A2 inhibitor contraindicated with tizanidine."
+    },
+    {
+        "generic_name": "tizanidine",
+        "therapeutic_class": "Central Alpha-2 Adrenergic Agonist (Muscle Relaxant)",
+        "active_ingredients": ["tizanidine"],
+        "brand_names": ["Zanaflex"],
+        "synonyms": ["tizanidine hydrochloride"],
+        "common_misspellings": ["tizanidin", "zanaflexx"],
+        "standard_dosing": "2 - 8 mg orally three to four times daily",
+        "renal_cleared": True,
+        "black_box_warnings": "Concomitant use with ciprofloxacin or other potent CYP1A2 inhibitors is contraindicated due to profound hypotension and excessive sedation."
+    },
+    {
+        "generic_name": "amoxicillin / clavulanate",
+        "therapeutic_class": "Aminopenicillin / Beta-Lactamase Inhibitor Combination",
+        "active_ingredients": ["amoxicillin", "clavulanate"],
+        "brand_names": ["Augmentin"],
+        "synonyms": ["co-amoxiclav", "amoxicillin clavulanate potassium"],
+        "common_misspellings": ["augmentinn", "amox clav"],
+        "standard_dosing": "500/125 - 875/125 mg orally every 12 hours",
+        "renal_cleared": True,
+        "black_box_warnings": "Severe anaphylactic and hypersensitivity reactions in penicillin-allergic patients."
+    },
+    {
+        "generic_name": "oxycodone / acetaminophen",
+        "therapeutic_class": "Opioid Agonist / Non-Opioid Analgesic Combination",
+        "active_ingredients": ["oxycodone", "acetaminophen"],
+        "brand_names": ["Percocet"],
+        "synonyms": ["oxycodone and acetaminophen", "oxycodone-apap", "oxycodone/apap", "oxycodone apap", "apap/oxycodone"],
+        "common_misspellings": ["percocett", "percocet 5/325"],
+        "standard_dosing": "5/325 - 10/325 mg orally every 4 to 6 hours as needed",
+        "renal_cleared": False,
+        "black_box_warnings": "Severe hepatotoxicity from cumulative acetaminophen (>4000 mg/day); addiction, abuse, and life-threatening respiratory depression."
+    },
+    {
+        "generic_name": "hydrocodone / acetaminophen",
+        "therapeutic_class": "Opioid Agonist / Non-Opioid Analgesic Combination",
+        "active_ingredients": ["hydrocodone", "acetaminophen"],
+        "brand_names": ["Vicodin", "Norco"],
+        "synonyms": ["hydrocodone and acetaminophen"],
+        "common_misspellings": ["vicodinn", "norcoo"],
+        "standard_dosing": "5/325 - 10/325 mg orally every 4 to 6 hours as needed",
+        "renal_cleared": False,
+        "black_box_warnings": "Severe hepatotoxicity risk from excessive acetaminophen; respiratory depression and addiction."
+    },
+    {
+        "generic_name": "sitagliptin / metformin",
+        "therapeutic_class": "DPP-4 Inhibitor / Biguanide Combination",
+        "active_ingredients": ["sitagliptin", "metformin"],
+        "brand_names": ["Janumet"],
+        "synonyms": ["sitagliptin and metformin hydrochloride"],
+        "common_misspellings": ["janumett"],
+        "standard_dosing": "50/500 - 50/1000 mg orally twice daily with meals",
+        "renal_cleared": True,
+        "black_box_warnings": "Lactic acidosis risk with metformin component; contraindicated when eGFR < 30 mL/min/1.73m2."
     }
 ]
 
@@ -318,7 +395,19 @@ BRAND_MAPPINGS_DATA = [
     {"brand_name": "Inderal", "generic_name": "propranolol", "active_ingredients": ["propranolol"]},
     {"brand_name": "Eliquis", "generic_name": "apixaban", "active_ingredients": ["apixaban"]},
     {"brand_name": "Lasix", "generic_name": "furosemide", "active_ingredients": ["furosemide"]},
-    {"brand_name": "Norvasc", "generic_name": "amlodipine", "active_ingredients": ["amlodipine"]}
+    {"brand_name": "Norvasc", "generic_name": "amlodipine", "active_ingredients": ["amlodipine"]},
+    {"brand_name": "Augmentin", "generic_name": "amoxicillin / clavulanate", "active_ingredients": ["amoxicillin", "clavulanate"]},
+    {"brand_name": "Percocet", "generic_name": "oxycodone / acetaminophen", "active_ingredients": ["oxycodone", "acetaminophen"]},
+    {"brand_name": "Vicodin", "generic_name": "hydrocodone / acetaminophen", "active_ingredients": ["hydrocodone", "acetaminophen"]},
+    {"brand_name": "Norco", "generic_name": "hydrocodone / acetaminophen", "active_ingredients": ["hydrocodone", "acetaminophen"]},
+    {"brand_name": "Janumet", "generic_name": "sitagliptin / metformin", "active_ingredients": ["sitagliptin", "metformin"]},
+    {"brand_name": "Zestoretic", "generic_name": "lisinopril / hydrochlorothiazide", "active_ingredients": ["lisinopril", "hydrochlorothiazide"]},
+    {"brand_name": "Hyzaar", "generic_name": "losartan / hydrochlorothiazide", "active_ingredients": ["losartan", "hydrochlorothiazide"]},
+    {"brand_name": "Bactrim", "generic_name": "sulfamethoxazole / trimethoprim", "active_ingredients": ["sulfamethoxazole", "trimethoprim"]},
+    {"brand_name": "Co-codamol", "generic_name": "codeine / acetaminophen", "active_ingredients": ["codeine", "acetaminophen"]},
+    {"brand_name": "Zocor", "generic_name": "simvastatin", "active_ingredients": ["simvastatin"]},
+    {"brand_name": "Cipro", "generic_name": "ciprofloxacin", "active_ingredients": ["ciprofloxacin"]},
+    {"brand_name": "Zanaflex", "generic_name": "tizanidine", "active_ingredients": ["tizanidine"]}
 ]
 
 INTERACTION_RULES_DATA = [
@@ -431,6 +520,50 @@ INTERACTION_RULES_DATA = [
         "clinical_effect": "Substantial elevation in major bleeding risk, particularly gastrointestinal hemorrhage.",
         "recommendation": "Avoid concurrent use. Use acetaminophen or non-pharmacologic therapies for pain relief.",
         "source_citation": "Chest Antithrombotic Guidelines / Eliquis Prescribing Info"
+    },
+    {
+        "id": "RULE-DDI-011",
+        "drug_a": "simvastatin",
+        "drug_b": "amlodipine",
+        "severity": "HIGH",
+        "evidence_level": "Established - Level 1 Clinical Evidence",
+        "mechanism": "Amlodipine inhibits CYP3A4-mediated metabolism of simvastatin, increasing simvastatin systemic exposure by approximately 77%.",
+        "clinical_effect": "Dose-dependent risk of statin-induced myopathy and rhabdomyolysis with secondary acute renal failure.",
+        "recommendation": "Do not exceed simvastatin 20 mg daily when co-administered with amlodipine. Consider switching to pravastatin or rosuvastatin which do not rely on CYP3A4.",
+        "source_citation": "FDA Drug Safety Communication / Simvastatin Prescribing Information"
+    },
+    {
+        "id": "RULE-DDI-012",
+        "drug_a": "ciprofloxacin",
+        "drug_b": "tizanidine",
+        "severity": "HIGH",
+        "evidence_level": "Established - Level 1 Clinical Evidence",
+        "mechanism": "Ciprofloxacin is a potent inhibitor of CYP1A2, which is responsible for the extensive first-pass hepatic metabolism of tizanidine.",
+        "clinical_effect": "Up to a 10-fold increase in tizanidine AUC and a 7-fold increase in Cmax, leading to severe somnolence, profound hypotension, bradycardia, and psychomotor impairment.",
+        "recommendation": "Concomitant use is strictly contraindicated. Select an alternative fluoroquinolone or non-CYP1A2 muscle relaxant.",
+        "source_citation": "FDA Boxed Warning / Zanaflex Prescribing Information"
+    },
+    {
+        "id": "RULE-DDI-013",
+        "drug_a": "warfarin",
+        "drug_b": "aspirin",
+        "severity": "HIGH",
+        "evidence_level": "Established - Level 1 Clinical Evidence",
+        "mechanism": "Synergistic inhibition of hemostasis: Warfarin inhibits vitamin K-dependent clotting factor synthesis, while aspirin causes irreversible platelet cyclooxygenase-1 inhibition.",
+        "clinical_effect": "Significant 3- to 5-fold increase in major and fatal gastrointestinal and intracranial bleeding events.",
+        "recommendation": "Combine only when definitive clinical indication exists (e.g., mechanical heart valve plus recent acute coronary syndrome). Maintain target INR at lower end of therapeutic range and prescribe gastroprotective PPI.",
+        "source_citation": "CHEST Antithrombotic Guidelines / AHA/ACC Guidelines"
+    },
+    {
+        "id": "RULE-DDI-014",
+        "drug_a": "methotrexate",
+        "drug_b": "ibuprofen",
+        "severity": "HIGH",
+        "evidence_level": "Established - Level 1 Clinical Evidence",
+        "mechanism": "NSAIDs competitively inhibit organic anion transporter (OAT1/OAT3) tubular secretion of methotrexate and reduce renal perfusion through prostaglandin synthesis inhibition.",
+        "clinical_effect": "Severe methotrexate accumulation causing life-threatening bone marrow suppression, pancytopenia, severe stomatitis, and acute renal failure.",
+        "recommendation": "Avoid concurrent NSAID administration with moderate-to-high dose methotrexate. If low-dose methotrexate is used for rheumatoid arthritis, monitor CBC, renal function, and liver enzymes closely.",
+        "source_citation": "Trexall Prescribing Information / EULAR Guidelines"
     }
 ]
 
@@ -470,6 +603,24 @@ DUPLICATE_THERAPY_RULES_DATA = [
         "risk_description": "Therapeutic class duplication: Co-prescription of two distinct systemic NSAIDs (e.g. ibuprofen and naproxen). There is no demonstrated additional therapeutic efficacy but an exponential increase in adverse events.",
         "recommendation": "Discontinue one NSAID. Concurrent use provides no additive analgesia and significantly increases gastric perforation, ulceration, and renal insufficiency.",
         "source_citation": "American College of Gastroenterology / NICE Guidelines"
+    },
+    {
+        "id": "RULE-DUP-005",
+        "target_identifier": "amoxicillin",
+        "rule_type": "EXACT_INGREDIENT",
+        "severity": "HIGH",
+        "risk_description": "Duplicate active ingredient: Co-prescription of single-agent amoxicillin and combination amoxicillin/clavulanate (Augmentin).",
+        "recommendation": "Consolidate into a single appropriate antimicrobial regimen to avoid excessive beta-lactam dosing and adverse events.",
+        "source_citation": "Infectious Diseases Society of America (IDSA) Guidelines"
+    },
+    {
+        "id": "RULE-DUP-006",
+        "target_identifier": "ACE Inhibitor",
+        "rule_type": "THERAPEUTIC_CLASS",
+        "severity": "MEDIUM",
+        "risk_description": "Therapeutic class duplication: Co-prescription of multiple ACE inhibitors (e.g. lisinopril and enalapril or ramipril).",
+        "recommendation": "Discontinue redundant ACE inhibitor agent. Dual ACE inhibition confers no clinical benefit and drastically increases risks of severe hypotension, syncope, and hyperkalemia.",
+        "source_citation": "AHA/ACC Hypertension Guidelines"
     }
 ]
 
@@ -545,6 +696,18 @@ RENAL_RISK_RULES_DATA = [
         "risk_type": "DOSE_REDUCTION",
         "clinical_guidance": "Gabapentin is eliminated solely by renal excretion. Dose reduction is mandatory when eGFR < 60 mL/min to prevent toxic drug accumulation, profound somnolence, and respiratory depression.",
         "source_citation": "Neurontin FDA Prescribing Information"
+    },
+    {
+        "id": "RULE-RENAL-007",
+        "generic_name": "methotrexate",
+        "threshold_type": "eGFR",
+        "threshold_operator": "<",
+        "threshold_value": 30.0,
+        "unit": "mL/min/1.73m2",
+        "severity": "HIGH",
+        "risk_type": "CONTRAINDICATION",
+        "clinical_guidance": "Methotrexate is predominantly cleared by renal excretion. Severe renal impairment (eGFR < 30 mL/min) impairs clearance by >70%, leading to life-threatening accumulation, acute pancytopenia, bone marrow suppression, and multi-organ failure.",
+        "source_citation": "KDIGO CKD Guidelines / Trexall FDA Prescribing Information"
     }
 ]
 
@@ -612,35 +775,41 @@ CONTRAINDICATION_RULES_DATA = [
 ]
 
 def seed_reference_data(db: Session):
-    """Seed all verified reference catalogue tables if empty."""
+    """Seed all verified reference catalogue tables, ensuring new entries are inserted."""
     # 1. Medicines
-    if db.query(MedicineCatalogue).count() == 0:
-        for med in MEDICINE_CATALOGUE_DATA:
+    existing_meds = {m.generic_name.lower().strip() for m in db.query(MedicineCatalogue).all()}
+    for med in MEDICINE_CATALOGUE_DATA:
+        if med["generic_name"].lower().strip() not in existing_meds:
             db.add(MedicineCatalogue(**med))
     
     # 2. Brand Mappings
-    if db.query(BrandMapping).count() == 0:
-        for bm in BRAND_MAPPINGS_DATA:
+    existing_brands = {bm.brand_name.lower().strip() for bm in db.query(BrandMapping).all()}
+    for bm in BRAND_MAPPINGS_DATA:
+        if bm["brand_name"].lower().strip() not in existing_brands:
             db.add(BrandMapping(**bm))
             
     # 3. DDI Rules
-    if db.query(InteractionRule).count() == 0:
-        for rule in INTERACTION_RULES_DATA:
+    existing_rules = {r.id for r in db.query(InteractionRule).all()}
+    for rule in INTERACTION_RULES_DATA:
+        if rule["id"] not in existing_rules:
             db.add(InteractionRule(**rule))
             
     # 4. Duplicate Therapy Rules
-    if db.query(DuplicateTherapyRule).count() == 0:
-        for rule in DUPLICATE_THERAPY_RULES_DATA:
+    existing_dups = {r.id for r in db.query(DuplicateTherapyRule).all()}
+    for rule in DUPLICATE_THERAPY_RULES_DATA:
+        if rule["id"] not in existing_dups:
             db.add(DuplicateTherapyRule(**rule))
             
     # 5. Renal Risk Rules
-    if db.query(RenalRiskRule).count() == 0:
-        for rule in RENAL_RISK_RULES_DATA:
+    existing_renals = {r.id for r in db.query(RenalRiskRule).all()}
+    for rule in RENAL_RISK_RULES_DATA:
+        if rule["id"] not in existing_renals:
             db.add(RenalRiskRule(**rule))
             
     # 6. Contraindication Rules
-    if db.query(ContraindicationRule).count() == 0:
-        for rule in CONTRAINDICATION_RULES_DATA:
+    existing_contras = {r.id for r in db.query(ContraindicationRule).all()}
+    for rule in CONTRAINDICATION_RULES_DATA:
+        if rule["id"] not in existing_contras:
             db.add(ContraindicationRule(**rule))
 
     # 7. Metadata

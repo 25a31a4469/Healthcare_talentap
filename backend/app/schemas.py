@@ -175,6 +175,9 @@ class DashboardSummary(BaseModel):
     recent_alerts: List[SafetyAlertOut]
     dataset_status: Dict[str, Any]
     active_reference_version: str
+    alert_volume_reduction_pct: float = 0.0
+    baseline_raw_alerts_total: int = 0
+    prioritised_alerts_total: int = 0
 
 class MedicineCatalogueOut(BaseModel):
     id: int

@@ -1,0 +1,7814 @@
+[
+  {
+    "case_id": "NM-001",
+    "hazard_type": "DDI",
+    "medications": [
+      "Coumadin 5mg",
+      "Diflucan 200mg"
+    ],
+    "expected_generics": [
+      "warfarin",
+      "fluconazole"
+    ],
+    "patient_context": {
+      "age": 61,
+      "gender": "Male",
+      "conditions": [
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-001",
+      "hazard_description": "Warfarin + Fluconazole CYP2C9 inhibition causing severe bleeding risk"
+    }
+  },
+  {
+    "case_id": "NM-002",
+    "hazard_type": "DDI",
+    "medications": [
+      "Zestril 20mg",
+      "Aldactone 25mg"
+    ],
+    "expected_generics": [
+      "lisinopril",
+      "spironolactone"
+    ],
+    "patient_context": {
+      "age": 59,
+      "gender": "Female",
+      "conditions": [
+        "Heart Failure",
+        "CKD Stage 3"
+      ],
+      "egfr": 40.0
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-002",
+      "hazard_description": "Lisinopril + Spironolactone dual renin-aldosterone blockade causing lethal hyperkalemia"
+    }
+  },
+  {
+    "case_id": "NM-003",
+    "hazard_type": "DDI",
+    "medications": [
+      "Trexall 15mg weekly",
+      "Motrin 600mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "ibuprofen"
+    ],
+    "patient_context": {
+      "age": 47,
+      "gender": "Female",
+      "conditions": [
+        "Rheumatoid Arthritis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-003",
+      "hazard_description": "Methotrexate + Ibuprofen renal elimination inhibition causing pancytopenia"
+    }
+  },
+  {
+    "case_id": "NM-004",
+    "hazard_type": "DDI",
+    "medications": [
+      "Plavix 75mg",
+      "Prilosec 20mg"
+    ],
+    "expected_generics": [
+      "clopidogrel",
+      "omeprazole"
+    ],
+    "patient_context": {
+      "age": 57,
+      "gender": "Male",
+      "conditions": [
+        "Post-PCI Stent",
+        "CAD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-004",
+      "hazard_description": "Clopidogrel + Omeprazole CYP2C19 competitive inhibition reducing antiplatelet effect"
+    }
+  },
+  {
+    "case_id": "NM-005",
+    "hazard_type": "DDI",
+    "medications": [
+      "Lanoxin 0.25mg",
+      "Cordarone 200mg"
+    ],
+    "expected_generics": [
+      "digoxin",
+      "amiodarone"
+    ],
+    "patient_context": {
+      "age": 71,
+      "gender": "Male",
+      "conditions": [
+        "Heart Failure",
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-005",
+      "hazard_description": "Digoxin + Amiodarone P-gp and renal clearance inhibition causing digoxin toxicity / heart block"
+    }
+  },
+  {
+    "case_id": "NM-006",
+    "hazard_type": "DDI",
+    "medications": [
+      "Zocor 40mg",
+      "Norvasc 10mg"
+    ],
+    "expected_generics": [
+      "simvastatin",
+      "amlodipine"
+    ],
+    "patient_context": {
+      "age": 67,
+      "gender": "Female",
+      "conditions": [
+        "Hyperlipidemia",
+        "Hypertension"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-006",
+      "hazard_description": "Simvastatin (>20mg) + Amlodipine CYP3A4 competition causing rhabdomyolysis"
+    }
+  },
+  {
+    "case_id": "NM-007",
+    "hazard_type": "DDI",
+    "medications": [
+      "Citalopram 40mg",
+      "Zofran 8mg"
+    ],
+    "expected_generics": [
+      "citalopram",
+      "ondansetron"
+    ],
+    "patient_context": {
+      "age": 47,
+      "gender": "Female",
+      "conditions": [
+        "Depression",
+        "Chemotherapy Nausea"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-007",
+      "hazard_description": "Citalopram + Ondansetron additive cardiac hERG channel blockade causing Torsades de Pointes"
+    }
+  },
+  {
+    "case_id": "NM-008",
+    "hazard_type": "DDI",
+    "medications": [
+      "Cipro 500mg",
+      "Tizanidine 4mg"
+    ],
+    "expected_generics": [
+      "ciprofloxacin",
+      "tizanidine"
+    ],
+    "patient_context": {
+      "age": 55,
+      "gender": "Male",
+      "conditions": [
+        "Muscle Spasms",
+        "Prostatitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-008",
+      "hazard_description": "Ciprofloxacin potent CYP1A2 inhibition causing 10-fold tizanidine exposure and severe hypotension"
+    }
+  },
+  {
+    "case_id": "NM-009",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Tylenol Extra Strength 500mg",
+      "Panadol 500mg"
+    ],
+    "expected_generics": [
+      "acetaminophen",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 43,
+      "gender": "Female",
+      "conditions": [
+        "Chronic Back Pain"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-001",
+      "hazard_description": "Dual acetaminophen brand prescriptions exceeding 4000mg/day threshold causing acute liver necrosis"
+    }
+  },
+  {
+    "case_id": "NM-010",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Glucophage 1000mg",
+      "Metformin 500mg"
+    ],
+    "expected_generics": [
+      "metformin",
+      "metformin"
+    ],
+    "patient_context": {
+      "age": 60,
+      "gender": "Male",
+      "conditions": [
+        "Type 2 Diabetes"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-002",
+      "hazard_description": "Brand + generic duplicate metformin prescription causing gastrointestinal toxicity and lactic acidosis risk"
+    }
+  },
+  {
+    "case_id": "NM-011",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Advil 400mg",
+      "Motrin 400mg"
+    ],
+    "expected_generics": [
+      "ibuprofen",
+      "ibuprofen"
+    ],
+    "patient_context": {
+      "age": 38,
+      "gender": "Male",
+      "conditions": [
+        "Tendonitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-003",
+      "hazard_description": "Dual ibuprofen brand prescription causing cumulative NSAID toxicity and gastric ulceration"
+    }
+  },
+  {
+    "case_id": "NM-012",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Augmentin 875mg",
+      "Amoxil 500mg"
+    ],
+    "expected_generics": [
+      "amoxicillin",
+      "amoxicillin"
+    ],
+    "patient_context": {
+      "age": 32,
+      "gender": "Female",
+      "conditions": [
+        "Bacterial Sinusitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-004",
+      "hazard_description": "Combination product (Augmentin) + Amoxicillin duplication causing massive beta-lactam overdose"
+    }
+  },
+  {
+    "case_id": "NM-013",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Percocet 5/325",
+      "Tylenol 500mg"
+    ],
+    "expected_generics": [
+      "oxycodone",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 50,
+      "gender": "Male",
+      "conditions": [
+        "Post-Surgical Dental Pain"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-005",
+      "hazard_description": "Combination opioid-APAP product + OTC APAP leading to hidden hepatotoxic acetaminophen overdose"
+    }
+  },
+  {
+    "case_id": "NM-014",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Metformin 1000mg",
+      "Lisinopril 10mg"
+    ],
+    "expected_generics": [
+      "metformin",
+      "lisinopril"
+    ],
+    "patient_context": {
+      "age": 77,
+      "gender": "Male",
+      "egfr": 22.0,
+      "conditions": [
+        "Type 2 Diabetes",
+        "CKD Stage 4"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-001",
+      "hazard_description": "Metformin absolute contraindication at eGFR < 30 mL/min/1.73m2 due to fatal lactic acidosis"
+    }
+  },
+  {
+    "case_id": "NM-015",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Methotrexate 15mg weekly",
+      "Folic Acid 1mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "folic acid"
+    ],
+    "patient_context": {
+      "age": 73,
+      "gender": "Female",
+      "egfr": 26.0,
+      "conditions": [
+        "Rheumatoid Arthritis",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-002",
+      "hazard_description": "Methotrexate contraindicated in severe renal impairment (eGFR < 30) due to acute bone marrow suppression"
+    }
+  },
+  {
+    "case_id": "NM-016",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Lovenox 80mg",
+      "Aspirin 81mg"
+    ],
+    "expected_generics": [
+      "enoxaparin",
+      "aspirin"
+    ],
+    "patient_context": {
+      "age": 71,
+      "gender": "Female",
+      "creatinine_clearance": 24.0,
+      "conditions": [
+        "DVT",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-003",
+      "hazard_description": "Enoxaparin requires mandatory dose reduction at CrCl < 30 mL/min to prevent catastrophic bleeding"
+    }
+  },
+  {
+    "case_id": "NM-017",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Aldactone 50mg",
+      "Furosemide 40mg"
+    ],
+    "expected_generics": [
+      "spironolactone",
+      "furosemide"
+    ],
+    "patient_context": {
+      "age": 63,
+      "gender": "Male",
+      "egfr": 25.0,
+      "conditions": [
+        "Congestive Heart Failure",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-004",
+      "hazard_description": "Spironolactone contraindicated at eGFR < 30 due to unmanageable refractory hyperkalemia"
+    }
+  },
+  {
+    "case_id": "NM-018",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Motrin 600mg",
+      "Omeprazole 20mg"
+    ],
+    "expected_generics": [
+      "ibuprofen",
+      "omeprazole"
+    ],
+    "patient_context": {
+      "age": 59,
+      "gender": "Male",
+      "egfr": 28.0,
+      "conditions": [
+        "Osteoarthritis",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-005",
+      "hazard_description": "Ibuprofen contraindicated at eGFR < 30 due to acute-on-chronic renal decompensation"
+    }
+  },
+  {
+    "case_id": "NM-019",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Coumadin 5mg",
+      "Atorvastatin 20mg"
+    ],
+    "expected_generics": [
+      "warfarin",
+      "atorvastatin"
+    ],
+    "patient_context": {
+      "age": 55,
+      "gender": "Male",
+      "conditions": [
+        "Peptic Ulcer",
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-001",
+      "hazard_description": "Warfarin absolute contraindication in active peptic ulcer disease due to massive GI hemorrhage"
+    }
+  },
+  {
+    "case_id": "NM-020",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Inderal 40mg",
+      "Lisinopril 10mg"
+    ],
+    "expected_generics": [
+      "propranolol",
+      "lisinopril"
+    ],
+    "patient_context": {
+      "age": 31,
+      "gender": "Female",
+      "conditions": [
+        "Asthma",
+        "Migraine Prophylaxis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-003",
+      "hazard_description": "Propranolol non-selective beta-2 blockade triggering acute bronchospasm and refractory status asthmaticus"
+    }
+  },
+  {
+    "case_id": "NM-021",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Trexall 20mg",
+      "Acetaminophen 500mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 25,
+      "gender": "Female",
+      "is_pregnant": true,
+      "conditions": [
+        "Severe Psoriasis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-004",
+      "hazard_description": "Methotrexate Pregnancy Category X / absolute teratogenicity and fetal demise"
+    }
+  },
+  {
+    "case_id": "NM-022",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Prinivil 20mg",
+      "Hydrochlorothiazide 25mg"
+    ],
+    "expected_generics": [
+      "lisinopril",
+      "hydrochlorothiazide"
+    ],
+    "patient_context": {
+      "age": 30,
+      "gender": "Female",
+      "is_pregnant": true,
+      "conditions": [
+        "Chronic Hypertension"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-005",
+      "hazard_description": "Lisinopril fetal renal dysgenesis and neonatal death in pregnancy"
+    }
+  },
+  {
+    "case_id": "NM-023",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Amoxil 500mg",
+      "Acetaminophen 650mg"
+    ],
+    "expected_generics": [
+      "amoxicillin",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 22,
+      "gender": "Male",
+      "allergies": [
+        "Penicillin"
+      ],
+      "conditions": [
+        "Pharyngitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-006",
+      "hazard_description": "Amoxicillin in confirmed penicillin allergy causing IgE-mediated anaphylaxis and angioedema"
+    }
+  },
+  {
+    "case_id": "NM-024",
+    "hazard_type": "DDI",
+    "medications": [
+      "Coumadinn 5mg",
+      "Diflucane 200mg"
+    ],
+    "expected_generics": [
+      "warfarin",
+      "fluconazole"
+    ],
+    "patient_context": {
+      "age": 69,
+      "gender": "Male",
+      "conditions": [
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-001",
+      "hazard_description": "Warfarin + Fluconazole CYP2C9 inhibition causing severe bleeding risk"
+    }
+  },
+  {
+    "case_id": "NM-025",
+    "hazard_type": "DDI",
+    "medications": [
+      "Zestrile 20mg",
+      "Aldacton 25mg"
+    ],
+    "expected_generics": [
+      "lisinopril",
+      "spironolactone"
+    ],
+    "patient_context": {
+      "age": 67,
+      "gender": "Female",
+      "conditions": [
+        "Heart Failure",
+        "CKD Stage 3"
+      ],
+      "egfr": 40.0
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-002",
+      "hazard_description": "Lisinopril + Spironolactone dual renin-aldosterone blockade causing lethal hyperkalemia"
+    }
+  },
+  {
+    "case_id": "NM-026",
+    "hazard_type": "DDI",
+    "medications": [
+      "Trexalll 15mg",
+      "Motrinn 600mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "ibuprofen"
+    ],
+    "patient_context": {
+      "age": 55,
+      "gender": "Female",
+      "conditions": [
+        "Rheumatoid Arthritis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-003",
+      "hazard_description": "Methotrexate + Ibuprofen renal elimination inhibition causing pancytopenia"
+    }
+  },
+  {
+    "case_id": "NM-027",
+    "hazard_type": "DDI",
+    "medications": [
+      "Plavixx 75mg",
+      "Omeprazole 20mg"
+    ],
+    "expected_generics": [
+      "clopidogrel",
+      "omeprazole"
+    ],
+    "patient_context": {
+      "age": 65,
+      "gender": "Male",
+      "conditions": [
+        "Post-PCI Stent",
+        "CAD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-004",
+      "hazard_description": "Clopidogrel + Omeprazole CYP2C19 competitive inhibition reducing antiplatelet effect"
+    }
+  },
+  {
+    "case_id": "NM-028",
+    "hazard_type": "DDI",
+    "medications": [
+      "Digoxin 0.25mg",
+      "Amiodarone 200mg"
+    ],
+    "expected_generics": [
+      "digoxin",
+      "amiodarone"
+    ],
+    "patient_context": {
+      "age": 79,
+      "gender": "Male",
+      "conditions": [
+        "Heart Failure",
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-005",
+      "hazard_description": "Digoxin + Amiodarone P-gp and renal clearance inhibition causing digoxin toxicity / heart block"
+    }
+  },
+  {
+    "case_id": "NM-029",
+    "hazard_type": "DDI",
+    "medications": [
+      "Simvastatin 40mg",
+      "Amlodipine 10mg"
+    ],
+    "expected_generics": [
+      "simvastatin",
+      "amlodipine"
+    ],
+    "patient_context": {
+      "age": 75,
+      "gender": "Female",
+      "conditions": [
+        "Hyperlipidemia",
+        "Hypertension"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-006",
+      "hazard_description": "Simvastatin (>20mg) + Amlodipine CYP3A4 competition causing rhabdomyolysis"
+    }
+  },
+  {
+    "case_id": "NM-030",
+    "hazard_type": "DDI",
+    "medications": [
+      "Celexa 40mg",
+      "Ondansetron 8mg"
+    ],
+    "expected_generics": [
+      "citalopram",
+      "ondansetron"
+    ],
+    "patient_context": {
+      "age": 55,
+      "gender": "Female",
+      "conditions": [
+        "Depression",
+        "Chemotherapy Nausea"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-007",
+      "hazard_description": "Citalopram + Ondansetron additive cardiac hERG channel blockade causing Torsades de Pointes"
+    }
+  },
+  {
+    "case_id": "NM-031",
+    "hazard_type": "DDI",
+    "medications": [
+      "Ciprofloxacin 500mg",
+      "Zanaflex 4mg"
+    ],
+    "expected_generics": [
+      "ciprofloxacin",
+      "tizanidine"
+    ],
+    "patient_context": {
+      "age": 48,
+      "gender": "Male",
+      "conditions": [
+        "Muscle Spasms",
+        "Prostatitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-008",
+      "hazard_description": "Ciprofloxacin potent CYP1A2 inhibition causing 10-fold tizanidine exposure and severe hypotension"
+    }
+  },
+  {
+    "case_id": "NM-032",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Tylenoll 500mg",
+      "Paracetamol 500mg"
+    ],
+    "expected_generics": [
+      "acetaminophen",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 36,
+      "gender": "Female",
+      "conditions": [
+        "Chronic Back Pain"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-001",
+      "hazard_description": "Dual acetaminophen brand prescriptions exceeding 4000mg/day threshold causing acute liver necrosis"
+    }
+  },
+  {
+    "case_id": "NM-033",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Glucophagee 1000mg",
+      "Metformine 500mg"
+    ],
+    "expected_generics": [
+      "metformin",
+      "metformin"
+    ],
+    "patient_context": {
+      "age": 53,
+      "gender": "Male",
+      "conditions": [
+        "Type 2 Diabetes"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-002",
+      "hazard_description": "Brand + generic duplicate metformin prescription causing gastrointestinal toxicity and lactic acidosis risk"
+    }
+  },
+  {
+    "case_id": "NM-034",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Advill 400mg",
+      "Motrin 400mg"
+    ],
+    "expected_generics": [
+      "ibuprofen",
+      "ibuprofen"
+    ],
+    "patient_context": {
+      "age": 31,
+      "gender": "Male",
+      "conditions": [
+        "Tendonitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-003",
+      "hazard_description": "Dual ibuprofen brand prescription causing cumulative NSAID toxicity and gastric ulceration"
+    }
+  },
+  {
+    "case_id": "NM-035",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Augmentinn 875mg",
+      "Amoxill 500mg"
+    ],
+    "expected_generics": [
+      "amoxicillin",
+      "amoxicillin"
+    ],
+    "patient_context": {
+      "age": 25,
+      "gender": "Female",
+      "conditions": [
+        "Bacterial Sinusitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-004",
+      "hazard_description": "Combination product (Augmentin) + Amoxicillin duplication causing massive beta-lactam overdose"
+    }
+  },
+  {
+    "case_id": "NM-036",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Percocett 5/325",
+      "Tylenoll 500mg"
+    ],
+    "expected_generics": [
+      "oxycodone",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 43,
+      "gender": "Male",
+      "conditions": [
+        "Post-Surgical Dental Pain"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-005",
+      "hazard_description": "Combination opioid-APAP product + OTC APAP leading to hidden hepatotoxic acetaminophen overdose"
+    }
+  },
+  {
+    "case_id": "NM-037",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Metformin 1000mg",
+      "Lisinopril 10mg"
+    ],
+    "expected_generics": [
+      "metformin",
+      "lisinopril"
+    ],
+    "patient_context": {
+      "age": 70,
+      "gender": "Male",
+      "egfr": 22.0,
+      "conditions": [
+        "Type 2 Diabetes",
+        "CKD Stage 4"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-001",
+      "hazard_description": "Metformin absolute contraindication at eGFR < 30 mL/min/1.73m2 due to fatal lactic acidosis"
+    }
+  },
+  {
+    "case_id": "NM-038",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Methotrexate 15mg weekly",
+      "Folic Acid 1mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "folic acid"
+    ],
+    "patient_context": {
+      "age": 66,
+      "gender": "Female",
+      "egfr": 26.0,
+      "conditions": [
+        "Rheumatoid Arthritis",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-002",
+      "hazard_description": "Methotrexate contraindicated in severe renal impairment (eGFR < 30) due to acute bone marrow suppression"
+    }
+  },
+  {
+    "case_id": "NM-039",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Enoxaparin 80mg",
+      "Aspirin 81mg"
+    ],
+    "expected_generics": [
+      "enoxaparin",
+      "aspirin"
+    ],
+    "patient_context": {
+      "age": 79,
+      "gender": "Female",
+      "creatinine_clearance": 24.0,
+      "conditions": [
+        "DVT",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-003",
+      "hazard_description": "Enoxaparin requires mandatory dose reduction at CrCl < 30 mL/min to prevent catastrophic bleeding"
+    }
+  },
+  {
+    "case_id": "NM-040",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Aldactone 50mg",
+      "Furosemide 40mg"
+    ],
+    "expected_generics": [
+      "spironolactone",
+      "furosemide"
+    ],
+    "patient_context": {
+      "age": 71,
+      "gender": "Male",
+      "egfr": 25.0,
+      "conditions": [
+        "Congestive Heart Failure",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-004",
+      "hazard_description": "Spironolactone contraindicated at eGFR < 30 due to unmanageable refractory hyperkalemia"
+    }
+  },
+  {
+    "case_id": "NM-041",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Motrinn 600mg",
+      "Omeprazole 20mg"
+    ],
+    "expected_generics": [
+      "ibuprofen",
+      "omeprazole"
+    ],
+    "patient_context": {
+      "age": 67,
+      "gender": "Male",
+      "egfr": 28.0,
+      "conditions": [
+        "Osteoarthritis",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-005",
+      "hazard_description": "Ibuprofen contraindicated at eGFR < 30 due to acute-on-chronic renal decompensation"
+    }
+  },
+  {
+    "case_id": "NM-042",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Coumadinn 5mg",
+      "Atorvastatin 20mg"
+    ],
+    "expected_generics": [
+      "warfarin",
+      "atorvastatin"
+    ],
+    "patient_context": {
+      "age": 63,
+      "gender": "Male",
+      "conditions": [
+        "Peptic Ulcer",
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-001",
+      "hazard_description": "Warfarin absolute contraindication in active peptic ulcer disease due to massive GI hemorrhage"
+    }
+  },
+  {
+    "case_id": "NM-043",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Propranolol 40mg",
+      "Lisinopril 10mg"
+    ],
+    "expected_generics": [
+      "propranolol",
+      "lisinopril"
+    ],
+    "patient_context": {
+      "age": 39,
+      "gender": "Female",
+      "conditions": [
+        "Asthma",
+        "Migraine Prophylaxis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-003",
+      "hazard_description": "Propranolol non-selective beta-2 blockade triggering acute bronchospasm and refractory status asthmaticus"
+    }
+  },
+  {
+    "case_id": "NM-044",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Trexall 20mg",
+      "Acetaminophen 500mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 33,
+      "gender": "Female",
+      "is_pregnant": true,
+      "conditions": [
+        "Severe Psoriasis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-004",
+      "hazard_description": "Methotrexate Pregnancy Category X / absolute teratogenicity and fetal demise"
+    }
+  },
+  {
+    "case_id": "NM-045",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Lisinopril 20mg",
+      "Hydrochlorothiazide 25mg"
+    ],
+    "expected_generics": [
+      "lisinopril",
+      "hydrochlorothiazide"
+    ],
+    "patient_context": {
+      "age": 38,
+      "gender": "Female",
+      "is_pregnant": true,
+      "conditions": [
+        "Chronic Hypertension"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-005",
+      "hazard_description": "Lisinopril fetal renal dysgenesis and neonatal death in pregnancy"
+    }
+  },
+  {
+    "case_id": "NM-046",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Amoxill 500mg",
+      "Acetaminophen 650mg"
+    ],
+    "expected_generics": [
+      "amoxicillin",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 15,
+      "gender": "Male",
+      "allergies": [
+        "Penicillin"
+      ],
+      "conditions": [
+        "Pharyngitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-006",
+      "hazard_description": "Amoxicillin in confirmed penicillin allergy causing IgE-mediated anaphylaxis and angioedema"
+    }
+  },
+  {
+    "case_id": "NM-047",
+    "hazard_type": "DDI",
+    "medications": [
+      "Warfrin 5mg",
+      "Fluconazol 200mg"
+    ],
+    "expected_generics": [
+      "warfarin",
+      "fluconazole"
+    ],
+    "patient_context": {
+      "age": 62,
+      "gender": "Male",
+      "conditions": [
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-001",
+      "hazard_description": "Warfarin + Fluconazole CYP2C9 inhibition causing severe bleeding risk"
+    }
+  },
+  {
+    "case_id": "NM-048",
+    "hazard_type": "DDI",
+    "medications": [
+      "Lisinoprile 20mg",
+      "Spironolacton 25mg"
+    ],
+    "expected_generics": [
+      "lisinopril",
+      "spironolactone"
+    ],
+    "patient_context": {
+      "age": 60,
+      "gender": "Female",
+      "conditions": [
+        "Heart Failure",
+        "CKD Stage 3"
+      ],
+      "egfr": 40.0
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-002",
+      "hazard_description": "Lisinopril + Spironolactone dual renin-aldosterone blockade causing lethal hyperkalemia"
+    }
+  },
+  {
+    "case_id": "NM-049",
+    "hazard_type": "DDI",
+    "medications": [
+      "Methotrexat 15mg",
+      "Ibuprophen 600mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "ibuprofen"
+    ],
+    "patient_context": {
+      "age": 48,
+      "gender": "Female",
+      "conditions": [
+        "Rheumatoid Arthritis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-003",
+      "hazard_description": "Methotrexate + Ibuprofen renal elimination inhibition causing pancytopenia"
+    }
+  },
+  {
+    "case_id": "NM-050",
+    "hazard_type": "DDI",
+    "medications": [
+      "Clopidogrel 75mg",
+      "Prilosecc 20mg"
+    ],
+    "expected_generics": [
+      "clopidogrel",
+      "omeprazole"
+    ],
+    "patient_context": {
+      "age": 58,
+      "gender": "Male",
+      "conditions": [
+        "Post-PCI Stent",
+        "CAD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-004",
+      "hazard_description": "Clopidogrel + Omeprazole CYP2C19 competitive inhibition reducing antiplatelet effect"
+    }
+  },
+  {
+    "case_id": "NM-051",
+    "hazard_type": "DDI",
+    "medications": [
+      "Lanoxine 0.25mg",
+      "Cordaronee 200mg"
+    ],
+    "expected_generics": [
+      "digoxin",
+      "amiodarone"
+    ],
+    "patient_context": {
+      "age": 72,
+      "gender": "Male",
+      "conditions": [
+        "Heart Failure",
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-005",
+      "hazard_description": "Digoxin + Amiodarone P-gp and renal clearance inhibition causing digoxin toxicity / heart block"
+    }
+  },
+  {
+    "case_id": "NM-052",
+    "hazard_type": "DDI",
+    "medications": [
+      "Zocorr 40mg",
+      "Norvascc 10mg"
+    ],
+    "expected_generics": [
+      "simvastatin",
+      "amlodipine"
+    ],
+    "patient_context": {
+      "age": 68,
+      "gender": "Female",
+      "conditions": [
+        "Hyperlipidemia",
+        "Hypertension"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-006",
+      "hazard_description": "Simvastatin (>20mg) + Amlodipine CYP3A4 competition causing rhabdomyolysis"
+    }
+  },
+  {
+    "case_id": "NM-053",
+    "hazard_type": "DDI",
+    "medications": [
+      "Citaloprame 40mg",
+      "Zofrann 8mg"
+    ],
+    "expected_generics": [
+      "citalopram",
+      "ondansetron"
+    ],
+    "patient_context": {
+      "age": 48,
+      "gender": "Female",
+      "conditions": [
+        "Depression",
+        "Chemotherapy Nausea"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-007",
+      "hazard_description": "Citalopram + Ondansetron additive cardiac hERG channel blockade causing Torsades de Pointes"
+    }
+  },
+  {
+    "case_id": "NM-054",
+    "hazard_type": "DDI",
+    "medications": [
+      "Ciprofloxacine 500mg",
+      "Tizanidin 4mg"
+    ],
+    "expected_generics": [
+      "ciprofloxacin",
+      "tizanidine"
+    ],
+    "patient_context": {
+      "age": 56,
+      "gender": "Male",
+      "conditions": [
+        "Muscle Spasms",
+        "Prostatitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-008",
+      "hazard_description": "Ciprofloxacin potent CYP1A2 inhibition causing 10-fold tizanidine exposure and severe hypotension"
+    }
+  },
+  {
+    "case_id": "NM-055",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Acetaminophene 500mg",
+      "Panadoll 500mg"
+    ],
+    "expected_generics": [
+      "acetaminophen",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 44,
+      "gender": "Female",
+      "conditions": [
+        "Chronic Back Pain"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-001",
+      "hazard_description": "Dual acetaminophen brand prescriptions exceeding 4000mg/day threshold causing acute liver necrosis"
+    }
+  },
+  {
+    "case_id": "NM-056",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Metformn 1000mg",
+      "Metformin 500mg"
+    ],
+    "expected_generics": [
+      "metformin",
+      "metformin"
+    ],
+    "patient_context": {
+      "age": 61,
+      "gender": "Male",
+      "conditions": [
+        "Type 2 Diabetes"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-002",
+      "hazard_description": "Brand + generic duplicate metformin prescription causing gastrointestinal toxicity and lactic acidosis risk"
+    }
+  },
+  {
+    "case_id": "NM-057",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Ibuprofen 400mg",
+      "Motrin 400mg"
+    ],
+    "expected_generics": [
+      "ibuprofen",
+      "ibuprofen"
+    ],
+    "patient_context": {
+      "age": 39,
+      "gender": "Male",
+      "conditions": [
+        "Tendonitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-003",
+      "hazard_description": "Dual ibuprofen brand prescription causing cumulative NSAID toxicity and gastric ulceration"
+    }
+  },
+  {
+    "case_id": "NM-058",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Co-amoxiclav 875mg",
+      "Amoxicilline 500mg"
+    ],
+    "expected_generics": [
+      "amoxicillin",
+      "amoxicillin"
+    ],
+    "patient_context": {
+      "age": 33,
+      "gender": "Female",
+      "conditions": [
+        "Bacterial Sinusitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-004",
+      "hazard_description": "Combination product (Augmentin) + Amoxicillin duplication causing massive beta-lactam overdose"
+    }
+  },
+  {
+    "case_id": "NM-059",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Oxycodone-APAP 5/325",
+      "APAP 500mg"
+    ],
+    "expected_generics": [
+      "oxycodone",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 51,
+      "gender": "Male",
+      "conditions": [
+        "Post-Surgical Dental Pain"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-005",
+      "hazard_description": "Combination opioid-APAP product + OTC APAP leading to hidden hepatotoxic acetaminophen overdose"
+    }
+  },
+  {
+    "case_id": "NM-060",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Metformin 1000mg",
+      "Lisinopril 10mg"
+    ],
+    "expected_generics": [
+      "metformin",
+      "lisinopril"
+    ],
+    "patient_context": {
+      "age": 78,
+      "gender": "Male",
+      "egfr": 22.0,
+      "conditions": [
+        "Type 2 Diabetes",
+        "CKD Stage 4"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-001",
+      "hazard_description": "Metformin absolute contraindication at eGFR < 30 mL/min/1.73m2 due to fatal lactic acidosis"
+    }
+  },
+  {
+    "case_id": "NM-061",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Methotrexate 15mg weekly",
+      "Folic Acid 1mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "folic acid"
+    ],
+    "patient_context": {
+      "age": 59,
+      "gender": "Female",
+      "egfr": 26.0,
+      "conditions": [
+        "Rheumatoid Arthritis",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-002",
+      "hazard_description": "Methotrexate contraindicated in severe renal impairment (eGFR < 30) due to acute bone marrow suppression"
+    }
+  },
+  {
+    "case_id": "NM-062",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Lovenoxx 80mg",
+      "Aspirin 81mg"
+    ],
+    "expected_generics": [
+      "enoxaparin",
+      "aspirin"
+    ],
+    "patient_context": {
+      "age": 72,
+      "gender": "Female",
+      "creatinine_clearance": 24.0,
+      "conditions": [
+        "DVT",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-003",
+      "hazard_description": "Enoxaparin requires mandatory dose reduction at CrCl < 30 mL/min to prevent catastrophic bleeding"
+    }
+  },
+  {
+    "case_id": "NM-063",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Aldactone 50mg",
+      "Furosemide 40mg"
+    ],
+    "expected_generics": [
+      "spironolactone",
+      "furosemide"
+    ],
+    "patient_context": {
+      "age": 64,
+      "gender": "Male",
+      "egfr": 25.0,
+      "conditions": [
+        "Congestive Heart Failure",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-004",
+      "hazard_description": "Spironolactone contraindicated at eGFR < 30 due to unmanageable refractory hyperkalemia"
+    }
+  },
+  {
+    "case_id": "NM-064",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Ibuprophen 600mg",
+      "Omeprazole 20mg"
+    ],
+    "expected_generics": [
+      "ibuprofen",
+      "omeprazole"
+    ],
+    "patient_context": {
+      "age": 60,
+      "gender": "Male",
+      "egfr": 28.0,
+      "conditions": [
+        "Osteoarthritis",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-005",
+      "hazard_description": "Ibuprofen contraindicated at eGFR < 30 due to acute-on-chronic renal decompensation"
+    }
+  },
+  {
+    "case_id": "NM-065",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Warfrin 5mg",
+      "Atorvastatin 20mg"
+    ],
+    "expected_generics": [
+      "warfarin",
+      "atorvastatin"
+    ],
+    "patient_context": {
+      "age": 56,
+      "gender": "Male",
+      "conditions": [
+        "Peptic Ulcer",
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-001",
+      "hazard_description": "Warfarin absolute contraindication in active peptic ulcer disease due to massive GI hemorrhage"
+    }
+  },
+  {
+    "case_id": "NM-066",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Inderall 40mg",
+      "Lisinopril 10mg"
+    ],
+    "expected_generics": [
+      "propranolol",
+      "lisinopril"
+    ],
+    "patient_context": {
+      "age": 32,
+      "gender": "Female",
+      "conditions": [
+        "Asthma",
+        "Migraine Prophylaxis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-003",
+      "hazard_description": "Propranolol non-selective beta-2 blockade triggering acute bronchospasm and refractory status asthmaticus"
+    }
+  },
+  {
+    "case_id": "NM-067",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Trexall 20mg",
+      "Acetaminophen 500mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 26,
+      "gender": "Female",
+      "is_pregnant": true,
+      "conditions": [
+        "Severe Psoriasis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-004",
+      "hazard_description": "Methotrexate Pregnancy Category X / absolute teratogenicity and fetal demise"
+    }
+  },
+  {
+    "case_id": "NM-068",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Prinivill 20mg",
+      "Hydrochlorothiazide 25mg"
+    ],
+    "expected_generics": [
+      "lisinopril",
+      "hydrochlorothiazide"
+    ],
+    "patient_context": {
+      "age": 31,
+      "gender": "Female",
+      "is_pregnant": true,
+      "conditions": [
+        "Chronic Hypertension"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-005",
+      "hazard_description": "Lisinopril fetal renal dysgenesis and neonatal death in pregnancy"
+    }
+  },
+  {
+    "case_id": "NM-069",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Amoxicilline 500mg",
+      "Acetaminophen 650mg"
+    ],
+    "expected_generics": [
+      "amoxicillin",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 23,
+      "gender": "Male",
+      "allergies": [
+        "Penicillin"
+      ],
+      "conditions": [
+        "Pharyngitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-006",
+      "hazard_description": "Amoxicillin in confirmed penicillin allergy causing IgE-mediated anaphylaxis and angioedema"
+    }
+  },
+  {
+    "case_id": "NM-070",
+    "hazard_type": "DDI",
+    "medications": [
+      "Coumadin tab",
+      "Diflucan 200mg"
+    ],
+    "expected_generics": [
+      "warfarin",
+      "fluconazole"
+    ],
+    "patient_context": {
+      "age": 70,
+      "gender": "Male",
+      "conditions": [
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-001",
+      "hazard_description": "Warfarin + Fluconazole CYP2C9 inhibition causing severe bleeding risk"
+    }
+  },
+  {
+    "case_id": "NM-071",
+    "hazard_type": "DDI",
+    "medications": [
+      "Zestril 20mg",
+      "Aldactone 25mg"
+    ],
+    "expected_generics": [
+      "lisinopril",
+      "spironolactone"
+    ],
+    "patient_context": {
+      "age": 68,
+      "gender": "Female",
+      "conditions": [
+        "Heart Failure",
+        "CKD Stage 3"
+      ],
+      "egfr": 40.0
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-002",
+      "hazard_description": "Lisinopril + Spironolactone dual renin-aldosterone blockade causing lethal hyperkalemia"
+    }
+  },
+  {
+    "case_id": "NM-072",
+    "hazard_type": "DDI",
+    "medications": [
+      "Trexall 15mg weekly",
+      "Motrin 600mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "ibuprofen"
+    ],
+    "patient_context": {
+      "age": 56,
+      "gender": "Female",
+      "conditions": [
+        "Rheumatoid Arthritis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-003",
+      "hazard_description": "Methotrexate + Ibuprofen renal elimination inhibition causing pancytopenia"
+    }
+  },
+  {
+    "case_id": "NM-073",
+    "hazard_type": "DDI",
+    "medications": [
+      "Plavix 75mg",
+      "Prilosec 20mg"
+    ],
+    "expected_generics": [
+      "clopidogrel",
+      "omeprazole"
+    ],
+    "patient_context": {
+      "age": 66,
+      "gender": "Male",
+      "conditions": [
+        "Post-PCI Stent",
+        "CAD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-004",
+      "hazard_description": "Clopidogrel + Omeprazole CYP2C19 competitive inhibition reducing antiplatelet effect"
+    }
+  },
+  {
+    "case_id": "NM-074",
+    "hazard_type": "DDI",
+    "medications": [
+      "Lanoxin 0.25mg",
+      "Cordarone 200mg"
+    ],
+    "expected_generics": [
+      "digoxin",
+      "amiodarone"
+    ],
+    "patient_context": {
+      "age": 80,
+      "gender": "Male",
+      "conditions": [
+        "Heart Failure",
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-005",
+      "hazard_description": "Digoxin + Amiodarone P-gp and renal clearance inhibition causing digoxin toxicity / heart block"
+    }
+  },
+  {
+    "case_id": "NM-075",
+    "hazard_type": "DDI",
+    "medications": [
+      "Zocor 40mg",
+      "Norvasc 10mg"
+    ],
+    "expected_generics": [
+      "simvastatin",
+      "amlodipine"
+    ],
+    "patient_context": {
+      "age": 76,
+      "gender": "Female",
+      "conditions": [
+        "Hyperlipidemia",
+        "Hypertension"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-006",
+      "hazard_description": "Simvastatin (>20mg) + Amlodipine CYP3A4 competition causing rhabdomyolysis"
+    }
+  },
+  {
+    "case_id": "NM-076",
+    "hazard_type": "DDI",
+    "medications": [
+      "Citalopram 40mg",
+      "Zofran 8mg"
+    ],
+    "expected_generics": [
+      "citalopram",
+      "ondansetron"
+    ],
+    "patient_context": {
+      "age": 41,
+      "gender": "Female",
+      "conditions": [
+        "Depression",
+        "Chemotherapy Nausea"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-007",
+      "hazard_description": "Citalopram + Ondansetron additive cardiac hERG channel blockade causing Torsades de Pointes"
+    }
+  },
+  {
+    "case_id": "NM-077",
+    "hazard_type": "DDI",
+    "medications": [
+      "Cipro 500mg",
+      "Tizanidine 4mg"
+    ],
+    "expected_generics": [
+      "ciprofloxacin",
+      "tizanidine"
+    ],
+    "patient_context": {
+      "age": 49,
+      "gender": "Male",
+      "conditions": [
+        "Muscle Spasms",
+        "Prostatitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-008",
+      "hazard_description": "Ciprofloxacin potent CYP1A2 inhibition causing 10-fold tizanidine exposure and severe hypotension"
+    }
+  },
+  {
+    "case_id": "NM-078",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Tylenol Extra Strength 500mg",
+      "Panadol 500mg"
+    ],
+    "expected_generics": [
+      "acetaminophen",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 37,
+      "gender": "Female",
+      "conditions": [
+        "Chronic Back Pain"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-001",
+      "hazard_description": "Dual acetaminophen brand prescriptions exceeding 4000mg/day threshold causing acute liver necrosis"
+    }
+  },
+  {
+    "case_id": "NM-079",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Glucophage 1000mg",
+      "Metformine 500mg"
+    ],
+    "expected_generics": [
+      "metformin",
+      "metformin"
+    ],
+    "patient_context": {
+      "age": 54,
+      "gender": "Male",
+      "conditions": [
+        "Type 2 Diabetes"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-002",
+      "hazard_description": "Brand + generic duplicate metformin prescription causing gastrointestinal toxicity and lactic acidosis risk"
+    }
+  },
+  {
+    "case_id": "NM-080",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Advil 400mg",
+      "Motrin 400mg"
+    ],
+    "expected_generics": [
+      "ibuprofen",
+      "ibuprofen"
+    ],
+    "patient_context": {
+      "age": 32,
+      "gender": "Male",
+      "conditions": [
+        "Tendonitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-003",
+      "hazard_description": "Dual ibuprofen brand prescription causing cumulative NSAID toxicity and gastric ulceration"
+    }
+  },
+  {
+    "case_id": "NM-081",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Augmentin 875mg",
+      "Amoxil 500mg"
+    ],
+    "expected_generics": [
+      "amoxicillin",
+      "amoxicillin"
+    ],
+    "patient_context": {
+      "age": 26,
+      "gender": "Female",
+      "conditions": [
+        "Bacterial Sinusitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-004",
+      "hazard_description": "Combination product (Augmentin) + Amoxicillin duplication causing massive beta-lactam overdose"
+    }
+  },
+  {
+    "case_id": "NM-082",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Percocet 5/325",
+      "Tylenol 500mg"
+    ],
+    "expected_generics": [
+      "oxycodone",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 44,
+      "gender": "Male",
+      "conditions": [
+        "Post-Surgical Dental Pain"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-005",
+      "hazard_description": "Combination opioid-APAP product + OTC APAP leading to hidden hepatotoxic acetaminophen overdose"
+    }
+  },
+  {
+    "case_id": "NM-083",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Metformin 1000mg",
+      "Lisinopril 10mg"
+    ],
+    "expected_generics": [
+      "metformin",
+      "lisinopril"
+    ],
+    "patient_context": {
+      "age": 71,
+      "gender": "Male",
+      "egfr": 22.0,
+      "conditions": [
+        "Type 2 Diabetes",
+        "CKD Stage 4"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-001",
+      "hazard_description": "Metformin absolute contraindication at eGFR < 30 mL/min/1.73m2 due to fatal lactic acidosis"
+    }
+  },
+  {
+    "case_id": "NM-084",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Methotrexate 15mg weekly",
+      "Folic Acid 1mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "folic acid"
+    ],
+    "patient_context": {
+      "age": 67,
+      "gender": "Female",
+      "egfr": 26.0,
+      "conditions": [
+        "Rheumatoid Arthritis",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-002",
+      "hazard_description": "Methotrexate contraindicated in severe renal impairment (eGFR < 30) due to acute bone marrow suppression"
+    }
+  },
+  {
+    "case_id": "NM-085",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Lovenox 80mg",
+      "Aspirin 81mg"
+    ],
+    "expected_generics": [
+      "enoxaparin",
+      "aspirin"
+    ],
+    "patient_context": {
+      "age": 80,
+      "gender": "Female",
+      "creatinine_clearance": 24.0,
+      "conditions": [
+        "DVT",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-003",
+      "hazard_description": "Enoxaparin requires mandatory dose reduction at CrCl < 30 mL/min to prevent catastrophic bleeding"
+    }
+  },
+  {
+    "case_id": "NM-086",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Aldactone 50mg",
+      "Furosemide 40mg"
+    ],
+    "expected_generics": [
+      "spironolactone",
+      "furosemide"
+    ],
+    "patient_context": {
+      "age": 72,
+      "gender": "Male",
+      "egfr": 25.0,
+      "conditions": [
+        "Congestive Heart Failure",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-004",
+      "hazard_description": "Spironolactone contraindicated at eGFR < 30 due to unmanageable refractory hyperkalemia"
+    }
+  },
+  {
+    "case_id": "NM-087",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Motrin 600mg",
+      "Omeprazole 20mg"
+    ],
+    "expected_generics": [
+      "ibuprofen",
+      "omeprazole"
+    ],
+    "patient_context": {
+      "age": 68,
+      "gender": "Male",
+      "egfr": 28.0,
+      "conditions": [
+        "Osteoarthritis",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-005",
+      "hazard_description": "Ibuprofen contraindicated at eGFR < 30 due to acute-on-chronic renal decompensation"
+    }
+  },
+  {
+    "case_id": "NM-088",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Coumadin tab",
+      "Atorvastatin 20mg"
+    ],
+    "expected_generics": [
+      "warfarin",
+      "atorvastatin"
+    ],
+    "patient_context": {
+      "age": 64,
+      "gender": "Male",
+      "conditions": [
+        "Peptic Ulcer",
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-001",
+      "hazard_description": "Warfarin absolute contraindication in active peptic ulcer disease due to massive GI hemorrhage"
+    }
+  },
+  {
+    "case_id": "NM-089",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Inderal 40mg",
+      "Lisinopril 10mg"
+    ],
+    "expected_generics": [
+      "propranolol",
+      "lisinopril"
+    ],
+    "patient_context": {
+      "age": 40,
+      "gender": "Female",
+      "conditions": [
+        "Asthma",
+        "Migraine Prophylaxis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-003",
+      "hazard_description": "Propranolol non-selective beta-2 blockade triggering acute bronchospasm and refractory status asthmaticus"
+    }
+  },
+  {
+    "case_id": "NM-090",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Trexall 20mg",
+      "Acetaminophen 500mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 34,
+      "gender": "Female",
+      "is_pregnant": true,
+      "conditions": [
+        "Severe Psoriasis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-004",
+      "hazard_description": "Methotrexate Pregnancy Category X / absolute teratogenicity and fetal demise"
+    }
+  },
+  {
+    "case_id": "NM-091",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Prinivil 20mg",
+      "Hydrochlorothiazide 25mg"
+    ],
+    "expected_generics": [
+      "lisinopril",
+      "hydrochlorothiazide"
+    ],
+    "patient_context": {
+      "age": 24,
+      "gender": "Female",
+      "is_pregnant": true,
+      "conditions": [
+        "Chronic Hypertension"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-005",
+      "hazard_description": "Lisinopril fetal renal dysgenesis and neonatal death in pregnancy"
+    }
+  },
+  {
+    "case_id": "NM-092",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Amoxil 500mg",
+      "Acetaminophen 650mg"
+    ],
+    "expected_generics": [
+      "amoxicillin",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 16,
+      "gender": "Male",
+      "allergies": [
+        "Penicillin"
+      ],
+      "conditions": [
+        "Pharyngitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-006",
+      "hazard_description": "Amoxicillin in confirmed penicillin allergy causing IgE-mediated anaphylaxis and angioedema"
+    }
+  },
+  {
+    "case_id": "NM-093",
+    "hazard_type": "DDI",
+    "medications": [
+      "Coumadin 5mg",
+      "Diflucane 200mg"
+    ],
+    "expected_generics": [
+      "warfarin",
+      "fluconazole"
+    ],
+    "patient_context": {
+      "age": 63,
+      "gender": "Male",
+      "conditions": [
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-001",
+      "hazard_description": "Warfarin + Fluconazole CYP2C9 inhibition causing severe bleeding risk"
+    }
+  },
+  {
+    "case_id": "NM-094",
+    "hazard_type": "DDI",
+    "medications": [
+      "Zestrile 20mg",
+      "Aldacton 25mg"
+    ],
+    "expected_generics": [
+      "lisinopril",
+      "spironolactone"
+    ],
+    "patient_context": {
+      "age": 61,
+      "gender": "Female",
+      "conditions": [
+        "Heart Failure",
+        "CKD Stage 3"
+      ],
+      "egfr": 40.0
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-002",
+      "hazard_description": "Lisinopril + Spironolactone dual renin-aldosterone blockade causing lethal hyperkalemia"
+    }
+  },
+  {
+    "case_id": "NM-095",
+    "hazard_type": "DDI",
+    "medications": [
+      "Trexalll 15mg",
+      "Motrinn 600mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "ibuprofen"
+    ],
+    "patient_context": {
+      "age": 49,
+      "gender": "Female",
+      "conditions": [
+        "Rheumatoid Arthritis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-003",
+      "hazard_description": "Methotrexate + Ibuprofen renal elimination inhibition causing pancytopenia"
+    }
+  },
+  {
+    "case_id": "NM-096",
+    "hazard_type": "DDI",
+    "medications": [
+      "Plavixx 75mg",
+      "Omeprazole 20mg"
+    ],
+    "expected_generics": [
+      "clopidogrel",
+      "omeprazole"
+    ],
+    "patient_context": {
+      "age": 59,
+      "gender": "Male",
+      "conditions": [
+        "Post-PCI Stent",
+        "CAD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-004",
+      "hazard_description": "Clopidogrel + Omeprazole CYP2C19 competitive inhibition reducing antiplatelet effect"
+    }
+  },
+  {
+    "case_id": "NM-097",
+    "hazard_type": "DDI",
+    "medications": [
+      "Digoxin 0.25mg",
+      "Amiodarone 200mg"
+    ],
+    "expected_generics": [
+      "digoxin",
+      "amiodarone"
+    ],
+    "patient_context": {
+      "age": 73,
+      "gender": "Male",
+      "conditions": [
+        "Heart Failure",
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-005",
+      "hazard_description": "Digoxin + Amiodarone P-gp and renal clearance inhibition causing digoxin toxicity / heart block"
+    }
+  },
+  {
+    "case_id": "NM-098",
+    "hazard_type": "DDI",
+    "medications": [
+      "Simvastatin 40mg",
+      "Amlodipine 10mg"
+    ],
+    "expected_generics": [
+      "simvastatin",
+      "amlodipine"
+    ],
+    "patient_context": {
+      "age": 69,
+      "gender": "Female",
+      "conditions": [
+        "Hyperlipidemia",
+        "Hypertension"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-006",
+      "hazard_description": "Simvastatin (>20mg) + Amlodipine CYP3A4 competition causing rhabdomyolysis"
+    }
+  },
+  {
+    "case_id": "NM-099",
+    "hazard_type": "DDI",
+    "medications": [
+      "Celexa 40mg",
+      "Ondansetron 8mg"
+    ],
+    "expected_generics": [
+      "citalopram",
+      "ondansetron"
+    ],
+    "patient_context": {
+      "age": 49,
+      "gender": "Female",
+      "conditions": [
+        "Depression",
+        "Chemotherapy Nausea"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-007",
+      "hazard_description": "Citalopram + Ondansetron additive cardiac hERG channel blockade causing Torsades de Pointes"
+    }
+  },
+  {
+    "case_id": "NM-100",
+    "hazard_type": "DDI",
+    "medications": [
+      "Ciprofloxacin 500mg",
+      "Zanaflex 4mg"
+    ],
+    "expected_generics": [
+      "ciprofloxacin",
+      "tizanidine"
+    ],
+    "patient_context": {
+      "age": 57,
+      "gender": "Male",
+      "conditions": [
+        "Muscle Spasms",
+        "Prostatitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-008",
+      "hazard_description": "Ciprofloxacin potent CYP1A2 inhibition causing 10-fold tizanidine exposure and severe hypotension"
+    }
+  },
+  {
+    "case_id": "NM-101",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Tylenoll 500mg",
+      "Paracetamol 500mg"
+    ],
+    "expected_generics": [
+      "acetaminophen",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 45,
+      "gender": "Female",
+      "conditions": [
+        "Chronic Back Pain"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-001",
+      "hazard_description": "Dual acetaminophen brand prescriptions exceeding 4000mg/day threshold causing acute liver necrosis"
+    }
+  },
+  {
+    "case_id": "NM-102",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Glucophagee 1000mg",
+      "Metformin 500mg"
+    ],
+    "expected_generics": [
+      "metformin",
+      "metformin"
+    ],
+    "patient_context": {
+      "age": 62,
+      "gender": "Male",
+      "conditions": [
+        "Type 2 Diabetes"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-002",
+      "hazard_description": "Brand + generic duplicate metformin prescription causing gastrointestinal toxicity and lactic acidosis risk"
+    }
+  },
+  {
+    "case_id": "NM-103",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Advill 400mg",
+      "Motrin 400mg"
+    ],
+    "expected_generics": [
+      "ibuprofen",
+      "ibuprofen"
+    ],
+    "patient_context": {
+      "age": 40,
+      "gender": "Male",
+      "conditions": [
+        "Tendonitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-003",
+      "hazard_description": "Dual ibuprofen brand prescription causing cumulative NSAID toxicity and gastric ulceration"
+    }
+  },
+  {
+    "case_id": "NM-104",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Augmentinn 875mg",
+      "Amoxill 500mg"
+    ],
+    "expected_generics": [
+      "amoxicillin",
+      "amoxicillin"
+    ],
+    "patient_context": {
+      "age": 34,
+      "gender": "Female",
+      "conditions": [
+        "Bacterial Sinusitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-004",
+      "hazard_description": "Combination product (Augmentin) + Amoxicillin duplication causing massive beta-lactam overdose"
+    }
+  },
+  {
+    "case_id": "NM-105",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Percocett 5/325",
+      "Tylenoll 500mg"
+    ],
+    "expected_generics": [
+      "oxycodone",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 52,
+      "gender": "Male",
+      "conditions": [
+        "Post-Surgical Dental Pain"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-005",
+      "hazard_description": "Combination opioid-APAP product + OTC APAP leading to hidden hepatotoxic acetaminophen overdose"
+    }
+  },
+  {
+    "case_id": "NM-106",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Metformin 1000mg",
+      "Lisinopril 10mg"
+    ],
+    "expected_generics": [
+      "metformin",
+      "lisinopril"
+    ],
+    "patient_context": {
+      "age": 64,
+      "gender": "Male",
+      "egfr": 22.0,
+      "conditions": [
+        "Type 2 Diabetes",
+        "CKD Stage 4"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-001",
+      "hazard_description": "Metformin absolute contraindication at eGFR < 30 mL/min/1.73m2 due to fatal lactic acidosis"
+    }
+  },
+  {
+    "case_id": "NM-107",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Methotrexate 15mg weekly",
+      "Folic Acid 1mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "folic acid"
+    ],
+    "patient_context": {
+      "age": 60,
+      "gender": "Female",
+      "egfr": 26.0,
+      "conditions": [
+        "Rheumatoid Arthritis",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-002",
+      "hazard_description": "Methotrexate contraindicated in severe renal impairment (eGFR < 30) due to acute bone marrow suppression"
+    }
+  },
+  {
+    "case_id": "NM-108",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Enoxaparin 80mg",
+      "Aspirin 81mg"
+    ],
+    "expected_generics": [
+      "enoxaparin",
+      "aspirin"
+    ],
+    "patient_context": {
+      "age": 73,
+      "gender": "Female",
+      "creatinine_clearance": 24.0,
+      "conditions": [
+        "DVT",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-003",
+      "hazard_description": "Enoxaparin requires mandatory dose reduction at CrCl < 30 mL/min to prevent catastrophic bleeding"
+    }
+  },
+  {
+    "case_id": "NM-109",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Aldactone 50mg",
+      "Furosemide 40mg"
+    ],
+    "expected_generics": [
+      "spironolactone",
+      "furosemide"
+    ],
+    "patient_context": {
+      "age": 65,
+      "gender": "Male",
+      "egfr": 25.0,
+      "conditions": [
+        "Congestive Heart Failure",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-004",
+      "hazard_description": "Spironolactone contraindicated at eGFR < 30 due to unmanageable refractory hyperkalemia"
+    }
+  },
+  {
+    "case_id": "NM-110",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Motrinn 600mg",
+      "Omeprazole 20mg"
+    ],
+    "expected_generics": [
+      "ibuprofen",
+      "omeprazole"
+    ],
+    "patient_context": {
+      "age": 61,
+      "gender": "Male",
+      "egfr": 28.0,
+      "conditions": [
+        "Osteoarthritis",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-005",
+      "hazard_description": "Ibuprofen contraindicated at eGFR < 30 due to acute-on-chronic renal decompensation"
+    }
+  },
+  {
+    "case_id": "NM-111",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Coumadin 5mg",
+      "Atorvastatin 20mg"
+    ],
+    "expected_generics": [
+      "warfarin",
+      "atorvastatin"
+    ],
+    "patient_context": {
+      "age": 57,
+      "gender": "Male",
+      "conditions": [
+        "Peptic Ulcer",
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-001",
+      "hazard_description": "Warfarin absolute contraindication in active peptic ulcer disease due to massive GI hemorrhage"
+    }
+  },
+  {
+    "case_id": "NM-112",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Propranolol 40mg",
+      "Lisinopril 10mg"
+    ],
+    "expected_generics": [
+      "propranolol",
+      "lisinopril"
+    ],
+    "patient_context": {
+      "age": 33,
+      "gender": "Female",
+      "conditions": [
+        "Asthma",
+        "Migraine Prophylaxis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-003",
+      "hazard_description": "Propranolol non-selective beta-2 blockade triggering acute bronchospasm and refractory status asthmaticus"
+    }
+  },
+  {
+    "case_id": "NM-113",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Trexall 20mg",
+      "Acetaminophen 500mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 27,
+      "gender": "Female",
+      "is_pregnant": true,
+      "conditions": [
+        "Severe Psoriasis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-004",
+      "hazard_description": "Methotrexate Pregnancy Category X / absolute teratogenicity and fetal demise"
+    }
+  },
+  {
+    "case_id": "NM-114",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Lisinopril 20mg",
+      "Hydrochlorothiazide 25mg"
+    ],
+    "expected_generics": [
+      "lisinopril",
+      "hydrochlorothiazide"
+    ],
+    "patient_context": {
+      "age": 32,
+      "gender": "Female",
+      "is_pregnant": true,
+      "conditions": [
+        "Chronic Hypertension"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-005",
+      "hazard_description": "Lisinopril fetal renal dysgenesis and neonatal death in pregnancy"
+    }
+  },
+  {
+    "case_id": "NM-115",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Amoxill 500mg",
+      "Acetaminophen 650mg"
+    ],
+    "expected_generics": [
+      "amoxicillin",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 24,
+      "gender": "Male",
+      "allergies": [
+        "Penicillin"
+      ],
+      "conditions": [
+        "Pharyngitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-006",
+      "hazard_description": "Amoxicillin in confirmed penicillin allergy causing IgE-mediated anaphylaxis and angioedema"
+    }
+  },
+  {
+    "case_id": "NM-116",
+    "hazard_type": "DDI",
+    "medications": [
+      "Coumadinn 5mg",
+      "Fluconazol 200mg"
+    ],
+    "expected_generics": [
+      "warfarin",
+      "fluconazole"
+    ],
+    "patient_context": {
+      "age": 71,
+      "gender": "Male",
+      "conditions": [
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-001",
+      "hazard_description": "Warfarin + Fluconazole CYP2C9 inhibition causing severe bleeding risk"
+    }
+  },
+  {
+    "case_id": "NM-117",
+    "hazard_type": "DDI",
+    "medications": [
+      "Lisinoprile 20mg",
+      "Spironolacton 25mg"
+    ],
+    "expected_generics": [
+      "lisinopril",
+      "spironolactone"
+    ],
+    "patient_context": {
+      "age": 69,
+      "gender": "Female",
+      "conditions": [
+        "Heart Failure",
+        "CKD Stage 3"
+      ],
+      "egfr": 40.0
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-002",
+      "hazard_description": "Lisinopril + Spironolactone dual renin-aldosterone blockade causing lethal hyperkalemia"
+    }
+  },
+  {
+    "case_id": "NM-118",
+    "hazard_type": "DDI",
+    "medications": [
+      "Methotrexat 15mg",
+      "Ibuprophen 600mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "ibuprofen"
+    ],
+    "patient_context": {
+      "age": 57,
+      "gender": "Female",
+      "conditions": [
+        "Rheumatoid Arthritis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-003",
+      "hazard_description": "Methotrexate + Ibuprofen renal elimination inhibition causing pancytopenia"
+    }
+  },
+  {
+    "case_id": "NM-119",
+    "hazard_type": "DDI",
+    "medications": [
+      "Clopidogrel 75mg",
+      "Prilosecc 20mg"
+    ],
+    "expected_generics": [
+      "clopidogrel",
+      "omeprazole"
+    ],
+    "patient_context": {
+      "age": 67,
+      "gender": "Male",
+      "conditions": [
+        "Post-PCI Stent",
+        "CAD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-004",
+      "hazard_description": "Clopidogrel + Omeprazole CYP2C19 competitive inhibition reducing antiplatelet effect"
+    }
+  },
+  {
+    "case_id": "NM-120",
+    "hazard_type": "DDI",
+    "medications": [
+      "Lanoxine 0.25mg",
+      "Cordaronee 200mg"
+    ],
+    "expected_generics": [
+      "digoxin",
+      "amiodarone"
+    ],
+    "patient_context": {
+      "age": 81,
+      "gender": "Male",
+      "conditions": [
+        "Heart Failure",
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-005",
+      "hazard_description": "Digoxin + Amiodarone P-gp and renal clearance inhibition causing digoxin toxicity / heart block"
+    }
+  },
+  {
+    "case_id": "NM-121",
+    "hazard_type": "DDI",
+    "medications": [
+      "Zocorr 40mg",
+      "Norvascc 10mg"
+    ],
+    "expected_generics": [
+      "simvastatin",
+      "amlodipine"
+    ],
+    "patient_context": {
+      "age": 62,
+      "gender": "Female",
+      "conditions": [
+        "Hyperlipidemia",
+        "Hypertension"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-006",
+      "hazard_description": "Simvastatin (>20mg) + Amlodipine CYP3A4 competition causing rhabdomyolysis"
+    }
+  },
+  {
+    "case_id": "NM-122",
+    "hazard_type": "DDI",
+    "medications": [
+      "Citaloprame 40mg",
+      "Zofrann 8mg"
+    ],
+    "expected_generics": [
+      "citalopram",
+      "ondansetron"
+    ],
+    "patient_context": {
+      "age": 42,
+      "gender": "Female",
+      "conditions": [
+        "Depression",
+        "Chemotherapy Nausea"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-007",
+      "hazard_description": "Citalopram + Ondansetron additive cardiac hERG channel blockade causing Torsades de Pointes"
+    }
+  },
+  {
+    "case_id": "NM-123",
+    "hazard_type": "DDI",
+    "medications": [
+      "Ciprofloxacine 500mg",
+      "Tizanidin 4mg"
+    ],
+    "expected_generics": [
+      "ciprofloxacin",
+      "tizanidine"
+    ],
+    "patient_context": {
+      "age": 50,
+      "gender": "Male",
+      "conditions": [
+        "Muscle Spasms",
+        "Prostatitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-008",
+      "hazard_description": "Ciprofloxacin potent CYP1A2 inhibition causing 10-fold tizanidine exposure and severe hypotension"
+    }
+  },
+  {
+    "case_id": "NM-124",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Acetaminophene 500mg",
+      "Panadoll 500mg"
+    ],
+    "expected_generics": [
+      "acetaminophen",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 38,
+      "gender": "Female",
+      "conditions": [
+        "Chronic Back Pain"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-001",
+      "hazard_description": "Dual acetaminophen brand prescriptions exceeding 4000mg/day threshold causing acute liver necrosis"
+    }
+  },
+  {
+    "case_id": "NM-125",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Metformn 1000mg",
+      "Metformine 500mg"
+    ],
+    "expected_generics": [
+      "metformin",
+      "metformin"
+    ],
+    "patient_context": {
+      "age": 55,
+      "gender": "Male",
+      "conditions": [
+        "Type 2 Diabetes"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-002",
+      "hazard_description": "Brand + generic duplicate metformin prescription causing gastrointestinal toxicity and lactic acidosis risk"
+    }
+  },
+  {
+    "case_id": "NM-126",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Ibuprofen 400mg",
+      "Motrin 400mg"
+    ],
+    "expected_generics": [
+      "ibuprofen",
+      "ibuprofen"
+    ],
+    "patient_context": {
+      "age": 33,
+      "gender": "Male",
+      "conditions": [
+        "Tendonitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-003",
+      "hazard_description": "Dual ibuprofen brand prescription causing cumulative NSAID toxicity and gastric ulceration"
+    }
+  },
+  {
+    "case_id": "NM-127",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Co-amoxiclav 875mg",
+      "Amoxicilline 500mg"
+    ],
+    "expected_generics": [
+      "amoxicillin",
+      "amoxicillin"
+    ],
+    "patient_context": {
+      "age": 27,
+      "gender": "Female",
+      "conditions": [
+        "Bacterial Sinusitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-004",
+      "hazard_description": "Combination product (Augmentin) + Amoxicillin duplication causing massive beta-lactam overdose"
+    }
+  },
+  {
+    "case_id": "NM-128",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Oxycodone-APAP 5/325",
+      "APAP 500mg"
+    ],
+    "expected_generics": [
+      "oxycodone",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 45,
+      "gender": "Male",
+      "conditions": [
+        "Post-Surgical Dental Pain"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-005",
+      "hazard_description": "Combination opioid-APAP product + OTC APAP leading to hidden hepatotoxic acetaminophen overdose"
+    }
+  },
+  {
+    "case_id": "NM-129",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Metformin 1000mg",
+      "Lisinopril 10mg"
+    ],
+    "expected_generics": [
+      "metformin",
+      "lisinopril"
+    ],
+    "patient_context": {
+      "age": 72,
+      "gender": "Male",
+      "egfr": 22.0,
+      "conditions": [
+        "Type 2 Diabetes",
+        "CKD Stage 4"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-001",
+      "hazard_description": "Metformin absolute contraindication at eGFR < 30 mL/min/1.73m2 due to fatal lactic acidosis"
+    }
+  },
+  {
+    "case_id": "NM-130",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Methotrexate 15mg weekly",
+      "Folic Acid 1mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "folic acid"
+    ],
+    "patient_context": {
+      "age": 68,
+      "gender": "Female",
+      "egfr": 26.0,
+      "conditions": [
+        "Rheumatoid Arthritis",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-002",
+      "hazard_description": "Methotrexate contraindicated in severe renal impairment (eGFR < 30) due to acute bone marrow suppression"
+    }
+  },
+  {
+    "case_id": "NM-131",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Lovenoxx 80mg",
+      "Aspirin 81mg"
+    ],
+    "expected_generics": [
+      "enoxaparin",
+      "aspirin"
+    ],
+    "patient_context": {
+      "age": 81,
+      "gender": "Female",
+      "creatinine_clearance": 24.0,
+      "conditions": [
+        "DVT",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-003",
+      "hazard_description": "Enoxaparin requires mandatory dose reduction at CrCl < 30 mL/min to prevent catastrophic bleeding"
+    }
+  },
+  {
+    "case_id": "NM-132",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Aldactone 50mg",
+      "Furosemide 40mg"
+    ],
+    "expected_generics": [
+      "spironolactone",
+      "furosemide"
+    ],
+    "patient_context": {
+      "age": 73,
+      "gender": "Male",
+      "egfr": 25.0,
+      "conditions": [
+        "Congestive Heart Failure",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-004",
+      "hazard_description": "Spironolactone contraindicated at eGFR < 30 due to unmanageable refractory hyperkalemia"
+    }
+  },
+  {
+    "case_id": "NM-133",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Ibuprophen 600mg",
+      "Omeprazole 20mg"
+    ],
+    "expected_generics": [
+      "ibuprofen",
+      "omeprazole"
+    ],
+    "patient_context": {
+      "age": 69,
+      "gender": "Male",
+      "egfr": 28.0,
+      "conditions": [
+        "Osteoarthritis",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-005",
+      "hazard_description": "Ibuprofen contraindicated at eGFR < 30 due to acute-on-chronic renal decompensation"
+    }
+  },
+  {
+    "case_id": "NM-134",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Coumadinn 5mg",
+      "Atorvastatin 20mg"
+    ],
+    "expected_generics": [
+      "warfarin",
+      "atorvastatin"
+    ],
+    "patient_context": {
+      "age": 65,
+      "gender": "Male",
+      "conditions": [
+        "Peptic Ulcer",
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-001",
+      "hazard_description": "Warfarin absolute contraindication in active peptic ulcer disease due to massive GI hemorrhage"
+    }
+  },
+  {
+    "case_id": "NM-135",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Inderall 40mg",
+      "Lisinopril 10mg"
+    ],
+    "expected_generics": [
+      "propranolol",
+      "lisinopril"
+    ],
+    "patient_context": {
+      "age": 41,
+      "gender": "Female",
+      "conditions": [
+        "Asthma",
+        "Migraine Prophylaxis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-003",
+      "hazard_description": "Propranolol non-selective beta-2 blockade triggering acute bronchospasm and refractory status asthmaticus"
+    }
+  },
+  {
+    "case_id": "NM-136",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Trexall 20mg",
+      "Acetaminophen 500mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 20,
+      "gender": "Female",
+      "is_pregnant": true,
+      "conditions": [
+        "Severe Psoriasis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-004",
+      "hazard_description": "Methotrexate Pregnancy Category X / absolute teratogenicity and fetal demise"
+    }
+  },
+  {
+    "case_id": "NM-137",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Prinivill 20mg",
+      "Hydrochlorothiazide 25mg"
+    ],
+    "expected_generics": [
+      "lisinopril",
+      "hydrochlorothiazide"
+    ],
+    "patient_context": {
+      "age": 25,
+      "gender": "Female",
+      "is_pregnant": true,
+      "conditions": [
+        "Chronic Hypertension"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-005",
+      "hazard_description": "Lisinopril fetal renal dysgenesis and neonatal death in pregnancy"
+    }
+  },
+  {
+    "case_id": "NM-138",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Amoxicilline 500mg",
+      "Acetaminophen 650mg"
+    ],
+    "expected_generics": [
+      "amoxicillin",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 17,
+      "gender": "Male",
+      "allergies": [
+        "Penicillin"
+      ],
+      "conditions": [
+        "Pharyngitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-006",
+      "hazard_description": "Amoxicillin in confirmed penicillin allergy causing IgE-mediated anaphylaxis and angioedema"
+    }
+  },
+  {
+    "case_id": "NM-139",
+    "hazard_type": "DDI",
+    "medications": [
+      "Warfrin 5mg",
+      "Diflucan 200mg"
+    ],
+    "expected_generics": [
+      "warfarin",
+      "fluconazole"
+    ],
+    "patient_context": {
+      "age": 64,
+      "gender": "Male",
+      "conditions": [
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-001",
+      "hazard_description": "Warfarin + Fluconazole CYP2C9 inhibition causing severe bleeding risk"
+    }
+  },
+  {
+    "case_id": "NM-140",
+    "hazard_type": "DDI",
+    "medications": [
+      "Zestril 20mg",
+      "Aldactone 25mg"
+    ],
+    "expected_generics": [
+      "lisinopril",
+      "spironolactone"
+    ],
+    "patient_context": {
+      "age": 62,
+      "gender": "Female",
+      "conditions": [
+        "Heart Failure",
+        "CKD Stage 3"
+      ],
+      "egfr": 40.0
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-002",
+      "hazard_description": "Lisinopril + Spironolactone dual renin-aldosterone blockade causing lethal hyperkalemia"
+    }
+  },
+  {
+    "case_id": "NM-141",
+    "hazard_type": "DDI",
+    "medications": [
+      "Trexall 15mg weekly",
+      "Motrin 600mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "ibuprofen"
+    ],
+    "patient_context": {
+      "age": 50,
+      "gender": "Female",
+      "conditions": [
+        "Rheumatoid Arthritis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-003",
+      "hazard_description": "Methotrexate + Ibuprofen renal elimination inhibition causing pancytopenia"
+    }
+  },
+  {
+    "case_id": "NM-142",
+    "hazard_type": "DDI",
+    "medications": [
+      "Plavix 75mg",
+      "Prilosec 20mg"
+    ],
+    "expected_generics": [
+      "clopidogrel",
+      "omeprazole"
+    ],
+    "patient_context": {
+      "age": 60,
+      "gender": "Male",
+      "conditions": [
+        "Post-PCI Stent",
+        "CAD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-004",
+      "hazard_description": "Clopidogrel + Omeprazole CYP2C19 competitive inhibition reducing antiplatelet effect"
+    }
+  },
+  {
+    "case_id": "NM-143",
+    "hazard_type": "DDI",
+    "medications": [
+      "Lanoxin 0.25mg",
+      "Cordarone 200mg"
+    ],
+    "expected_generics": [
+      "digoxin",
+      "amiodarone"
+    ],
+    "patient_context": {
+      "age": 74,
+      "gender": "Male",
+      "conditions": [
+        "Heart Failure",
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-005",
+      "hazard_description": "Digoxin + Amiodarone P-gp and renal clearance inhibition causing digoxin toxicity / heart block"
+    }
+  },
+  {
+    "case_id": "NM-144",
+    "hazard_type": "DDI",
+    "medications": [
+      "Zocor 40mg",
+      "Norvasc 10mg"
+    ],
+    "expected_generics": [
+      "simvastatin",
+      "amlodipine"
+    ],
+    "patient_context": {
+      "age": 70,
+      "gender": "Female",
+      "conditions": [
+        "Hyperlipidemia",
+        "Hypertension"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-006",
+      "hazard_description": "Simvastatin (>20mg) + Amlodipine CYP3A4 competition causing rhabdomyolysis"
+    }
+  },
+  {
+    "case_id": "NM-145",
+    "hazard_type": "DDI",
+    "medications": [
+      "Citalopram 40mg",
+      "Zofran 8mg"
+    ],
+    "expected_generics": [
+      "citalopram",
+      "ondansetron"
+    ],
+    "patient_context": {
+      "age": 50,
+      "gender": "Female",
+      "conditions": [
+        "Depression",
+        "Chemotherapy Nausea"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-007",
+      "hazard_description": "Citalopram + Ondansetron additive cardiac hERG channel blockade causing Torsades de Pointes"
+    }
+  },
+  {
+    "case_id": "NM-146",
+    "hazard_type": "DDI",
+    "medications": [
+      "Cipro 500mg",
+      "Tizanidine 4mg"
+    ],
+    "expected_generics": [
+      "ciprofloxacin",
+      "tizanidine"
+    ],
+    "patient_context": {
+      "age": 58,
+      "gender": "Male",
+      "conditions": [
+        "Muscle Spasms",
+        "Prostatitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-008",
+      "hazard_description": "Ciprofloxacin potent CYP1A2 inhibition causing 10-fold tizanidine exposure and severe hypotension"
+    }
+  },
+  {
+    "case_id": "NM-147",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Tylenol Extra Strength 500mg",
+      "Panadol 500mg"
+    ],
+    "expected_generics": [
+      "acetaminophen",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 46,
+      "gender": "Female",
+      "conditions": [
+        "Chronic Back Pain"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-001",
+      "hazard_description": "Dual acetaminophen brand prescriptions exceeding 4000mg/day threshold causing acute liver necrosis"
+    }
+  },
+  {
+    "case_id": "NM-148",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Glucophage 1000mg",
+      "Metformin 500mg"
+    ],
+    "expected_generics": [
+      "metformin",
+      "metformin"
+    ],
+    "patient_context": {
+      "age": 63,
+      "gender": "Male",
+      "conditions": [
+        "Type 2 Diabetes"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-002",
+      "hazard_description": "Brand + generic duplicate metformin prescription causing gastrointestinal toxicity and lactic acidosis risk"
+    }
+  },
+  {
+    "case_id": "NM-149",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Advil 400mg",
+      "Motrin 400mg"
+    ],
+    "expected_generics": [
+      "ibuprofen",
+      "ibuprofen"
+    ],
+    "patient_context": {
+      "age": 41,
+      "gender": "Male",
+      "conditions": [
+        "Tendonitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-003",
+      "hazard_description": "Dual ibuprofen brand prescription causing cumulative NSAID toxicity and gastric ulceration"
+    }
+  },
+  {
+    "case_id": "NM-150",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Augmentin 875mg",
+      "Amoxil 500mg"
+    ],
+    "expected_generics": [
+      "amoxicillin",
+      "amoxicillin"
+    ],
+    "patient_context": {
+      "age": 35,
+      "gender": "Female",
+      "conditions": [
+        "Bacterial Sinusitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-004",
+      "hazard_description": "Combination product (Augmentin) + Amoxicillin duplication causing massive beta-lactam overdose"
+    }
+  },
+  {
+    "case_id": "NM-151",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Percocet 5/325",
+      "Tylenol 500mg"
+    ],
+    "expected_generics": [
+      "oxycodone",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 38,
+      "gender": "Male",
+      "conditions": [
+        "Post-Surgical Dental Pain"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-005",
+      "hazard_description": "Combination opioid-APAP product + OTC APAP leading to hidden hepatotoxic acetaminophen overdose"
+    }
+  },
+  {
+    "case_id": "NM-152",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Metformin 1000mg",
+      "Lisinopril 10mg"
+    ],
+    "expected_generics": [
+      "metformin",
+      "lisinopril"
+    ],
+    "patient_context": {
+      "age": 65,
+      "gender": "Male",
+      "egfr": 22.0,
+      "conditions": [
+        "Type 2 Diabetes",
+        "CKD Stage 4"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-001",
+      "hazard_description": "Metformin absolute contraindication at eGFR < 30 mL/min/1.73m2 due to fatal lactic acidosis"
+    }
+  },
+  {
+    "case_id": "NM-153",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Methotrexate 15mg weekly",
+      "Folic Acid 1mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "folic acid"
+    ],
+    "patient_context": {
+      "age": 61,
+      "gender": "Female",
+      "egfr": 26.0,
+      "conditions": [
+        "Rheumatoid Arthritis",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-002",
+      "hazard_description": "Methotrexate contraindicated in severe renal impairment (eGFR < 30) due to acute bone marrow suppression"
+    }
+  },
+  {
+    "case_id": "NM-154",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Lovenox 80mg",
+      "Aspirin 81mg"
+    ],
+    "expected_generics": [
+      "enoxaparin",
+      "aspirin"
+    ],
+    "patient_context": {
+      "age": 74,
+      "gender": "Female",
+      "creatinine_clearance": 24.0,
+      "conditions": [
+        "DVT",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-003",
+      "hazard_description": "Enoxaparin requires mandatory dose reduction at CrCl < 30 mL/min to prevent catastrophic bleeding"
+    }
+  },
+  {
+    "case_id": "NM-155",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Aldactone 50mg",
+      "Furosemide 40mg"
+    ],
+    "expected_generics": [
+      "spironolactone",
+      "furosemide"
+    ],
+    "patient_context": {
+      "age": 66,
+      "gender": "Male",
+      "egfr": 25.0,
+      "conditions": [
+        "Congestive Heart Failure",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-004",
+      "hazard_description": "Spironolactone contraindicated at eGFR < 30 due to unmanageable refractory hyperkalemia"
+    }
+  },
+  {
+    "case_id": "NM-156",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Motrin 600mg",
+      "Omeprazole 20mg"
+    ],
+    "expected_generics": [
+      "ibuprofen",
+      "omeprazole"
+    ],
+    "patient_context": {
+      "age": 62,
+      "gender": "Male",
+      "egfr": 28.0,
+      "conditions": [
+        "Osteoarthritis",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-005",
+      "hazard_description": "Ibuprofen contraindicated at eGFR < 30 due to acute-on-chronic renal decompensation"
+    }
+  },
+  {
+    "case_id": "NM-157",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Warfrin 5mg",
+      "Atorvastatin 20mg"
+    ],
+    "expected_generics": [
+      "warfarin",
+      "atorvastatin"
+    ],
+    "patient_context": {
+      "age": 58,
+      "gender": "Male",
+      "conditions": [
+        "Peptic Ulcer",
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-001",
+      "hazard_description": "Warfarin absolute contraindication in active peptic ulcer disease due to massive GI hemorrhage"
+    }
+  },
+  {
+    "case_id": "NM-158",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Inderal 40mg",
+      "Lisinopril 10mg"
+    ],
+    "expected_generics": [
+      "propranolol",
+      "lisinopril"
+    ],
+    "patient_context": {
+      "age": 34,
+      "gender": "Female",
+      "conditions": [
+        "Asthma",
+        "Migraine Prophylaxis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-003",
+      "hazard_description": "Propranolol non-selective beta-2 blockade triggering acute bronchospasm and refractory status asthmaticus"
+    }
+  },
+  {
+    "case_id": "NM-159",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Trexall 20mg",
+      "Acetaminophen 500mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 28,
+      "gender": "Female",
+      "is_pregnant": true,
+      "conditions": [
+        "Severe Psoriasis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-004",
+      "hazard_description": "Methotrexate Pregnancy Category X / absolute teratogenicity and fetal demise"
+    }
+  },
+  {
+    "case_id": "NM-160",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Prinivil 20mg",
+      "Hydrochlorothiazide 25mg"
+    ],
+    "expected_generics": [
+      "lisinopril",
+      "hydrochlorothiazide"
+    ],
+    "patient_context": {
+      "age": 33,
+      "gender": "Female",
+      "is_pregnant": true,
+      "conditions": [
+        "Chronic Hypertension"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-005",
+      "hazard_description": "Lisinopril fetal renal dysgenesis and neonatal death in pregnancy"
+    }
+  },
+  {
+    "case_id": "NM-161",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Amoxil 500mg",
+      "Acetaminophen 650mg"
+    ],
+    "expected_generics": [
+      "amoxicillin",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 25,
+      "gender": "Male",
+      "allergies": [
+        "Penicillin"
+      ],
+      "conditions": [
+        "Pharyngitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-006",
+      "hazard_description": "Amoxicillin in confirmed penicillin allergy causing IgE-mediated anaphylaxis and angioedema"
+    }
+  },
+  {
+    "case_id": "NM-162",
+    "hazard_type": "DDI",
+    "medications": [
+      "Coumadin tab",
+      "Diflucane 200mg"
+    ],
+    "expected_generics": [
+      "warfarin",
+      "fluconazole"
+    ],
+    "patient_context": {
+      "age": 72,
+      "gender": "Male",
+      "conditions": [
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-001",
+      "hazard_description": "Warfarin + Fluconazole CYP2C9 inhibition causing severe bleeding risk"
+    }
+  },
+  {
+    "case_id": "NM-163",
+    "hazard_type": "DDI",
+    "medications": [
+      "Zestrile 20mg",
+      "Aldacton 25mg"
+    ],
+    "expected_generics": [
+      "lisinopril",
+      "spironolactone"
+    ],
+    "patient_context": {
+      "age": 70,
+      "gender": "Female",
+      "conditions": [
+        "Heart Failure",
+        "CKD Stage 3"
+      ],
+      "egfr": 40.0
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-002",
+      "hazard_description": "Lisinopril + Spironolactone dual renin-aldosterone blockade causing lethal hyperkalemia"
+    }
+  },
+  {
+    "case_id": "NM-164",
+    "hazard_type": "DDI",
+    "medications": [
+      "Trexalll 15mg",
+      "Motrinn 600mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "ibuprofen"
+    ],
+    "patient_context": {
+      "age": 58,
+      "gender": "Female",
+      "conditions": [
+        "Rheumatoid Arthritis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-003",
+      "hazard_description": "Methotrexate + Ibuprofen renal elimination inhibition causing pancytopenia"
+    }
+  },
+  {
+    "case_id": "NM-165",
+    "hazard_type": "DDI",
+    "medications": [
+      "Plavixx 75mg",
+      "Omeprazole 20mg"
+    ],
+    "expected_generics": [
+      "clopidogrel",
+      "omeprazole"
+    ],
+    "patient_context": {
+      "age": 68,
+      "gender": "Male",
+      "conditions": [
+        "Post-PCI Stent",
+        "CAD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-004",
+      "hazard_description": "Clopidogrel + Omeprazole CYP2C19 competitive inhibition reducing antiplatelet effect"
+    }
+  },
+  {
+    "case_id": "NM-166",
+    "hazard_type": "DDI",
+    "medications": [
+      "Digoxin 0.25mg",
+      "Amiodarone 200mg"
+    ],
+    "expected_generics": [
+      "digoxin",
+      "amiodarone"
+    ],
+    "patient_context": {
+      "age": 67,
+      "gender": "Male",
+      "conditions": [
+        "Heart Failure",
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-005",
+      "hazard_description": "Digoxin + Amiodarone P-gp and renal clearance inhibition causing digoxin toxicity / heart block"
+    }
+  },
+  {
+    "case_id": "NM-167",
+    "hazard_type": "DDI",
+    "medications": [
+      "Simvastatin 40mg",
+      "Amlodipine 10mg"
+    ],
+    "expected_generics": [
+      "simvastatin",
+      "amlodipine"
+    ],
+    "patient_context": {
+      "age": 63,
+      "gender": "Female",
+      "conditions": [
+        "Hyperlipidemia",
+        "Hypertension"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-006",
+      "hazard_description": "Simvastatin (>20mg) + Amlodipine CYP3A4 competition causing rhabdomyolysis"
+    }
+  },
+  {
+    "case_id": "NM-168",
+    "hazard_type": "DDI",
+    "medications": [
+      "Celexa 40mg",
+      "Ondansetron 8mg"
+    ],
+    "expected_generics": [
+      "citalopram",
+      "ondansetron"
+    ],
+    "patient_context": {
+      "age": 43,
+      "gender": "Female",
+      "conditions": [
+        "Depression",
+        "Chemotherapy Nausea"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-007",
+      "hazard_description": "Citalopram + Ondansetron additive cardiac hERG channel blockade causing Torsades de Pointes"
+    }
+  },
+  {
+    "case_id": "NM-169",
+    "hazard_type": "DDI",
+    "medications": [
+      "Ciprofloxacin 500mg",
+      "Zanaflex 4mg"
+    ],
+    "expected_generics": [
+      "ciprofloxacin",
+      "tizanidine"
+    ],
+    "patient_context": {
+      "age": 51,
+      "gender": "Male",
+      "conditions": [
+        "Muscle Spasms",
+        "Prostatitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-008",
+      "hazard_description": "Ciprofloxacin potent CYP1A2 inhibition causing 10-fold tizanidine exposure and severe hypotension"
+    }
+  },
+  {
+    "case_id": "NM-170",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Tylenoll 500mg",
+      "Paracetamol 500mg"
+    ],
+    "expected_generics": [
+      "acetaminophen",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 39,
+      "gender": "Female",
+      "conditions": [
+        "Chronic Back Pain"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-001",
+      "hazard_description": "Dual acetaminophen brand prescriptions exceeding 4000mg/day threshold causing acute liver necrosis"
+    }
+  },
+  {
+    "case_id": "NM-171",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Glucophagee 1000mg",
+      "Metformine 500mg"
+    ],
+    "expected_generics": [
+      "metformin",
+      "metformin"
+    ],
+    "patient_context": {
+      "age": 56,
+      "gender": "Male",
+      "conditions": [
+        "Type 2 Diabetes"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-002",
+      "hazard_description": "Brand + generic duplicate metformin prescription causing gastrointestinal toxicity and lactic acidosis risk"
+    }
+  },
+  {
+    "case_id": "NM-172",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Advill 400mg",
+      "Motrin 400mg"
+    ],
+    "expected_generics": [
+      "ibuprofen",
+      "ibuprofen"
+    ],
+    "patient_context": {
+      "age": 34,
+      "gender": "Male",
+      "conditions": [
+        "Tendonitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-003",
+      "hazard_description": "Dual ibuprofen brand prescription causing cumulative NSAID toxicity and gastric ulceration"
+    }
+  },
+  {
+    "case_id": "NM-173",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Augmentinn 875mg",
+      "Amoxill 500mg"
+    ],
+    "expected_generics": [
+      "amoxicillin",
+      "amoxicillin"
+    ],
+    "patient_context": {
+      "age": 28,
+      "gender": "Female",
+      "conditions": [
+        "Bacterial Sinusitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-004",
+      "hazard_description": "Combination product (Augmentin) + Amoxicillin duplication causing massive beta-lactam overdose"
+    }
+  },
+  {
+    "case_id": "NM-174",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Percocett 5/325",
+      "Tylenoll 500mg"
+    ],
+    "expected_generics": [
+      "oxycodone",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 46,
+      "gender": "Male",
+      "conditions": [
+        "Post-Surgical Dental Pain"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-005",
+      "hazard_description": "Combination opioid-APAP product + OTC APAP leading to hidden hepatotoxic acetaminophen overdose"
+    }
+  },
+  {
+    "case_id": "NM-175",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Metformin 1000mg",
+      "Lisinopril 10mg"
+    ],
+    "expected_generics": [
+      "metformin",
+      "lisinopril"
+    ],
+    "patient_context": {
+      "age": 73,
+      "gender": "Male",
+      "egfr": 22.0,
+      "conditions": [
+        "Type 2 Diabetes",
+        "CKD Stage 4"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-001",
+      "hazard_description": "Metformin absolute contraindication at eGFR < 30 mL/min/1.73m2 due to fatal lactic acidosis"
+    }
+  },
+  {
+    "case_id": "NM-176",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Methotrexate 15mg weekly",
+      "Folic Acid 1mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "folic acid"
+    ],
+    "patient_context": {
+      "age": 69,
+      "gender": "Female",
+      "egfr": 26.0,
+      "conditions": [
+        "Rheumatoid Arthritis",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-002",
+      "hazard_description": "Methotrexate contraindicated in severe renal impairment (eGFR < 30) due to acute bone marrow suppression"
+    }
+  },
+  {
+    "case_id": "NM-177",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Enoxaparin 80mg",
+      "Aspirin 81mg"
+    ],
+    "expected_generics": [
+      "enoxaparin",
+      "aspirin"
+    ],
+    "patient_context": {
+      "age": 82,
+      "gender": "Female",
+      "creatinine_clearance": 24.0,
+      "conditions": [
+        "DVT",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-003",
+      "hazard_description": "Enoxaparin requires mandatory dose reduction at CrCl < 30 mL/min to prevent catastrophic bleeding"
+    }
+  },
+  {
+    "case_id": "NM-178",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Aldactone 50mg",
+      "Furosemide 40mg"
+    ],
+    "expected_generics": [
+      "spironolactone",
+      "furosemide"
+    ],
+    "patient_context": {
+      "age": 74,
+      "gender": "Male",
+      "egfr": 25.0,
+      "conditions": [
+        "Congestive Heart Failure",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-004",
+      "hazard_description": "Spironolactone contraindicated at eGFR < 30 due to unmanageable refractory hyperkalemia"
+    }
+  },
+  {
+    "case_id": "NM-179",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Motrinn 600mg",
+      "Omeprazole 20mg"
+    ],
+    "expected_generics": [
+      "ibuprofen",
+      "omeprazole"
+    ],
+    "patient_context": {
+      "age": 70,
+      "gender": "Male",
+      "egfr": 28.0,
+      "conditions": [
+        "Osteoarthritis",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-005",
+      "hazard_description": "Ibuprofen contraindicated at eGFR < 30 due to acute-on-chronic renal decompensation"
+    }
+  },
+  {
+    "case_id": "NM-180",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Coumadin tab",
+      "Atorvastatin 20mg"
+    ],
+    "expected_generics": [
+      "warfarin",
+      "atorvastatin"
+    ],
+    "patient_context": {
+      "age": 66,
+      "gender": "Male",
+      "conditions": [
+        "Peptic Ulcer",
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-001",
+      "hazard_description": "Warfarin absolute contraindication in active peptic ulcer disease due to massive GI hemorrhage"
+    }
+  },
+  {
+    "case_id": "NM-181",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Propranolol 40mg",
+      "Lisinopril 10mg"
+    ],
+    "expected_generics": [
+      "propranolol",
+      "lisinopril"
+    ],
+    "patient_context": {
+      "age": 27,
+      "gender": "Female",
+      "conditions": [
+        "Asthma",
+        "Migraine Prophylaxis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-003",
+      "hazard_description": "Propranolol non-selective beta-2 blockade triggering acute bronchospasm and refractory status asthmaticus"
+    }
+  },
+  {
+    "case_id": "NM-182",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Trexall 20mg",
+      "Acetaminophen 500mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 21,
+      "gender": "Female",
+      "is_pregnant": true,
+      "conditions": [
+        "Severe Psoriasis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-004",
+      "hazard_description": "Methotrexate Pregnancy Category X / absolute teratogenicity and fetal demise"
+    }
+  },
+  {
+    "case_id": "NM-183",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Lisinopril 20mg",
+      "Hydrochlorothiazide 25mg"
+    ],
+    "expected_generics": [
+      "lisinopril",
+      "hydrochlorothiazide"
+    ],
+    "patient_context": {
+      "age": 26,
+      "gender": "Female",
+      "is_pregnant": true,
+      "conditions": [
+        "Chronic Hypertension"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-005",
+      "hazard_description": "Lisinopril fetal renal dysgenesis and neonatal death in pregnancy"
+    }
+  },
+  {
+    "case_id": "NM-184",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Amoxill 500mg",
+      "Acetaminophen 650mg"
+    ],
+    "expected_generics": [
+      "amoxicillin",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 18,
+      "gender": "Male",
+      "allergies": [
+        "Penicillin"
+      ],
+      "conditions": [
+        "Pharyngitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-006",
+      "hazard_description": "Amoxicillin in confirmed penicillin allergy causing IgE-mediated anaphylaxis and angioedema"
+    }
+  },
+  {
+    "case_id": "NM-185",
+    "hazard_type": "DDI",
+    "medications": [
+      "Coumadin 5mg",
+      "Fluconazol 200mg"
+    ],
+    "expected_generics": [
+      "warfarin",
+      "fluconazole"
+    ],
+    "patient_context": {
+      "age": 65,
+      "gender": "Male",
+      "conditions": [
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-001",
+      "hazard_description": "Warfarin + Fluconazole CYP2C9 inhibition causing severe bleeding risk"
+    }
+  },
+  {
+    "case_id": "NM-186",
+    "hazard_type": "DDI",
+    "medications": [
+      "Lisinoprile 20mg",
+      "Spironolacton 25mg"
+    ],
+    "expected_generics": [
+      "lisinopril",
+      "spironolactone"
+    ],
+    "patient_context": {
+      "age": 63,
+      "gender": "Female",
+      "conditions": [
+        "Heart Failure",
+        "CKD Stage 3"
+      ],
+      "egfr": 40.0
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-002",
+      "hazard_description": "Lisinopril + Spironolactone dual renin-aldosterone blockade causing lethal hyperkalemia"
+    }
+  },
+  {
+    "case_id": "NM-187",
+    "hazard_type": "DDI",
+    "medications": [
+      "Methotrexat 15mg",
+      "Ibuprophen 600mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "ibuprofen"
+    ],
+    "patient_context": {
+      "age": 51,
+      "gender": "Female",
+      "conditions": [
+        "Rheumatoid Arthritis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-003",
+      "hazard_description": "Methotrexate + Ibuprofen renal elimination inhibition causing pancytopenia"
+    }
+  },
+  {
+    "case_id": "NM-188",
+    "hazard_type": "DDI",
+    "medications": [
+      "Clopidogrel 75mg",
+      "Prilosecc 20mg"
+    ],
+    "expected_generics": [
+      "clopidogrel",
+      "omeprazole"
+    ],
+    "patient_context": {
+      "age": 61,
+      "gender": "Male",
+      "conditions": [
+        "Post-PCI Stent",
+        "CAD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-004",
+      "hazard_description": "Clopidogrel + Omeprazole CYP2C19 competitive inhibition reducing antiplatelet effect"
+    }
+  },
+  {
+    "case_id": "NM-189",
+    "hazard_type": "DDI",
+    "medications": [
+      "Lanoxine 0.25mg",
+      "Cordaronee 200mg"
+    ],
+    "expected_generics": [
+      "digoxin",
+      "amiodarone"
+    ],
+    "patient_context": {
+      "age": 75,
+      "gender": "Male",
+      "conditions": [
+        "Heart Failure",
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-005",
+      "hazard_description": "Digoxin + Amiodarone P-gp and renal clearance inhibition causing digoxin toxicity / heart block"
+    }
+  },
+  {
+    "case_id": "NM-190",
+    "hazard_type": "DDI",
+    "medications": [
+      "Zocorr 40mg",
+      "Norvascc 10mg"
+    ],
+    "expected_generics": [
+      "simvastatin",
+      "amlodipine"
+    ],
+    "patient_context": {
+      "age": 71,
+      "gender": "Female",
+      "conditions": [
+        "Hyperlipidemia",
+        "Hypertension"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-006",
+      "hazard_description": "Simvastatin (>20mg) + Amlodipine CYP3A4 competition causing rhabdomyolysis"
+    }
+  },
+  {
+    "case_id": "NM-191",
+    "hazard_type": "DDI",
+    "medications": [
+      "Citaloprame 40mg",
+      "Zofrann 8mg"
+    ],
+    "expected_generics": [
+      "citalopram",
+      "ondansetron"
+    ],
+    "patient_context": {
+      "age": 51,
+      "gender": "Female",
+      "conditions": [
+        "Depression",
+        "Chemotherapy Nausea"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-007",
+      "hazard_description": "Citalopram + Ondansetron additive cardiac hERG channel blockade causing Torsades de Pointes"
+    }
+  },
+  {
+    "case_id": "NM-192",
+    "hazard_type": "DDI",
+    "medications": [
+      "Ciprofloxacine 500mg",
+      "Tizanidin 4mg"
+    ],
+    "expected_generics": [
+      "ciprofloxacin",
+      "tizanidine"
+    ],
+    "patient_context": {
+      "age": 59,
+      "gender": "Male",
+      "conditions": [
+        "Muscle Spasms",
+        "Prostatitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-008",
+      "hazard_description": "Ciprofloxacin potent CYP1A2 inhibition causing 10-fold tizanidine exposure and severe hypotension"
+    }
+  },
+  {
+    "case_id": "NM-193",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Acetaminophene 500mg",
+      "Panadoll 500mg"
+    ],
+    "expected_generics": [
+      "acetaminophen",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 47,
+      "gender": "Female",
+      "conditions": [
+        "Chronic Back Pain"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-001",
+      "hazard_description": "Dual acetaminophen brand prescriptions exceeding 4000mg/day threshold causing acute liver necrosis"
+    }
+  },
+  {
+    "case_id": "NM-194",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Metformn 1000mg",
+      "Metformin 500mg"
+    ],
+    "expected_generics": [
+      "metformin",
+      "metformin"
+    ],
+    "patient_context": {
+      "age": 64,
+      "gender": "Male",
+      "conditions": [
+        "Type 2 Diabetes"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-002",
+      "hazard_description": "Brand + generic duplicate metformin prescription causing gastrointestinal toxicity and lactic acidosis risk"
+    }
+  },
+  {
+    "case_id": "NM-195",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Ibuprofen 400mg",
+      "Motrin 400mg"
+    ],
+    "expected_generics": [
+      "ibuprofen",
+      "ibuprofen"
+    ],
+    "patient_context": {
+      "age": 42,
+      "gender": "Male",
+      "conditions": [
+        "Tendonitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-003",
+      "hazard_description": "Dual ibuprofen brand prescription causing cumulative NSAID toxicity and gastric ulceration"
+    }
+  },
+  {
+    "case_id": "NM-196",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Co-amoxiclav 875mg",
+      "Amoxicilline 500mg"
+    ],
+    "expected_generics": [
+      "amoxicillin",
+      "amoxicillin"
+    ],
+    "patient_context": {
+      "age": 21,
+      "gender": "Female",
+      "conditions": [
+        "Bacterial Sinusitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-004",
+      "hazard_description": "Combination product (Augmentin) + Amoxicillin duplication causing massive beta-lactam overdose"
+    }
+  },
+  {
+    "case_id": "NM-197",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Oxycodone-APAP 5/325",
+      "APAP 500mg"
+    ],
+    "expected_generics": [
+      "oxycodone",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 39,
+      "gender": "Male",
+      "conditions": [
+        "Post-Surgical Dental Pain"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-005",
+      "hazard_description": "Combination opioid-APAP product + OTC APAP leading to hidden hepatotoxic acetaminophen overdose"
+    }
+  },
+  {
+    "case_id": "NM-198",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Metformin 1000mg",
+      "Lisinopril 10mg"
+    ],
+    "expected_generics": [
+      "metformin",
+      "lisinopril"
+    ],
+    "patient_context": {
+      "age": 66,
+      "gender": "Male",
+      "egfr": 22.0,
+      "conditions": [
+        "Type 2 Diabetes",
+        "CKD Stage 4"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-001",
+      "hazard_description": "Metformin absolute contraindication at eGFR < 30 mL/min/1.73m2 due to fatal lactic acidosis"
+    }
+  },
+  {
+    "case_id": "NM-199",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Methotrexate 15mg weekly",
+      "Folic Acid 1mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "folic acid"
+    ],
+    "patient_context": {
+      "age": 62,
+      "gender": "Female",
+      "egfr": 26.0,
+      "conditions": [
+        "Rheumatoid Arthritis",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-002",
+      "hazard_description": "Methotrexate contraindicated in severe renal impairment (eGFR < 30) due to acute bone marrow suppression"
+    }
+  },
+  {
+    "case_id": "NM-200",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Lovenoxx 80mg",
+      "Aspirin 81mg"
+    ],
+    "expected_generics": [
+      "enoxaparin",
+      "aspirin"
+    ],
+    "patient_context": {
+      "age": 75,
+      "gender": "Female",
+      "creatinine_clearance": 24.0,
+      "conditions": [
+        "DVT",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-003",
+      "hazard_description": "Enoxaparin requires mandatory dose reduction at CrCl < 30 mL/min to prevent catastrophic bleeding"
+    }
+  },
+  {
+    "case_id": "NM-201",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Aldactone 50mg",
+      "Furosemide 40mg"
+    ],
+    "expected_generics": [
+      "spironolactone",
+      "furosemide"
+    ],
+    "patient_context": {
+      "age": 67,
+      "gender": "Male",
+      "egfr": 25.0,
+      "conditions": [
+        "Congestive Heart Failure",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-004",
+      "hazard_description": "Spironolactone contraindicated at eGFR < 30 due to unmanageable refractory hyperkalemia"
+    }
+  },
+  {
+    "case_id": "NM-202",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Ibuprophen 600mg",
+      "Omeprazole 20mg"
+    ],
+    "expected_generics": [
+      "ibuprofen",
+      "omeprazole"
+    ],
+    "patient_context": {
+      "age": 63,
+      "gender": "Male",
+      "egfr": 28.0,
+      "conditions": [
+        "Osteoarthritis",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-005",
+      "hazard_description": "Ibuprofen contraindicated at eGFR < 30 due to acute-on-chronic renal decompensation"
+    }
+  },
+  {
+    "case_id": "NM-203",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Coumadin 5mg",
+      "Atorvastatin 20mg"
+    ],
+    "expected_generics": [
+      "warfarin",
+      "atorvastatin"
+    ],
+    "patient_context": {
+      "age": 59,
+      "gender": "Male",
+      "conditions": [
+        "Peptic Ulcer",
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-001",
+      "hazard_description": "Warfarin absolute contraindication in active peptic ulcer disease due to massive GI hemorrhage"
+    }
+  },
+  {
+    "case_id": "NM-204",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Inderall 40mg",
+      "Lisinopril 10mg"
+    ],
+    "expected_generics": [
+      "propranolol",
+      "lisinopril"
+    ],
+    "patient_context": {
+      "age": 35,
+      "gender": "Female",
+      "conditions": [
+        "Asthma",
+        "Migraine Prophylaxis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-003",
+      "hazard_description": "Propranolol non-selective beta-2 blockade triggering acute bronchospasm and refractory status asthmaticus"
+    }
+  },
+  {
+    "case_id": "NM-205",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Trexall 20mg",
+      "Acetaminophen 500mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 29,
+      "gender": "Female",
+      "is_pregnant": true,
+      "conditions": [
+        "Severe Psoriasis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-004",
+      "hazard_description": "Methotrexate Pregnancy Category X / absolute teratogenicity and fetal demise"
+    }
+  },
+  {
+    "case_id": "NM-206",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Prinivill 20mg",
+      "Hydrochlorothiazide 25mg"
+    ],
+    "expected_generics": [
+      "lisinopril",
+      "hydrochlorothiazide"
+    ],
+    "patient_context": {
+      "age": 34,
+      "gender": "Female",
+      "is_pregnant": true,
+      "conditions": [
+        "Chronic Hypertension"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-005",
+      "hazard_description": "Lisinopril fetal renal dysgenesis and neonatal death in pregnancy"
+    }
+  },
+  {
+    "case_id": "NM-207",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Amoxicilline 500mg",
+      "Acetaminophen 650mg"
+    ],
+    "expected_generics": [
+      "amoxicillin",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 26,
+      "gender": "Male",
+      "allergies": [
+        "Penicillin"
+      ],
+      "conditions": [
+        "Pharyngitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-006",
+      "hazard_description": "Amoxicillin in confirmed penicillin allergy causing IgE-mediated anaphylaxis and angioedema"
+    }
+  },
+  {
+    "case_id": "NM-208",
+    "hazard_type": "DDI",
+    "medications": [
+      "Coumadinn 5mg",
+      "Diflucan 200mg"
+    ],
+    "expected_generics": [
+      "warfarin",
+      "fluconazole"
+    ],
+    "patient_context": {
+      "age": 73,
+      "gender": "Male",
+      "conditions": [
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-001",
+      "hazard_description": "Warfarin + Fluconazole CYP2C9 inhibition causing severe bleeding risk"
+    }
+  },
+  {
+    "case_id": "NM-209",
+    "hazard_type": "DDI",
+    "medications": [
+      "Zestril 20mg",
+      "Aldactone 25mg"
+    ],
+    "expected_generics": [
+      "lisinopril",
+      "spironolactone"
+    ],
+    "patient_context": {
+      "age": 71,
+      "gender": "Female",
+      "conditions": [
+        "Heart Failure",
+        "CKD Stage 3"
+      ],
+      "egfr": 40.0
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-002",
+      "hazard_description": "Lisinopril + Spironolactone dual renin-aldosterone blockade causing lethal hyperkalemia"
+    }
+  },
+  {
+    "case_id": "NM-210",
+    "hazard_type": "DDI",
+    "medications": [
+      "Trexall 15mg weekly",
+      "Motrin 600mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "ibuprofen"
+    ],
+    "patient_context": {
+      "age": 59,
+      "gender": "Female",
+      "conditions": [
+        "Rheumatoid Arthritis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-003",
+      "hazard_description": "Methotrexate + Ibuprofen renal elimination inhibition causing pancytopenia"
+    }
+  },
+  {
+    "case_id": "NM-211",
+    "hazard_type": "DDI",
+    "medications": [
+      "Plavix 75mg",
+      "Prilosec 20mg"
+    ],
+    "expected_generics": [
+      "clopidogrel",
+      "omeprazole"
+    ],
+    "patient_context": {
+      "age": 54,
+      "gender": "Male",
+      "conditions": [
+        "Post-PCI Stent",
+        "CAD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-004",
+      "hazard_description": "Clopidogrel + Omeprazole CYP2C19 competitive inhibition reducing antiplatelet effect"
+    }
+  },
+  {
+    "case_id": "NM-212",
+    "hazard_type": "DDI",
+    "medications": [
+      "Lanoxin 0.25mg",
+      "Cordarone 200mg"
+    ],
+    "expected_generics": [
+      "digoxin",
+      "amiodarone"
+    ],
+    "patient_context": {
+      "age": 68,
+      "gender": "Male",
+      "conditions": [
+        "Heart Failure",
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-005",
+      "hazard_description": "Digoxin + Amiodarone P-gp and renal clearance inhibition causing digoxin toxicity / heart block"
+    }
+  },
+  {
+    "case_id": "NM-213",
+    "hazard_type": "DDI",
+    "medications": [
+      "Zocor 40mg",
+      "Norvasc 10mg"
+    ],
+    "expected_generics": [
+      "simvastatin",
+      "amlodipine"
+    ],
+    "patient_context": {
+      "age": 64,
+      "gender": "Female",
+      "conditions": [
+        "Hyperlipidemia",
+        "Hypertension"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-006",
+      "hazard_description": "Simvastatin (>20mg) + Amlodipine CYP3A4 competition causing rhabdomyolysis"
+    }
+  },
+  {
+    "case_id": "NM-214",
+    "hazard_type": "DDI",
+    "medications": [
+      "Citalopram 40mg",
+      "Zofran 8mg"
+    ],
+    "expected_generics": [
+      "citalopram",
+      "ondansetron"
+    ],
+    "patient_context": {
+      "age": 44,
+      "gender": "Female",
+      "conditions": [
+        "Depression",
+        "Chemotherapy Nausea"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-007",
+      "hazard_description": "Citalopram + Ondansetron additive cardiac hERG channel blockade causing Torsades de Pointes"
+    }
+  },
+  {
+    "case_id": "NM-215",
+    "hazard_type": "DDI",
+    "medications": [
+      "Cipro 500mg",
+      "Tizanidine 4mg"
+    ],
+    "expected_generics": [
+      "ciprofloxacin",
+      "tizanidine"
+    ],
+    "patient_context": {
+      "age": 52,
+      "gender": "Male",
+      "conditions": [
+        "Muscle Spasms",
+        "Prostatitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-008",
+      "hazard_description": "Ciprofloxacin potent CYP1A2 inhibition causing 10-fold tizanidine exposure and severe hypotension"
+    }
+  },
+  {
+    "case_id": "NM-216",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Tylenol Extra Strength 500mg",
+      "Panadol 500mg"
+    ],
+    "expected_generics": [
+      "acetaminophen",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 40,
+      "gender": "Female",
+      "conditions": [
+        "Chronic Back Pain"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-001",
+      "hazard_description": "Dual acetaminophen brand prescriptions exceeding 4000mg/day threshold causing acute liver necrosis"
+    }
+  },
+  {
+    "case_id": "NM-217",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Glucophage 1000mg",
+      "Metformine 500mg"
+    ],
+    "expected_generics": [
+      "metformin",
+      "metformin"
+    ],
+    "patient_context": {
+      "age": 57,
+      "gender": "Male",
+      "conditions": [
+        "Type 2 Diabetes"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-002",
+      "hazard_description": "Brand + generic duplicate metformin prescription causing gastrointestinal toxicity and lactic acidosis risk"
+    }
+  },
+  {
+    "case_id": "NM-218",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Advil 400mg",
+      "Motrin 400mg"
+    ],
+    "expected_generics": [
+      "ibuprofen",
+      "ibuprofen"
+    ],
+    "patient_context": {
+      "age": 35,
+      "gender": "Male",
+      "conditions": [
+        "Tendonitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-003",
+      "hazard_description": "Dual ibuprofen brand prescription causing cumulative NSAID toxicity and gastric ulceration"
+    }
+  },
+  {
+    "case_id": "NM-219",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Augmentin 875mg",
+      "Amoxil 500mg"
+    ],
+    "expected_generics": [
+      "amoxicillin",
+      "amoxicillin"
+    ],
+    "patient_context": {
+      "age": 29,
+      "gender": "Female",
+      "conditions": [
+        "Bacterial Sinusitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-004",
+      "hazard_description": "Combination product (Augmentin) + Amoxicillin duplication causing massive beta-lactam overdose"
+    }
+  },
+  {
+    "case_id": "NM-220",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Percocet 5/325",
+      "Tylenol 500mg"
+    ],
+    "expected_generics": [
+      "oxycodone",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 47,
+      "gender": "Male",
+      "conditions": [
+        "Post-Surgical Dental Pain"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-005",
+      "hazard_description": "Combination opioid-APAP product + OTC APAP leading to hidden hepatotoxic acetaminophen overdose"
+    }
+  },
+  {
+    "case_id": "NM-221",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Metformin 1000mg",
+      "Lisinopril 10mg"
+    ],
+    "expected_generics": [
+      "metformin",
+      "lisinopril"
+    ],
+    "patient_context": {
+      "age": 74,
+      "gender": "Male",
+      "egfr": 22.0,
+      "conditions": [
+        "Type 2 Diabetes",
+        "CKD Stage 4"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-001",
+      "hazard_description": "Metformin absolute contraindication at eGFR < 30 mL/min/1.73m2 due to fatal lactic acidosis"
+    }
+  },
+  {
+    "case_id": "NM-222",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Methotrexate 15mg weekly",
+      "Folic Acid 1mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "folic acid"
+    ],
+    "patient_context": {
+      "age": 70,
+      "gender": "Female",
+      "egfr": 26.0,
+      "conditions": [
+        "Rheumatoid Arthritis",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-002",
+      "hazard_description": "Methotrexate contraindicated in severe renal impairment (eGFR < 30) due to acute bone marrow suppression"
+    }
+  },
+  {
+    "case_id": "NM-223",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Lovenox 80mg",
+      "Aspirin 81mg"
+    ],
+    "expected_generics": [
+      "enoxaparin",
+      "aspirin"
+    ],
+    "patient_context": {
+      "age": 83,
+      "gender": "Female",
+      "creatinine_clearance": 24.0,
+      "conditions": [
+        "DVT",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-003",
+      "hazard_description": "Enoxaparin requires mandatory dose reduction at CrCl < 30 mL/min to prevent catastrophic bleeding"
+    }
+  },
+  {
+    "case_id": "NM-224",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Aldactone 50mg",
+      "Furosemide 40mg"
+    ],
+    "expected_generics": [
+      "spironolactone",
+      "furosemide"
+    ],
+    "patient_context": {
+      "age": 75,
+      "gender": "Male",
+      "egfr": 25.0,
+      "conditions": [
+        "Congestive Heart Failure",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-004",
+      "hazard_description": "Spironolactone contraindicated at eGFR < 30 due to unmanageable refractory hyperkalemia"
+    }
+  },
+  {
+    "case_id": "NM-225",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Motrin 600mg",
+      "Omeprazole 20mg"
+    ],
+    "expected_generics": [
+      "ibuprofen",
+      "omeprazole"
+    ],
+    "patient_context": {
+      "age": 71,
+      "gender": "Male",
+      "egfr": 28.0,
+      "conditions": [
+        "Osteoarthritis",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-005",
+      "hazard_description": "Ibuprofen contraindicated at eGFR < 30 due to acute-on-chronic renal decompensation"
+    }
+  },
+  {
+    "case_id": "NM-226",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Coumadinn 5mg",
+      "Atorvastatin 20mg"
+    ],
+    "expected_generics": [
+      "warfarin",
+      "atorvastatin"
+    ],
+    "patient_context": {
+      "age": 52,
+      "gender": "Male",
+      "conditions": [
+        "Peptic Ulcer",
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-001",
+      "hazard_description": "Warfarin absolute contraindication in active peptic ulcer disease due to massive GI hemorrhage"
+    }
+  },
+  {
+    "case_id": "NM-227",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Inderal 40mg",
+      "Lisinopril 10mg"
+    ],
+    "expected_generics": [
+      "propranolol",
+      "lisinopril"
+    ],
+    "patient_context": {
+      "age": 28,
+      "gender": "Female",
+      "conditions": [
+        "Asthma",
+        "Migraine Prophylaxis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-003",
+      "hazard_description": "Propranolol non-selective beta-2 blockade triggering acute bronchospasm and refractory status asthmaticus"
+    }
+  },
+  {
+    "case_id": "NM-228",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Trexall 20mg",
+      "Acetaminophen 500mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 22,
+      "gender": "Female",
+      "is_pregnant": true,
+      "conditions": [
+        "Severe Psoriasis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-004",
+      "hazard_description": "Methotrexate Pregnancy Category X / absolute teratogenicity and fetal demise"
+    }
+  },
+  {
+    "case_id": "NM-229",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Prinivil 20mg",
+      "Hydrochlorothiazide 25mg"
+    ],
+    "expected_generics": [
+      "lisinopril",
+      "hydrochlorothiazide"
+    ],
+    "patient_context": {
+      "age": 27,
+      "gender": "Female",
+      "is_pregnant": true,
+      "conditions": [
+        "Chronic Hypertension"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-005",
+      "hazard_description": "Lisinopril fetal renal dysgenesis and neonatal death in pregnancy"
+    }
+  },
+  {
+    "case_id": "NM-230",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Amoxil 500mg",
+      "Acetaminophen 650mg"
+    ],
+    "expected_generics": [
+      "amoxicillin",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 19,
+      "gender": "Male",
+      "allergies": [
+        "Penicillin"
+      ],
+      "conditions": [
+        "Pharyngitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-006",
+      "hazard_description": "Amoxicillin in confirmed penicillin allergy causing IgE-mediated anaphylaxis and angioedema"
+    }
+  },
+  {
+    "case_id": "NM-231",
+    "hazard_type": "DDI",
+    "medications": [
+      "Warfrin 5mg",
+      "Diflucane 200mg"
+    ],
+    "expected_generics": [
+      "warfarin",
+      "fluconazole"
+    ],
+    "patient_context": {
+      "age": 66,
+      "gender": "Male",
+      "conditions": [
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-001",
+      "hazard_description": "Warfarin + Fluconazole CYP2C9 inhibition causing severe bleeding risk"
+    }
+  },
+  {
+    "case_id": "NM-232",
+    "hazard_type": "DDI",
+    "medications": [
+      "Zestrile 20mg",
+      "Aldacton 25mg"
+    ],
+    "expected_generics": [
+      "lisinopril",
+      "spironolactone"
+    ],
+    "patient_context": {
+      "age": 64,
+      "gender": "Female",
+      "conditions": [
+        "Heart Failure",
+        "CKD Stage 3"
+      ],
+      "egfr": 40.0
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-002",
+      "hazard_description": "Lisinopril + Spironolactone dual renin-aldosterone blockade causing lethal hyperkalemia"
+    }
+  },
+  {
+    "case_id": "NM-233",
+    "hazard_type": "DDI",
+    "medications": [
+      "Trexalll 15mg",
+      "Motrinn 600mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "ibuprofen"
+    ],
+    "patient_context": {
+      "age": 52,
+      "gender": "Female",
+      "conditions": [
+        "Rheumatoid Arthritis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-003",
+      "hazard_description": "Methotrexate + Ibuprofen renal elimination inhibition causing pancytopenia"
+    }
+  },
+  {
+    "case_id": "NM-234",
+    "hazard_type": "DDI",
+    "medications": [
+      "Plavixx 75mg",
+      "Omeprazole 20mg"
+    ],
+    "expected_generics": [
+      "clopidogrel",
+      "omeprazole"
+    ],
+    "patient_context": {
+      "age": 62,
+      "gender": "Male",
+      "conditions": [
+        "Post-PCI Stent",
+        "CAD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-004",
+      "hazard_description": "Clopidogrel + Omeprazole CYP2C19 competitive inhibition reducing antiplatelet effect"
+    }
+  },
+  {
+    "case_id": "NM-235",
+    "hazard_type": "DDI",
+    "medications": [
+      "Digoxin 0.25mg",
+      "Amiodarone 200mg"
+    ],
+    "expected_generics": [
+      "digoxin",
+      "amiodarone"
+    ],
+    "patient_context": {
+      "age": 76,
+      "gender": "Male",
+      "conditions": [
+        "Heart Failure",
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-005",
+      "hazard_description": "Digoxin + Amiodarone P-gp and renal clearance inhibition causing digoxin toxicity / heart block"
+    }
+  },
+  {
+    "case_id": "NM-236",
+    "hazard_type": "DDI",
+    "medications": [
+      "Simvastatin 40mg",
+      "Amlodipine 10mg"
+    ],
+    "expected_generics": [
+      "simvastatin",
+      "amlodipine"
+    ],
+    "patient_context": {
+      "age": 72,
+      "gender": "Female",
+      "conditions": [
+        "Hyperlipidemia",
+        "Hypertension"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-006",
+      "hazard_description": "Simvastatin (>20mg) + Amlodipine CYP3A4 competition causing rhabdomyolysis"
+    }
+  },
+  {
+    "case_id": "NM-237",
+    "hazard_type": "DDI",
+    "medications": [
+      "Celexa 40mg",
+      "Ondansetron 8mg"
+    ],
+    "expected_generics": [
+      "citalopram",
+      "ondansetron"
+    ],
+    "patient_context": {
+      "age": 52,
+      "gender": "Female",
+      "conditions": [
+        "Depression",
+        "Chemotherapy Nausea"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-007",
+      "hazard_description": "Citalopram + Ondansetron additive cardiac hERG channel blockade causing Torsades de Pointes"
+    }
+  },
+  {
+    "case_id": "NM-238",
+    "hazard_type": "DDI",
+    "medications": [
+      "Ciprofloxacin 500mg",
+      "Zanaflex 4mg"
+    ],
+    "expected_generics": [
+      "ciprofloxacin",
+      "tizanidine"
+    ],
+    "patient_context": {
+      "age": 60,
+      "gender": "Male",
+      "conditions": [
+        "Muscle Spasms",
+        "Prostatitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-008",
+      "hazard_description": "Ciprofloxacin potent CYP1A2 inhibition causing 10-fold tizanidine exposure and severe hypotension"
+    }
+  },
+  {
+    "case_id": "NM-239",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Tylenoll 500mg",
+      "Paracetamol 500mg"
+    ],
+    "expected_generics": [
+      "acetaminophen",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 48,
+      "gender": "Female",
+      "conditions": [
+        "Chronic Back Pain"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-001",
+      "hazard_description": "Dual acetaminophen brand prescriptions exceeding 4000mg/day threshold causing acute liver necrosis"
+    }
+  },
+  {
+    "case_id": "NM-240",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Glucophagee 1000mg",
+      "Metformin 500mg"
+    ],
+    "expected_generics": [
+      "metformin",
+      "metformin"
+    ],
+    "patient_context": {
+      "age": 65,
+      "gender": "Male",
+      "conditions": [
+        "Type 2 Diabetes"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-002",
+      "hazard_description": "Brand + generic duplicate metformin prescription causing gastrointestinal toxicity and lactic acidosis risk"
+    }
+  },
+  {
+    "case_id": "NM-241",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Advill 400mg",
+      "Motrin 400mg"
+    ],
+    "expected_generics": [
+      "ibuprofen",
+      "ibuprofen"
+    ],
+    "patient_context": {
+      "age": 28,
+      "gender": "Male",
+      "conditions": [
+        "Tendonitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-003",
+      "hazard_description": "Dual ibuprofen brand prescription causing cumulative NSAID toxicity and gastric ulceration"
+    }
+  },
+  {
+    "case_id": "NM-242",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Augmentinn 875mg",
+      "Amoxill 500mg"
+    ],
+    "expected_generics": [
+      "amoxicillin",
+      "amoxicillin"
+    ],
+    "patient_context": {
+      "age": 22,
+      "gender": "Female",
+      "conditions": [
+        "Bacterial Sinusitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-004",
+      "hazard_description": "Combination product (Augmentin) + Amoxicillin duplication causing massive beta-lactam overdose"
+    }
+  },
+  {
+    "case_id": "NM-243",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Percocett 5/325",
+      "Tylenoll 500mg"
+    ],
+    "expected_generics": [
+      "oxycodone",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 40,
+      "gender": "Male",
+      "conditions": [
+        "Post-Surgical Dental Pain"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-005",
+      "hazard_description": "Combination opioid-APAP product + OTC APAP leading to hidden hepatotoxic acetaminophen overdose"
+    }
+  },
+  {
+    "case_id": "NM-244",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Metformin 1000mg",
+      "Lisinopril 10mg"
+    ],
+    "expected_generics": [
+      "metformin",
+      "lisinopril"
+    ],
+    "patient_context": {
+      "age": 67,
+      "gender": "Male",
+      "egfr": 22.0,
+      "conditions": [
+        "Type 2 Diabetes",
+        "CKD Stage 4"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-001",
+      "hazard_description": "Metformin absolute contraindication at eGFR < 30 mL/min/1.73m2 due to fatal lactic acidosis"
+    }
+  },
+  {
+    "case_id": "NM-245",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Methotrexate 15mg weekly",
+      "Folic Acid 1mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "folic acid"
+    ],
+    "patient_context": {
+      "age": 63,
+      "gender": "Female",
+      "egfr": 26.0,
+      "conditions": [
+        "Rheumatoid Arthritis",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-002",
+      "hazard_description": "Methotrexate contraindicated in severe renal impairment (eGFR < 30) due to acute bone marrow suppression"
+    }
+  },
+  {
+    "case_id": "NM-246",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Enoxaparin 80mg",
+      "Aspirin 81mg"
+    ],
+    "expected_generics": [
+      "enoxaparin",
+      "aspirin"
+    ],
+    "patient_context": {
+      "age": 76,
+      "gender": "Female",
+      "creatinine_clearance": 24.0,
+      "conditions": [
+        "DVT",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-003",
+      "hazard_description": "Enoxaparin requires mandatory dose reduction at CrCl < 30 mL/min to prevent catastrophic bleeding"
+    }
+  },
+  {
+    "case_id": "NM-247",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Aldactone 50mg",
+      "Furosemide 40mg"
+    ],
+    "expected_generics": [
+      "spironolactone",
+      "furosemide"
+    ],
+    "patient_context": {
+      "age": 68,
+      "gender": "Male",
+      "egfr": 25.0,
+      "conditions": [
+        "Congestive Heart Failure",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-004",
+      "hazard_description": "Spironolactone contraindicated at eGFR < 30 due to unmanageable refractory hyperkalemia"
+    }
+  },
+  {
+    "case_id": "NM-248",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Motrinn 600mg",
+      "Omeprazole 20mg"
+    ],
+    "expected_generics": [
+      "ibuprofen",
+      "omeprazole"
+    ],
+    "patient_context": {
+      "age": 64,
+      "gender": "Male",
+      "egfr": 28.0,
+      "conditions": [
+        "Osteoarthritis",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-005",
+      "hazard_description": "Ibuprofen contraindicated at eGFR < 30 due to acute-on-chronic renal decompensation"
+    }
+  },
+  {
+    "case_id": "NM-249",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Warfrin 5mg",
+      "Atorvastatin 20mg"
+    ],
+    "expected_generics": [
+      "warfarin",
+      "atorvastatin"
+    ],
+    "patient_context": {
+      "age": 60,
+      "gender": "Male",
+      "conditions": [
+        "Peptic Ulcer",
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-001",
+      "hazard_description": "Warfarin absolute contraindication in active peptic ulcer disease due to massive GI hemorrhage"
+    }
+  },
+  {
+    "case_id": "NM-250",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Propranolol 40mg",
+      "Lisinopril 10mg"
+    ],
+    "expected_generics": [
+      "propranolol",
+      "lisinopril"
+    ],
+    "patient_context": {
+      "age": 36,
+      "gender": "Female",
+      "conditions": [
+        "Asthma",
+        "Migraine Prophylaxis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-003",
+      "hazard_description": "Propranolol non-selective beta-2 blockade triggering acute bronchospasm and refractory status asthmaticus"
+    }
+  },
+  {
+    "case_id": "NM-251",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Trexall 20mg",
+      "Acetaminophen 500mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 30,
+      "gender": "Female",
+      "is_pregnant": true,
+      "conditions": [
+        "Severe Psoriasis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-004",
+      "hazard_description": "Methotrexate Pregnancy Category X / absolute teratogenicity and fetal demise"
+    }
+  },
+  {
+    "case_id": "NM-252",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Lisinopril 20mg",
+      "Hydrochlorothiazide 25mg"
+    ],
+    "expected_generics": [
+      "lisinopril",
+      "hydrochlorothiazide"
+    ],
+    "patient_context": {
+      "age": 35,
+      "gender": "Female",
+      "is_pregnant": true,
+      "conditions": [
+        "Chronic Hypertension"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-005",
+      "hazard_description": "Lisinopril fetal renal dysgenesis and neonatal death in pregnancy"
+    }
+  },
+  {
+    "case_id": "NM-253",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Amoxill 500mg",
+      "Acetaminophen 650mg"
+    ],
+    "expected_generics": [
+      "amoxicillin",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 27,
+      "gender": "Male",
+      "allergies": [
+        "Penicillin"
+      ],
+      "conditions": [
+        "Pharyngitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-006",
+      "hazard_description": "Amoxicillin in confirmed penicillin allergy causing IgE-mediated anaphylaxis and angioedema"
+    }
+  },
+  {
+    "case_id": "NM-254",
+    "hazard_type": "DDI",
+    "medications": [
+      "Coumadin tab",
+      "Fluconazol 200mg"
+    ],
+    "expected_generics": [
+      "warfarin",
+      "fluconazole"
+    ],
+    "patient_context": {
+      "age": 74,
+      "gender": "Male",
+      "conditions": [
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-001",
+      "hazard_description": "Warfarin + Fluconazole CYP2C9 inhibition causing severe bleeding risk"
+    }
+  },
+  {
+    "case_id": "NM-255",
+    "hazard_type": "DDI",
+    "medications": [
+      "Lisinoprile 20mg",
+      "Spironolacton 25mg"
+    ],
+    "expected_generics": [
+      "lisinopril",
+      "spironolactone"
+    ],
+    "patient_context": {
+      "age": 72,
+      "gender": "Female",
+      "conditions": [
+        "Heart Failure",
+        "CKD Stage 3"
+      ],
+      "egfr": 40.0
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-002",
+      "hazard_description": "Lisinopril + Spironolactone dual renin-aldosterone blockade causing lethal hyperkalemia"
+    }
+  },
+  {
+    "case_id": "NM-256",
+    "hazard_type": "DDI",
+    "medications": [
+      "Methotrexat 15mg",
+      "Ibuprophen 600mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "ibuprofen"
+    ],
+    "patient_context": {
+      "age": 45,
+      "gender": "Female",
+      "conditions": [
+        "Rheumatoid Arthritis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-003",
+      "hazard_description": "Methotrexate + Ibuprofen renal elimination inhibition causing pancytopenia"
+    }
+  },
+  {
+    "case_id": "NM-257",
+    "hazard_type": "DDI",
+    "medications": [
+      "Clopidogrel 75mg",
+      "Prilosecc 20mg"
+    ],
+    "expected_generics": [
+      "clopidogrel",
+      "omeprazole"
+    ],
+    "patient_context": {
+      "age": 55,
+      "gender": "Male",
+      "conditions": [
+        "Post-PCI Stent",
+        "CAD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-004",
+      "hazard_description": "Clopidogrel + Omeprazole CYP2C19 competitive inhibition reducing antiplatelet effect"
+    }
+  },
+  {
+    "case_id": "NM-258",
+    "hazard_type": "DDI",
+    "medications": [
+      "Lanoxine 0.25mg",
+      "Cordaronee 200mg"
+    ],
+    "expected_generics": [
+      "digoxin",
+      "amiodarone"
+    ],
+    "patient_context": {
+      "age": 69,
+      "gender": "Male",
+      "conditions": [
+        "Heart Failure",
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-005",
+      "hazard_description": "Digoxin + Amiodarone P-gp and renal clearance inhibition causing digoxin toxicity / heart block"
+    }
+  },
+  {
+    "case_id": "NM-259",
+    "hazard_type": "DDI",
+    "medications": [
+      "Zocorr 40mg",
+      "Norvascc 10mg"
+    ],
+    "expected_generics": [
+      "simvastatin",
+      "amlodipine"
+    ],
+    "patient_context": {
+      "age": 65,
+      "gender": "Female",
+      "conditions": [
+        "Hyperlipidemia",
+        "Hypertension"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-006",
+      "hazard_description": "Simvastatin (>20mg) + Amlodipine CYP3A4 competition causing rhabdomyolysis"
+    }
+  },
+  {
+    "case_id": "NM-260",
+    "hazard_type": "DDI",
+    "medications": [
+      "Citaloprame 40mg",
+      "Zofrann 8mg"
+    ],
+    "expected_generics": [
+      "citalopram",
+      "ondansetron"
+    ],
+    "patient_context": {
+      "age": 45,
+      "gender": "Female",
+      "conditions": [
+        "Depression",
+        "Chemotherapy Nausea"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-007",
+      "hazard_description": "Citalopram + Ondansetron additive cardiac hERG channel blockade causing Torsades de Pointes"
+    }
+  },
+  {
+    "case_id": "NM-261",
+    "hazard_type": "DDI",
+    "medications": [
+      "Ciprofloxacine 500mg",
+      "Tizanidin 4mg"
+    ],
+    "expected_generics": [
+      "ciprofloxacin",
+      "tizanidine"
+    ],
+    "patient_context": {
+      "age": 53,
+      "gender": "Male",
+      "conditions": [
+        "Muscle Spasms",
+        "Prostatitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-008",
+      "hazard_description": "Ciprofloxacin potent CYP1A2 inhibition causing 10-fold tizanidine exposure and severe hypotension"
+    }
+  },
+  {
+    "case_id": "NM-262",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Acetaminophene 500mg",
+      "Panadoll 500mg"
+    ],
+    "expected_generics": [
+      "acetaminophen",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 41,
+      "gender": "Female",
+      "conditions": [
+        "Chronic Back Pain"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-001",
+      "hazard_description": "Dual acetaminophen brand prescriptions exceeding 4000mg/day threshold causing acute liver necrosis"
+    }
+  },
+  {
+    "case_id": "NM-263",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Metformn 1000mg",
+      "Metformine 500mg"
+    ],
+    "expected_generics": [
+      "metformin",
+      "metformin"
+    ],
+    "patient_context": {
+      "age": 58,
+      "gender": "Male",
+      "conditions": [
+        "Type 2 Diabetes"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-002",
+      "hazard_description": "Brand + generic duplicate metformin prescription causing gastrointestinal toxicity and lactic acidosis risk"
+    }
+  },
+  {
+    "case_id": "NM-264",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Ibuprofen 400mg",
+      "Motrin 400mg"
+    ],
+    "expected_generics": [
+      "ibuprofen",
+      "ibuprofen"
+    ],
+    "patient_context": {
+      "age": 36,
+      "gender": "Male",
+      "conditions": [
+        "Tendonitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-003",
+      "hazard_description": "Dual ibuprofen brand prescription causing cumulative NSAID toxicity and gastric ulceration"
+    }
+  },
+  {
+    "case_id": "NM-265",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Co-amoxiclav 875mg",
+      "Amoxicilline 500mg"
+    ],
+    "expected_generics": [
+      "amoxicillin",
+      "amoxicillin"
+    ],
+    "patient_context": {
+      "age": 30,
+      "gender": "Female",
+      "conditions": [
+        "Bacterial Sinusitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-004",
+      "hazard_description": "Combination product (Augmentin) + Amoxicillin duplication causing massive beta-lactam overdose"
+    }
+  },
+  {
+    "case_id": "NM-266",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Oxycodone-APAP 5/325",
+      "APAP 500mg"
+    ],
+    "expected_generics": [
+      "oxycodone",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 48,
+      "gender": "Male",
+      "conditions": [
+        "Post-Surgical Dental Pain"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-005",
+      "hazard_description": "Combination opioid-APAP product + OTC APAP leading to hidden hepatotoxic acetaminophen overdose"
+    }
+  },
+  {
+    "case_id": "NM-267",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Metformin 1000mg",
+      "Lisinopril 10mg"
+    ],
+    "expected_generics": [
+      "metformin",
+      "lisinopril"
+    ],
+    "patient_context": {
+      "age": 75,
+      "gender": "Male",
+      "egfr": 22.0,
+      "conditions": [
+        "Type 2 Diabetes",
+        "CKD Stage 4"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-001",
+      "hazard_description": "Metformin absolute contraindication at eGFR < 30 mL/min/1.73m2 due to fatal lactic acidosis"
+    }
+  },
+  {
+    "case_id": "NM-268",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Methotrexate 15mg weekly",
+      "Folic Acid 1mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "folic acid"
+    ],
+    "patient_context": {
+      "age": 71,
+      "gender": "Female",
+      "egfr": 26.0,
+      "conditions": [
+        "Rheumatoid Arthritis",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-002",
+      "hazard_description": "Methotrexate contraindicated in severe renal impairment (eGFR < 30) due to acute bone marrow suppression"
+    }
+  },
+  {
+    "case_id": "NM-269",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Lovenoxx 80mg",
+      "Aspirin 81mg"
+    ],
+    "expected_generics": [
+      "enoxaparin",
+      "aspirin"
+    ],
+    "patient_context": {
+      "age": 84,
+      "gender": "Female",
+      "creatinine_clearance": 24.0,
+      "conditions": [
+        "DVT",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-003",
+      "hazard_description": "Enoxaparin requires mandatory dose reduction at CrCl < 30 mL/min to prevent catastrophic bleeding"
+    }
+  },
+  {
+    "case_id": "NM-270",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Aldactone 50mg",
+      "Furosemide 40mg"
+    ],
+    "expected_generics": [
+      "spironolactone",
+      "furosemide"
+    ],
+    "patient_context": {
+      "age": 76,
+      "gender": "Male",
+      "egfr": 25.0,
+      "conditions": [
+        "Congestive Heart Failure",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-004",
+      "hazard_description": "Spironolactone contraindicated at eGFR < 30 due to unmanageable refractory hyperkalemia"
+    }
+  },
+  {
+    "case_id": "NM-271",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Ibuprophen 600mg",
+      "Omeprazole 20mg"
+    ],
+    "expected_generics": [
+      "ibuprofen",
+      "omeprazole"
+    ],
+    "patient_context": {
+      "age": 57,
+      "gender": "Male",
+      "egfr": 28.0,
+      "conditions": [
+        "Osteoarthritis",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-005",
+      "hazard_description": "Ibuprofen contraindicated at eGFR < 30 due to acute-on-chronic renal decompensation"
+    }
+  },
+  {
+    "case_id": "NM-272",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Coumadin tab",
+      "Atorvastatin 20mg"
+    ],
+    "expected_generics": [
+      "warfarin",
+      "atorvastatin"
+    ],
+    "patient_context": {
+      "age": 53,
+      "gender": "Male",
+      "conditions": [
+        "Peptic Ulcer",
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-001",
+      "hazard_description": "Warfarin absolute contraindication in active peptic ulcer disease due to massive GI hemorrhage"
+    }
+  },
+  {
+    "case_id": "NM-273",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Inderall 40mg",
+      "Lisinopril 10mg"
+    ],
+    "expected_generics": [
+      "propranolol",
+      "lisinopril"
+    ],
+    "patient_context": {
+      "age": 29,
+      "gender": "Female",
+      "conditions": [
+        "Asthma",
+        "Migraine Prophylaxis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-003",
+      "hazard_description": "Propranolol non-selective beta-2 blockade triggering acute bronchospasm and refractory status asthmaticus"
+    }
+  },
+  {
+    "case_id": "NM-274",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Trexall 20mg",
+      "Acetaminophen 500mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 23,
+      "gender": "Female",
+      "is_pregnant": true,
+      "conditions": [
+        "Severe Psoriasis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-004",
+      "hazard_description": "Methotrexate Pregnancy Category X / absolute teratogenicity and fetal demise"
+    }
+  },
+  {
+    "case_id": "NM-275",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Prinivill 20mg",
+      "Hydrochlorothiazide 25mg"
+    ],
+    "expected_generics": [
+      "lisinopril",
+      "hydrochlorothiazide"
+    ],
+    "patient_context": {
+      "age": 28,
+      "gender": "Female",
+      "is_pregnant": true,
+      "conditions": [
+        "Chronic Hypertension"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-005",
+      "hazard_description": "Lisinopril fetal renal dysgenesis and neonatal death in pregnancy"
+    }
+  },
+  {
+    "case_id": "NM-276",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Amoxicilline 500mg",
+      "Acetaminophen 650mg"
+    ],
+    "expected_generics": [
+      "amoxicillin",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 20,
+      "gender": "Male",
+      "allergies": [
+        "Penicillin"
+      ],
+      "conditions": [
+        "Pharyngitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-006",
+      "hazard_description": "Amoxicillin in confirmed penicillin allergy causing IgE-mediated anaphylaxis and angioedema"
+    }
+  },
+  {
+    "case_id": "NM-277",
+    "hazard_type": "DDI",
+    "medications": [
+      "Coumadin 5mg",
+      "Diflucan 200mg"
+    ],
+    "expected_generics": [
+      "warfarin",
+      "fluconazole"
+    ],
+    "patient_context": {
+      "age": 67,
+      "gender": "Male",
+      "conditions": [
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-001",
+      "hazard_description": "Warfarin + Fluconazole CYP2C9 inhibition causing severe bleeding risk"
+    }
+  },
+  {
+    "case_id": "NM-278",
+    "hazard_type": "DDI",
+    "medications": [
+      "Zestril 20mg",
+      "Aldactone 25mg"
+    ],
+    "expected_generics": [
+      "lisinopril",
+      "spironolactone"
+    ],
+    "patient_context": {
+      "age": 65,
+      "gender": "Female",
+      "conditions": [
+        "Heart Failure",
+        "CKD Stage 3"
+      ],
+      "egfr": 40.0
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-002",
+      "hazard_description": "Lisinopril + Spironolactone dual renin-aldosterone blockade causing lethal hyperkalemia"
+    }
+  },
+  {
+    "case_id": "NM-279",
+    "hazard_type": "DDI",
+    "medications": [
+      "Trexall 15mg weekly",
+      "Motrin 600mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "ibuprofen"
+    ],
+    "patient_context": {
+      "age": 53,
+      "gender": "Female",
+      "conditions": [
+        "Rheumatoid Arthritis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-003",
+      "hazard_description": "Methotrexate + Ibuprofen renal elimination inhibition causing pancytopenia"
+    }
+  },
+  {
+    "case_id": "NM-280",
+    "hazard_type": "DDI",
+    "medications": [
+      "Plavix 75mg",
+      "Prilosec 20mg"
+    ],
+    "expected_generics": [
+      "clopidogrel",
+      "omeprazole"
+    ],
+    "patient_context": {
+      "age": 63,
+      "gender": "Male",
+      "conditions": [
+        "Post-PCI Stent",
+        "CAD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-004",
+      "hazard_description": "Clopidogrel + Omeprazole CYP2C19 competitive inhibition reducing antiplatelet effect"
+    }
+  },
+  {
+    "case_id": "NM-281",
+    "hazard_type": "DDI",
+    "medications": [
+      "Lanoxin 0.25mg",
+      "Cordarone 200mg"
+    ],
+    "expected_generics": [
+      "digoxin",
+      "amiodarone"
+    ],
+    "patient_context": {
+      "age": 77,
+      "gender": "Male",
+      "conditions": [
+        "Heart Failure",
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-005",
+      "hazard_description": "Digoxin + Amiodarone P-gp and renal clearance inhibition causing digoxin toxicity / heart block"
+    }
+  },
+  {
+    "case_id": "NM-282",
+    "hazard_type": "DDI",
+    "medications": [
+      "Zocor 40mg",
+      "Norvasc 10mg"
+    ],
+    "expected_generics": [
+      "simvastatin",
+      "amlodipine"
+    ],
+    "patient_context": {
+      "age": 73,
+      "gender": "Female",
+      "conditions": [
+        "Hyperlipidemia",
+        "Hypertension"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-006",
+      "hazard_description": "Simvastatin (>20mg) + Amlodipine CYP3A4 competition causing rhabdomyolysis"
+    }
+  },
+  {
+    "case_id": "NM-283",
+    "hazard_type": "DDI",
+    "medications": [
+      "Citalopram 40mg",
+      "Zofran 8mg"
+    ],
+    "expected_generics": [
+      "citalopram",
+      "ondansetron"
+    ],
+    "patient_context": {
+      "age": 53,
+      "gender": "Female",
+      "conditions": [
+        "Depression",
+        "Chemotherapy Nausea"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-007",
+      "hazard_description": "Citalopram + Ondansetron additive cardiac hERG channel blockade causing Torsades de Pointes"
+    }
+  },
+  {
+    "case_id": "NM-284",
+    "hazard_type": "DDI",
+    "medications": [
+      "Cipro 500mg",
+      "Tizanidine 4mg"
+    ],
+    "expected_generics": [
+      "ciprofloxacin",
+      "tizanidine"
+    ],
+    "patient_context": {
+      "age": 61,
+      "gender": "Male",
+      "conditions": [
+        "Muscle Spasms",
+        "Prostatitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-008",
+      "hazard_description": "Ciprofloxacin potent CYP1A2 inhibition causing 10-fold tizanidine exposure and severe hypotension"
+    }
+  },
+  {
+    "case_id": "NM-285",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Tylenol Extra Strength 500mg",
+      "Panadol 500mg"
+    ],
+    "expected_generics": [
+      "acetaminophen",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 49,
+      "gender": "Female",
+      "conditions": [
+        "Chronic Back Pain"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-001",
+      "hazard_description": "Dual acetaminophen brand prescriptions exceeding 4000mg/day threshold causing acute liver necrosis"
+    }
+  },
+  {
+    "case_id": "NM-286",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Glucophage 1000mg",
+      "Metformin 500mg"
+    ],
+    "expected_generics": [
+      "metformin",
+      "metformin"
+    ],
+    "patient_context": {
+      "age": 51,
+      "gender": "Male",
+      "conditions": [
+        "Type 2 Diabetes"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-002",
+      "hazard_description": "Brand + generic duplicate metformin prescription causing gastrointestinal toxicity and lactic acidosis risk"
+    }
+  },
+  {
+    "case_id": "NM-287",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Advil 400mg",
+      "Motrin 400mg"
+    ],
+    "expected_generics": [
+      "ibuprofen",
+      "ibuprofen"
+    ],
+    "patient_context": {
+      "age": 29,
+      "gender": "Male",
+      "conditions": [
+        "Tendonitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-003",
+      "hazard_description": "Dual ibuprofen brand prescription causing cumulative NSAID toxicity and gastric ulceration"
+    }
+  },
+  {
+    "case_id": "NM-288",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Augmentin 875mg",
+      "Amoxil 500mg"
+    ],
+    "expected_generics": [
+      "amoxicillin",
+      "amoxicillin"
+    ],
+    "patient_context": {
+      "age": 23,
+      "gender": "Female",
+      "conditions": [
+        "Bacterial Sinusitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-004",
+      "hazard_description": "Combination product (Augmentin) + Amoxicillin duplication causing massive beta-lactam overdose"
+    }
+  },
+  {
+    "case_id": "NM-289",
+    "hazard_type": "DUPLICATE",
+    "medications": [
+      "Percocet 5/325",
+      "Tylenol 500mg"
+    ],
+    "expected_generics": [
+      "oxycodone",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 41,
+      "gender": "Male",
+      "conditions": [
+        "Post-Surgical Dental Pain"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DUP-005",
+      "hazard_description": "Combination opioid-APAP product + OTC APAP leading to hidden hepatotoxic acetaminophen overdose"
+    }
+  },
+  {
+    "case_id": "NM-290",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Metformin 1000mg",
+      "Lisinopril 10mg"
+    ],
+    "expected_generics": [
+      "metformin",
+      "lisinopril"
+    ],
+    "patient_context": {
+      "age": 68,
+      "gender": "Male",
+      "egfr": 22.0,
+      "conditions": [
+        "Type 2 Diabetes",
+        "CKD Stage 4"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-001",
+      "hazard_description": "Metformin absolute contraindication at eGFR < 30 mL/min/1.73m2 due to fatal lactic acidosis"
+    }
+  },
+  {
+    "case_id": "NM-291",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Methotrexate 15mg weekly",
+      "Folic Acid 1mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "folic acid"
+    ],
+    "patient_context": {
+      "age": 64,
+      "gender": "Female",
+      "egfr": 26.0,
+      "conditions": [
+        "Rheumatoid Arthritis",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-002",
+      "hazard_description": "Methotrexate contraindicated in severe renal impairment (eGFR < 30) due to acute bone marrow suppression"
+    }
+  },
+  {
+    "case_id": "NM-292",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Lovenox 80mg",
+      "Aspirin 81mg"
+    ],
+    "expected_generics": [
+      "enoxaparin",
+      "aspirin"
+    ],
+    "patient_context": {
+      "age": 77,
+      "gender": "Female",
+      "creatinine_clearance": 24.0,
+      "conditions": [
+        "DVT",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-003",
+      "hazard_description": "Enoxaparin requires mandatory dose reduction at CrCl < 30 mL/min to prevent catastrophic bleeding"
+    }
+  },
+  {
+    "case_id": "NM-293",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Aldactone 50mg",
+      "Furosemide 40mg"
+    ],
+    "expected_generics": [
+      "spironolactone",
+      "furosemide"
+    ],
+    "patient_context": {
+      "age": 69,
+      "gender": "Male",
+      "egfr": 25.0,
+      "conditions": [
+        "Congestive Heart Failure",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-004",
+      "hazard_description": "Spironolactone contraindicated at eGFR < 30 due to unmanageable refractory hyperkalemia"
+    }
+  },
+  {
+    "case_id": "NM-294",
+    "hazard_type": "RENAL",
+    "medications": [
+      "Motrin 600mg",
+      "Omeprazole 20mg"
+    ],
+    "expected_generics": [
+      "ibuprofen",
+      "omeprazole"
+    ],
+    "patient_context": {
+      "age": 65,
+      "gender": "Male",
+      "egfr": 28.0,
+      "conditions": [
+        "Osteoarthritis",
+        "CKD"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-RENAL-005",
+      "hazard_description": "Ibuprofen contraindicated at eGFR < 30 due to acute-on-chronic renal decompensation"
+    }
+  },
+  {
+    "case_id": "NM-295",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Coumadin 5mg",
+      "Atorvastatin 20mg"
+    ],
+    "expected_generics": [
+      "warfarin",
+      "atorvastatin"
+    ],
+    "patient_context": {
+      "age": 61,
+      "gender": "Male",
+      "conditions": [
+        "Peptic Ulcer",
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-001",
+      "hazard_description": "Warfarin absolute contraindication in active peptic ulcer disease due to massive GI hemorrhage"
+    }
+  },
+  {
+    "case_id": "NM-296",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Inderal 40mg",
+      "Lisinopril 10mg"
+    ],
+    "expected_generics": [
+      "propranolol",
+      "lisinopril"
+    ],
+    "patient_context": {
+      "age": 37,
+      "gender": "Female",
+      "conditions": [
+        "Asthma",
+        "Migraine Prophylaxis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-003",
+      "hazard_description": "Propranolol non-selective beta-2 blockade triggering acute bronchospasm and refractory status asthmaticus"
+    }
+  },
+  {
+    "case_id": "NM-297",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Trexall 20mg",
+      "Acetaminophen 500mg"
+    ],
+    "expected_generics": [
+      "methotrexate",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 31,
+      "gender": "Female",
+      "is_pregnant": true,
+      "conditions": [
+        "Severe Psoriasis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-004",
+      "hazard_description": "Methotrexate Pregnancy Category X / absolute teratogenicity and fetal demise"
+    }
+  },
+  {
+    "case_id": "NM-298",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Prinivil 20mg",
+      "Hydrochlorothiazide 25mg"
+    ],
+    "expected_generics": [
+      "lisinopril",
+      "hydrochlorothiazide"
+    ],
+    "patient_context": {
+      "age": 36,
+      "gender": "Female",
+      "is_pregnant": true,
+      "conditions": [
+        "Chronic Hypertension"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-005",
+      "hazard_description": "Lisinopril fetal renal dysgenesis and neonatal death in pregnancy"
+    }
+  },
+  {
+    "case_id": "NM-299",
+    "hazard_type": "CONTRAINDICATION",
+    "medications": [
+      "Amoxil 500mg",
+      "Acetaminophen 650mg"
+    ],
+    "expected_generics": [
+      "amoxicillin",
+      "acetaminophen"
+    ],
+    "patient_context": {
+      "age": 28,
+      "gender": "Male",
+      "allergies": [
+        "Penicillin"
+      ],
+      "conditions": [
+        "Pharyngitis"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-CONTRA-006",
+      "hazard_description": "Amoxicillin in confirmed penicillin allergy causing IgE-mediated anaphylaxis and angioedema"
+    }
+  },
+  {
+    "case_id": "NM-300",
+    "hazard_type": "DDI",
+    "medications": [
+      "Coumadinn 5mg",
+      "Diflucane 200mg"
+    ],
+    "expected_generics": [
+      "warfarin",
+      "fluconazole"
+    ],
+    "patient_context": {
+      "age": 75,
+      "gender": "Male",
+      "conditions": [
+        "Atrial Fibrillation"
+      ]
+    },
+    "ground_truth": {
+      "has_serious_hazard": true,
+      "expected_severity": "HIGH",
+      "expected_rule": "RULE-DDI-001",
+      "hazard_description": "Warfarin + Fluconazole CYP2C9 inhibition causing severe bleeding risk"
+    }
+  }
+]
