@@ -4,10 +4,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 from app.config import settings
-from backend.app.database import engine, Base, SessionLocal
-from backend.app.reference_data import seed_reference_data
-from backend.app.seed_demo import seed_demo_patients_and_analyses
-from backend.app.api.router import api_router
+from app.database import engine, Base, SessionLocal
+from app.reference_data import seed_reference_data
+from app.seed_demo import seed_demo_patients_and_analyses
+from app.api.router import api_router
 
 def init_db():
     Base.metadata.create_all(bind=engine)
