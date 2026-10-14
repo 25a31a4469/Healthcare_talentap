@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine, event
 from sqlalchemy.orm import declarative_base, sessionmaker
-from backend.app.config import settings
+from app.config import settings
 
 # Engine configuration with SQLite foreign key support
 connect_args = {}
