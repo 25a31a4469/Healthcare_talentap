@@ -4,11 +4,11 @@ from typing import List, Dict, Any, Optional
 from datetime import datetime, timezone
 from sqlalchemy.orm import Session
 
-from backend.app.models import EvaluationRun, Patient, MedicineCatalogue
-from backend.app.schemas import MedicineResolutionResult
-from backend.app.services.resolver import MedicineResolver
-from backend.app.services.rules_engine import ClinicalRulesEngine
-from backend.app.services.prioritiser import AlertPrioritiser
+from app.models import EvaluationRun, Patient, MedicineCatalogue
+from app.schemas import MedicineResolutionResult
+from app.services.resolver import MedicineResolver
+from app.services.rules_engine import ClinicalRulesEngine
+from app.services.prioritiser import AlertPrioritiser
 
 
 def safe_div(num: float, den: float, default: float = 0.0) -> float:
