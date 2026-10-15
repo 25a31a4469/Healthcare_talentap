@@ -4,13 +4,15 @@ import {
   AuditLog, EvaluationRunResult
 } from '../types';
 
-export const BASE_URL: string = (
-  import.meta.env.VITE_API_BASE_URL !== undefined
-    ? import.meta.env.VITE_API_BASE_URL
-    : import.meta.env.VITE_API_URL !== undefined
-      ? import.meta.env.VITE_API_URL
-      : ''
-).replace(/\/+$/, '');
+function normalizeBaseUrl(): string {
+  let url = (import.meta.env.VITE_API_BASE_URL ?? import.meta.env.VITE_API_URL ?? '').trim().replace(/\/+$/, '');
+  if (url.endsWith('/api')) {
+    url = url.slice(0, -4);
+  }
+  return url;
+}
+
+export const BASE_URL: string = normalizeBaseUrl();
 
 async function request<T>(endpoint: string, options?: RequestInit): Promise<T> {
   const url = `${BASE_URL}${endpoint}`;
@@ -28,13 +30,22 @@ async function request<T>(endpoint: string, options?: RequestInit): Promise<T> {
       try {
         const errJson = await res.json();
         errorMsg = errJson.detail || errJson.message || errorMsg;
-      } catch (_) {}
+      } catch (_) {
+        if (res.status === 404) {
+          if (!BASE_URL && typeof window !== 'undefined' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+            errorMsg = `HTTP 404: Backend route not found at ${window.location.origin}. Please set VITE_API_BASE_URL in your Vercel Project Settings to your deployed backend URL.`;
+          } else {
+            errorMsg = `HTTP 404: Endpoint not found at ${url}.`;
+          }
+        }
+      }
       throw new Error(errorMsg);
     }
     return await res.json();
   } catch (err: any) {
     if (err.name === 'TypeError' && err.message.includes('fetch')) {
-      throw new Error(`Cannot reach backend at ${BASE_URL}. Ensure FastAPI backend server is running.`);
+      const target = BASE_URL || (typeof window !== 'undefined' ? window.location.origin : 'local server');
+      throw new Error(`Cannot reach backend at ${target}. Ensure FastAPI backend server is running and CORS allows ${typeof window !== 'undefined' ? window.location.origin : 'client'}.`);
     }
     throw err;
   }

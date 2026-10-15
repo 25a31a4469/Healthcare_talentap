@@ -40,14 +40,27 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-# CORS middleware
+# CORS middleware with Vercel deployment domain support
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.get_cors_origins(),
+    allow_origin_regex=r"^https:\/\/.*\.vercel\.app$",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Root health check endpoint for cloud hosting probes
+@app.get("/health")
+def health_check_root():
+    return {
+        "status": "healthy",
+        "app_name": settings.APP_NAME,
+        "version": settings.VERSION,
+        "environment": settings.ENVIRONMENT,
+        "api_docs": "/docs",
+        "api_prefix": "/api"
+    }
 
 # Include main API router
 app.include_router(api_router, prefix="/api")

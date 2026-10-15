@@ -49,7 +49,9 @@ class Settings(BaseSettings):
         "http://localhost:5173",
         "http://localhost:3000",
         "http://127.0.0.1:5173",
-        "http://127.0.0.1:3000"
+        "http://127.0.0.1:3000",
+        "https://healthcare-talentap.vercel.app",
+        "https://healthcare-talentap-git-main-25a31a4469.vercel.app"
     ]
     ALLOWED_ORIGINS: Optional[Union[List[str], str]] = None
     
