@@ -2,8 +2,12 @@ import re
 from typing import List, Optional, Tuple, Dict
 from rapidfuzz import fuzz, process
 from sqlalchemy.orm import Session
-from app.models import MedicineCatalogue, BrandMapping
-from app.schemas import MedicineResolutionResult, ResolvedMedicineCandidate
+try:
+    from backend.app.models import MedicineCatalogue, BrandMapping
+    from backend.app.schemas import MedicineResolutionResult, ResolvedMedicineCandidate
+except ImportError:
+    from app.models import MedicineCatalogue, BrandMapping
+    from app.schemas import MedicineResolutionResult, ResolvedMedicineCandidate
 
 # Common salt / formulation suffixes to normalize out during matching
 CLEANUP_SUFFIXES = [

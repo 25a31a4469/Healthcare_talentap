@@ -1,11 +1,19 @@
 from sqlalchemy.orm import Session
 from datetime import datetime, timezone
-from app.models import (
-    Patient, PatientMedication, MedicationAnalysis, SafetyAlert, AuditLog
-)
-from app.services.resolver import MedicineResolver
-from app.services.rules_engine import ClinicalRulesEngine
-from app.services.prioritiser import AlertPrioritiser
+try:
+    from backend.app.models import (
+        Patient, PatientMedication, MedicationAnalysis, SafetyAlert, AuditLog
+    )
+    from backend.app.services.resolver import MedicineResolver
+    from backend.app.services.rules_engine import ClinicalRulesEngine
+    from backend.app.services.prioritiser import AlertPrioritiser
+except ImportError:
+    from app.models import (
+        Patient, PatientMedication, MedicationAnalysis, SafetyAlert, AuditLog
+    )
+    from app.services.resolver import MedicineResolver
+    from app.services.rules_engine import ClinicalRulesEngine
+    from app.services.prioritiser import AlertPrioritiser
 
 DEMO_PATIENTS_DATA = [
     {

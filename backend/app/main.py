@@ -3,12 +3,19 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
+import sys
+import os
+
+backend_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+if backend_dir not in sys.path:
+    sys.path.insert(0, backend_dir)
+
 try:
-    from app.config import settings
-    from app.database import engine, Base, SessionLocal
-    from app.reference_data import seed_reference_data
-    from app.seed_demo import seed_demo_patients_and_analyses
-    from app.api.router import api_router
+    from backend.app.config import settings
+    from backend.app.database import engine, Base, SessionLocal
+    from backend.app.reference_data import seed_reference_data
+    from backend.app.seed_demo import seed_demo_patients_and_analyses
+    from backend.app.api.router import api_router
 except ImportError:
     from app.config import settings
     from app.database import engine, Base, SessionLocal

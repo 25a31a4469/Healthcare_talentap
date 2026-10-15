@@ -1,9 +1,15 @@
 from typing import List, Dict, Any, Optional, Set
 from sqlalchemy.orm import Session
-from app.models import (
-    InteractionRule, DuplicateTherapyRule, RenalRiskRule, ContraindicationRule, MedicineCatalogue
-)
-from app.schemas import MedicineResolutionResult
+try:
+    from backend.app.models import (
+        InteractionRule, DuplicateTherapyRule, RenalRiskRule, ContraindicationRule, MedicineCatalogue
+    )
+    from backend.app.schemas import MedicineResolutionResult
+except ImportError:
+    from app.models import (
+        InteractionRule, DuplicateTherapyRule, RenalRiskRule, ContraindicationRule, MedicineCatalogue
+    )
+    from app.schemas import MedicineResolutionResult
 
 class ClinicalRulesEngine:
     def __init__(self, db: Session):
